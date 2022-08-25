@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
     "build": "webpack"
+
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/FrontEndCapstoneSNO1/FEC#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -30,6 +35,7 @@
     "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "html-webpack-plugin": "^5.5.0",
+    "nodemon-webpack-plugin": "^4.8.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"

@@ -1,8 +1,9 @@
 import React from 'react';
-import Overview from './Overview';
-import QA from './QA';
-import RatingsAndReviews from './RatingsAndReviews';
-import RelatedItems from './RelatedItems';
+// import Overview from './Overview';
+// eslint-disable-next-line import/no-unresolved
+// import QA from './QA';
+// import RatingsAndReviews from './RatingsAndReviews';
+// import RelatedItems from './RelatedItems';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,10 +17,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview />
+        <h1>helloWorld!</h1>
+        {/* <Overview />
         <QA />
         <RatingsAndReviews />
-        <RelatedItems />
+        <RelatedItems /> */}
 
       </div>
     );
