@@ -1,5 +1,6 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-// import Overview from './Overview';
+import Overview from './Overview/index.jsx';
 // eslint-disable-next-line import/no-unresolved
 // import QA from './QA';
 // import RatingsAndReviews from './RatingsAndReviews';
@@ -18,6 +19,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>helloWorld!</h1>
+        <Overview />
         {/* <Overview />
         <QA />
         <RatingsAndReviews />
