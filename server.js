@@ -8,9 +8,26 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 app.use(express.json());
 
-app.get(process.env.API_HOST, () => {
-  console.log('connected!');
-});
+let options = {
+  method: 'get',
+  url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/`,
+  headers: {
+    'Authorization': `${process.env.API_KEY}`
+  }
+}
+
+app.get('/*', (req, res) => {
+  axios(options)
+    .then((data) => {
+      res.send(data)
+    })
+    .catch((err) =>
+      console.log('error data', err))
+})
+
+// app.get(process.env.API_HOST, () => {
+//   console.log('connected!');
+// });
 
 app.post(process.env.API_HOST);
 
