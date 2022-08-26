@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
+// eslint-disable-next-line import/extensions, import/no-unresolved
 import config from '../../../config.js';
 
 // require('dotenv').config();
@@ -48,7 +48,7 @@ class App extends React.Component {
         <RatingsAndReviews />
         <RelatedItems /> */}
         <div>
-          <RelatedItems />
+          <RelatedItems products={this.state.products} />
         </div>
       </div>
     );
