@@ -38,7 +38,6 @@ class App extends React.Component {
     return (
       <div>
         <div id="main">
-          <h2>Hello Team!</h2>
           <Overview />
         </div>
         <div>
