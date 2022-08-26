@@ -5,14 +5,12 @@ import config from '../../../config.js';
 import Overview from './Overview';
 
 // require('dotenv').config();
-<<<<<<< HEAD
 // eslint-disable-next-line import/no-unresolved
 // import QA from './QA';
-=======
 // import Overview from './Overview';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import QA from './QA/index.jsx';
->>>>>>> main
+
 // import RatingsAndReviews from './RatingsAndReviews';
 // eslint-disable-next-line import/extensions
 import RelatedItems from './RelatedItems/index.jsx';
@@ -47,16 +45,15 @@ class App extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div id="main">
-        <h1 id="text">Hello World!</h1>
-        <Overview />
-=======
       <div>
-        <h1>helloWorld!</h1>
-        <QA />
-
->>>>>>> main
+        <div id="main">
+          <h1 id="text">Hello World!</h1>
+          <Overview />
+        </div>
+        <div>
+          <h1>helloWorld!</h1>
+          <QA />
+        </div>
         {/* <Overview />
         <QA />
         <RatingsAndReviews />
