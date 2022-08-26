@@ -1,7 +1,7 @@
 import React from 'react';
 // import Overview from './Overview';
-// eslint-disable-next-line import/no-unresolved
-// import QA from './QA';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import QA from './QA/index.jsx';
 // import RatingsAndReviews from './RatingsAndReviews';
 // import RelatedItems from './RelatedItems';
 
@@ -18,6 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>helloWorld!</h1>
+        <QA />
         {/* <Overview />
         <QA />
         <RatingsAndReviews />
