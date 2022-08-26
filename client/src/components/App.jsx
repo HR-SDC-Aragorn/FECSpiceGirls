@@ -3,7 +3,8 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 // import QA from './QA';
 // import RatingsAndReviews from './RatingsAndReviews';
-// import RelatedItems from './RelatedItems';
+// eslint-disable-next-line import/extensions
+import RelatedItems from './RelatedItems/index.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +23,9 @@ class App extends React.Component {
         <QA />
         <RatingsAndReviews />
         <RelatedItems /> */}
-
+        <div>
+          <RelatedItems />
+        </div>
       </div>
     );
   }
