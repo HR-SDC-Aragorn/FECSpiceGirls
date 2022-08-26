@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
+// eslint-disable-next-line import/extensions, import/no-unresolved
 import config from '../../../config.js';
 import Overview from './Overview';
 
@@ -14,7 +14,8 @@ import Overview from './Overview';
 import QA from './QA/index.jsx';
 >>>>>>> main
 // import RatingsAndReviews from './RatingsAndReviews';
-// import RelatedItems from './RelatedItems';
+// eslint-disable-next-line import/extensions
+import RelatedItems from './RelatedItems/index.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -60,7 +61,9 @@ class App extends React.Component {
         <QA />
         <RatingsAndReviews />
         <RelatedItems /> */}
-
+        <div>
+          <RelatedItems products={this.state.products} />
+        </div>
       </div>
     );
   }
