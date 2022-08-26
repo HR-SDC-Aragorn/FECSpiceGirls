@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+// eslint-disable-next-line import/extensions
+import config from '../../../../config.js';
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -15,9 +17,9 @@ class RelatedItems extends React.Component {
     // const apiKey = process.env.REACT_APP_API_KEY;
     const options = {
       method: 'get',
-      url: process.env.REACT_APP_API_HOST,
+      url: `${config.API_HOST}products`,
       headers: {
-        Authorization: process.env.REACT_APP_API_KEY,
+        Authorization: config.API_KEY,
       },
     };
     axios(options)
