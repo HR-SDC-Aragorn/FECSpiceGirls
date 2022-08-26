@@ -38,7 +38,7 @@ class App extends React.Component {
     return (
       <div>
         <div id="main">
-          <h1 id="text">Hello Team!</h1>
+          <h2>Hello Team!</h2>
           <Overview />
         </div>
         <div>
