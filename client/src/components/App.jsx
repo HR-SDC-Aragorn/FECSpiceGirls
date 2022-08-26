@@ -2,9 +2,9 @@ import React from 'react';
 import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import config from '../../../config.js';
+import Overview from './Overview';
 
 // require('dotenv').config();
-// import Overview from './Overview';
 // eslint-disable-next-line import/no-unresolved
 // import QA from './QA';
 // import RatingsAndReviews from './RatingsAndReviews';
@@ -42,6 +42,7 @@ class App extends React.Component {
     return (
       <div id="main">
         <h1 id="text">Hello World!</h1>
+        <Overview />
         {/* <Overview />
         <QA />
         <RatingsAndReviews />
