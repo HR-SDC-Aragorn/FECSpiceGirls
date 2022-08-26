@@ -6,6 +6,9 @@ import ImageGallery from './ImageGallery.jsx';
 import StyleSelector from './StyleSelector.jsx';
 
 function Overview(props) {
+  // get all product info
+  // Pass product rating, category, title, price(?), overview to ProductInfo
+  // Pass style, size, and stock info to StyleSelector
   return (
     <div>
       <ProductInfo />
