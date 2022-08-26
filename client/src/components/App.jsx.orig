@@ -40,10 +40,14 @@ class App extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div>
         <h1>helloWorld!</h1>
         <QA />
-
+=======
+      <div id="main">
+        <h1 id="text">Hello World!</h1>
+>>>>>>> main
         {/* <Overview />
         <QA />
         <RatingsAndReviews />
