@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 import React from 'react';
@@ -10,10 +12,10 @@ function Overview(props) {
   // Pass product rating, category, title, price(?), overview to ProductInfo
   // Pass style, size, and stock info to StyleSelector
   return (
-    <div>
-      <ProductInfo />
-      <StyleSelector />
+    <div id="overview">
       <ImageGallery />
+      <ProductInfo product={props.product} />
+      <StyleSelector />
     </div>
   );
 }
