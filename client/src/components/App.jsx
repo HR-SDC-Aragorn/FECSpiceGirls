@@ -12,33 +12,29 @@ class App extends React.Component {
     super(props);
     this.state = {
       products: [],
+      currentProduct: [],
     };
   }
 
   componentDidMount() {
-    const options = {
-      method: 'get',
-      url: `${config.API_HOST}products`,
-      headers: {
-        Authorization: config.API_KEY,
-      },
-    };
-    axios(options)
+    axios.get('http://localhost:3000/products')
       .then((response) => (
         this.setState({
           products: response.data,
+          currentProduct: response.data[0],
         })
       ))
       .catch((err) => (
-        console.log('error getting', err)
+        console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
       ));
   }
 
   render() {
+    console.log(this.state.products);
     return (
       <div>
         <div id="main">
-          <Overview />
+          <Overview product={this.state.currentProduct} />
         </div>
         <div>
           <h1>helloWorld!</h1>
