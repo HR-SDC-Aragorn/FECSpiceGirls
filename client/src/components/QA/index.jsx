@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionsList from './QuestionsList.jsx';
+import Search from './Search.jsx';
 
 class QA extends React.Component {
   constructor(props) {
@@ -9,7 +10,10 @@ class QA extends React.Component {
 
   render() {
     return (
-      <QuestionsList />
+      <div>
+        <QuestionsList />
+        <Search />
+      </div>
     );
   }
 }

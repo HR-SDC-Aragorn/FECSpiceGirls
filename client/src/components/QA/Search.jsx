@@ -10,7 +10,7 @@ const Search = (props) => (
         className="search-bar-field"
       />
       <button type="submit" className="search-bar-button">
-        <img src="magnify.png" alt="Search" />
+        <img src="https://www.kindacode.com/wp-content/uploads/2020/12/search.png" alt="Search!!!" />
       </button>
     </form>
   </div>
