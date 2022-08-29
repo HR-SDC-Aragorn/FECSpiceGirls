@@ -9,14 +9,13 @@ function ProductInfo(props) {
   return (
     <div id="product-info" className="info-panel">
       <div>Star rating</div>
-      <div>{props.product.category}</div>
-      <div>{props.product.name}</div>
-      <div>{props.product.default_price}</div>
+      <div id="category">{props.product.category}</div>
+      <div id="name">{props.product.name}</div>
       <div>{props.product.description}</div>
       <div>Share to FB</div>
       <div>Share to Twitter</div>
       <div>Share to Pinterest</div>
-      <StyleSelector />
+      <StyleSelector productID={props.product.id} />
     </div>
   );
 }
