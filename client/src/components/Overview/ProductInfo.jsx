@@ -2,6 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import StyleSelector from './StyleSelector.jsx';
 
 function ProductInfo(props) {
   return (
@@ -14,6 +15,7 @@ function ProductInfo(props) {
       <div>Share to FB</div>
       <div>Share to Twitter</div>
       <div>Share to Pinterest</div>
+      <StyleSelector />
     </div>
   );
 }

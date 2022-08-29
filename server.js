@@ -33,17 +33,17 @@ app.use(express.json());
 //       console.log('error data', err));
 // });
 
-app.get('/products', (req, res) => {
-  axios({
-    method: 'get',
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products',
-    headers: {
-      Authorization: `${process.env.API_KEY}`,
-    },
-  })
-    .then((repsonse) => { res.send(repsonse.data); })
-    .catch((err) => { res.send((err)); });
-});
+// app.get('/products', (req, res) => {
+//   axios({
+//     method: 'get',
+//     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products',
+//     headers: {
+//       Authorization: `${process.env.API_KEY}`,
+//     },
+//   })
+//     .then((repsonse) => { res.send(repsonse.data); })
+//     .catch((err) => { res.send((err)); });
+// });
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening at http://localhost:${process.env.PORT}`);
