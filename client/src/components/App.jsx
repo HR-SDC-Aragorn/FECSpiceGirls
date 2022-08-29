@@ -16,14 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const options = {
-      method: 'get',
-      url: `${config.API_HOST}products`,
-      headers: {
-        Authorization: config.API_KEY,
-      },
-    };
-    axios(options)
+    axios.get('/products')
       .then((response) => (
         this.setState({
           products: response.data,
