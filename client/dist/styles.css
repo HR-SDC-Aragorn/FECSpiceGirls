@@ -30,15 +30,19 @@
   border-radius: 50%;
   border: 1px solid #ddd;
   padding: 5px;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 
 #style-thumbnails {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  column-count: 4;
+
 }
 
 .share {
