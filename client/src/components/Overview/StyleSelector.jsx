@@ -1,6 +1,10 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import axios from 'axios';
+
+import Style from './Style.jsx';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -23,10 +27,11 @@ class StyleSelector extends React.Component {
   }
 
   render() {
-    console.log(this.state.styles);
     return (
       <div id="style-selector" className="info-panel">
-        <div>Style selector</div>
+        <div id="style-thumbnails">
+          {this.state.styles.map((style) => <Style key={style.style_id} style={style} />)}
+        </div>
         <div>Select Size</div>
         <div>Select Quantity</div>
         <div>Add to cart</div>
