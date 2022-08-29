@@ -3,7 +3,7 @@ import React from 'react';
 
 function StyleSelector(props) {
   return (
-    <div>
+    <div id="style-selector" className="info-panel">
       <div>Style selector</div>
       <div>Select Size</div>
       <div>Select Quantity</div>
