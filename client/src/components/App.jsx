@@ -15,20 +15,21 @@ class App extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   axios.get('/products')
-  //     .then((response) => (
-  //       this.setState({
-  //         products: response.data,
-  //         currentProduct: response.data[0],
-  //       })
-  //     ))
-  //     .catch((err) => (
-  //       console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
-  //     ));
-  // }
+  componentDidMount() {
+    axios.get('http://localhost:3000/products')
+      .then((response) => (
+        this.setState({
+          products: response.data,
+          currentProduct: response.data[0],
+        })
+      ))
+      .catch((err) => (
+        console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
+      ));
+  }
 
   render() {
+    console.log(this.state.products);
     return (
       <div>
         <div id="main">
