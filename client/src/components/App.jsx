@@ -36,7 +36,7 @@ class App extends React.Component {
           <Overview product={this.state.currentProduct} />
         </div>
         <div>
-          <h1>helloWorld!</h1>
+          <h1>Testing1</h1>
           <QA />
         </div>
         <div>
