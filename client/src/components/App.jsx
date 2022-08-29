@@ -16,11 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
     axios.get('/products')
-=======
-    axios.get('http://localhost:3000/products')
->>>>>>> main
       .then((response) => (
         this.setState({
           products: response.data,
@@ -33,7 +29,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.products);
     return (
       <div>
         <div id="main">
