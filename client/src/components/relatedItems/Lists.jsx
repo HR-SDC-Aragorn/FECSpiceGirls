@@ -6,19 +6,20 @@ class Lists extends React.Component {
     super(props);
     this.state = {
       isOutfit: false,
-    }
+    };
   }
 
   render() {
     return (
       <div>
         <ul>
-          {this.props.products.map((product, key) =>
+          {this.props.products.map((product, key) => (
             <li>
               <ul>
                 <RelatedItemCard product={product} key={product.id} />
               </ul>
-            </li>)}
+            </li>
+          ))}
         </ul>
       </div>
     );
