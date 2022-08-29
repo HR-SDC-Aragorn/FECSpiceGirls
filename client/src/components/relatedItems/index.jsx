@@ -13,22 +13,20 @@ class RelatedItems extends React.Component {
   }
 
   componentDidMount() {
-    // const apiUrl = process.env.REACT_APP_API_HOST;
-    // const apiKey = process.env.REACT_APP_API_KEY;
-    const options = {
-      method: 'get',
-      url: `${config.API_HOST}products`,
-      headers: {
-        Authorization: config.API_KEY,
-      },
-    };
-    axios(options)
-      .then((data) => (
-        console.log(data)
-      ))
-      .catch((err) => (
-        console.log('error getting', err)
-      ));
+    // const options = {
+    //   method: 'get',
+    //   url: `${config.API_HOST}products`,
+    //   headers: {
+    //     Authorization: config.API_KEY,
+    //   },
+    // };
+    // axios(options)
+    //   .then((data) => (
+    //     console.log(data)
+    //   ))
+    //   .catch((err) => (
+    //     console.log('error getting', err)
+    //   ));
   }
 
   render() {
