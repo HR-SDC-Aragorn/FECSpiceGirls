@@ -1,17 +1,22 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import StyleSelector from './StyleSelector.jsx';
 
 function ProductInfo(props) {
   return (
-    <div>
+    <div id="product-info" className="info-panel">
       <div>Star rating</div>
-      <div>Product category</div>
-      <div>Product title</div>
-      <div>Price</div>
-      <div>Product overview</div>
+      <div>{props.product.category}</div>
+      <div>{props.product.name}</div>
+      <div>{props.product.default_price}</div>
+      <div>{props.product.description}</div>
       <div>Share to FB</div>
       <div>Share to Twitter</div>
       <div>Share to Pinterest</div>
+      <StyleSelector />
     </div>
   );
 }

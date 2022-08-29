@@ -5,7 +5,7 @@
   "main": "client/src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve",
+    "client-dev": "webpack serve",
     "build": "webpack",
     "server-dev": "npx nodemon server.js"
   },
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/FrontEndCapstoneSNO1/FEC.git"
   },
-  "author": "Daniel, Andy, Gracie, Irene",
+  "author": "Daniel, Andy, Gracie",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FrontEndCapstoneSNO1/FEC/issues"
@@ -45,3 +45,4 @@
     "webpack-dev-server": "^4.10.0"
   }
 }
+
