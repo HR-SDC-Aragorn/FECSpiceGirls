@@ -17,7 +17,7 @@ function ProductInfo(props) {
       <div id="category">{props.product.category}</div>
       <h1 id="name">{props.product.name}</h1>
       <p>{props.product.description}</p>
-      <StyleSelector styles={props.styles} />
+      <StyleSelector productID={props.product.id} />
     </div>
   );
 }
