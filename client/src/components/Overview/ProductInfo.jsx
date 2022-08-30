@@ -11,11 +11,12 @@ function ProductInfo(props) {
       <div id="stars">Star rating</div>
       <div id="category">{props.product.category}</div>
       <h1 id="name">{props.product.name}</h1>
+      <div>price goes here</div>
       <p>{props.product.description}</p>
       <div className="share">
-        <div id="share-fb">Share to FB</div>
-        <div id="share-twitter">Share to Twitter</div>
-        <div id="share-pinterest">Share to Pinterest</div>
+        <div id="share-fb">Facebook</div>
+        <div id="share-twitter">Twitter</div>
+        <div id="share-pinterest">Pinterest</div>
       </div>
       <StyleSelector productID={props.product.id} />
     </div>
