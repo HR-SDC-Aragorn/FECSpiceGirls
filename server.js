@@ -44,6 +44,18 @@ app.get('/related', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.get('/styles', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${req.query.id}/styles`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
 app.get('/products/:product_id', (req, res) => {
   console.log('req:', req);
   axios({

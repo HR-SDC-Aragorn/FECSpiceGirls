@@ -12,8 +12,9 @@ class Lists extends React.Component {
   render() {
     return (
       <div>
+        {console.log('wow', this.props.related)}
         <ul>
-          {this.props.products.map((product) => (
+          {this.props.related.map((product) => (
             <li>
               <ul>
                 <RelatedItemCard product={product} key={product.id} />

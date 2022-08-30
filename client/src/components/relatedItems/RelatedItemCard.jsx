@@ -4,6 +4,9 @@ function RelatedItemCard(props) {
   return (
     <div>
       <li>
+        image goes here
+      </li>
+      <li>
         {props.product.category}
       </li>
       <li>
