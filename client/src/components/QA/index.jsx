@@ -10,9 +10,12 @@ class QA extends React.Component {
 
   render() {
     return (
-      <div>
-        <QuestionsList />
+      <div id="container">
+        <div id="qaTitle">
+          QUESTIONS &amp; ANSWERS
+        </div>
         <Search />
+        <QuestionsList />
       </div>
     );
   }
