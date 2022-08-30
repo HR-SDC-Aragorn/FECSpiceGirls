@@ -5,6 +5,7 @@ import React from 'react';
 import axios from 'axios';
 
 import Style from './Style.jsx';
+import SelectionForm from './SelectionForm.jsx';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -32,9 +33,10 @@ class StyleSelector extends React.Component {
         <div id="style-thumbnails">
           {this.state.styles.map((style) => <Style key={style.style_id} style={style} />)}
         </div>
-        <div>Select Size</div>
-        <div>Select Quantity</div>
-        <div>Add to cart</div>
+        <form>
+          <SelectionForm />
+        </form>
+
       </div>
     );
   }
