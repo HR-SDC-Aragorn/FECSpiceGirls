@@ -13,7 +13,7 @@ class Lists extends React.Component {
     return (
       <div>
         <ul>
-          {this.props.products.map((product, key) => (
+          {this.props.products.map((product) => (
             <li>
               <ul>
                 <RelatedItemCard product={product} key={product.id} />

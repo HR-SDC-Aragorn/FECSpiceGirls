@@ -37,7 +37,31 @@ app.get('/products', (req, res) => {
     method: 'get',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products',
     headers: {
-      Authorization: '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',
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
+app.get('/productid', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${req.query.id}`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
+app.get('/related', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${req.query.id}/related`,
+    headers: {
+      Authorization: process.env.API_KEY,
     },
   })
     .then((repsonse) => { res.send(repsonse.data); })
