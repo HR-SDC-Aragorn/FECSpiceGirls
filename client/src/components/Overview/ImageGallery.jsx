@@ -27,7 +27,7 @@ class ImageGallery extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="image-gallery">
         {this.state.selectedStylePhotos.map((photo) => <Image photo={photo} />)}
       </div>
     );
