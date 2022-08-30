@@ -107,3 +107,11 @@
   height: 20px;
   object-fit: cover;
 }
+
+/* Individual Question */
+
+#question {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

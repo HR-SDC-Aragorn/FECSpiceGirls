@@ -8,7 +8,7 @@ class QA extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: {}
+      questions: {},
     };
   }
 
@@ -16,7 +16,7 @@ class QA extends React.Component {
     axios.get('/qa/questions/65635/1/10')
       .then((response) => {
         this.setState({
-          questions: response.data
+          questions: response.data,
         });
       })
       .catch((err) => {
@@ -31,7 +31,7 @@ class QA extends React.Component {
           QUESTIONS &amp; ANSWERS
         </div>
         <Search />
-        <QuestionsList questions={this.state.questions}/>
+        <QuestionsList questions={this.state.questions} />
       </div>
     );
   }

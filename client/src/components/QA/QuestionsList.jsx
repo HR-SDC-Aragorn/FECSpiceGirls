@@ -1,10 +1,11 @@
 import React from 'react';
+import QuestionsListEntry from './QuestionsListEntry.jsx';
 
 // eslint-disable-next-line react/function-component-definition
-const QuestionsList = ({questions}) => (
-  <div>
-    placeholder for individual questions
-  </div>
+const QuestionsList = ({ questions }) => (
+    <div>
+      {questions.results?.map((question) => <QuestionsListEntry key={question.question_id} question={question} />)}
+    </div>
 );
 
 export default QuestionsList;
