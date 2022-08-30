@@ -8,15 +8,17 @@ import StyleSelector from './StyleSelector.jsx';
 function ProductInfo(props) {
   return (
     <div id="product-info" className="info-panel">
-      <div>Star rating</div>
-      <div>{props.product.category}</div>
-      <div>{props.product.name}</div>
-      <div>{props.product.default_price}</div>
-      <div>{props.product.description}</div>
-      <div>Share to FB</div>
-      <div>Share to Twitter</div>
-      <div>Share to Pinterest</div>
-      <StyleSelector />
+      <div id="stars">Star rating</div>
+      <div id="category">{props.product.category}</div>
+      <h1 id="name">{props.product.name}</h1>
+      <div>price goes here</div>
+      <p>{props.product.description}</p>
+      <div className="share">
+        <div id="share-fb">Facebook</div>
+        <div id="share-twitter">Twitter</div>
+        <div id="share-pinterest">Pinterest</div>
+      </div>
+      <StyleSelector productID={props.product.id} />
     </div>
   );
 }
