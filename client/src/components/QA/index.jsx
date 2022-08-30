@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import QuestionsList from './QuestionsList.jsx';
 import Search from './Search.jsx';
