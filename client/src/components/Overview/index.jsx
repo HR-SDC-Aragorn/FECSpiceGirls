@@ -33,7 +33,6 @@ class Overview extends React.Component {
   // Pass product rating, category, title, price(?), overview to ProductInfo
   // Pass style, size, and stock info to StyleSelector
   render() {
-    console.log("index styles state", this.state.styles);
     return (
       <div id="overview">
         <ImageGallery selectedStylePhotos={this.state.selectedStyle.photos} />

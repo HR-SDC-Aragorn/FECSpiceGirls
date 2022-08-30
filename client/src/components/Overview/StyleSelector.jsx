@@ -38,10 +38,10 @@ class StyleSelector extends React.Component {
   }
 
   render() {
-    console.log(this.state.selectedStyle);
     return (
       <div id="style-selector" className="info-panel">
         <div>{`$${this.state.selectedStyleOriginalPrice}`}</div>
+        <br></br>
         <div id="style-name">{`style  >  ${this.state.selectedStyleName}`}</div>
         <div id="style-thumbnails">
           {this.state.styles.map((style) => <Style key={style.style_id} style={style} />)}
