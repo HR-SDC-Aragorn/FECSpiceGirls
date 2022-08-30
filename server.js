@@ -6,7 +6,6 @@ const app = express();
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, './client/dist')));
-
 app.use(express.json());
 
 app.get('/products', (req, res) => {
@@ -14,7 +13,7 @@ app.get('/products', (req, res) => {
     method: 'get',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products',
     headers: {
-      Authorization: `${process.env.API_KEY}`,
+      Authorization: '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',
     },
   })
     .then((repsonse) => { res.send(repsonse.data); })
