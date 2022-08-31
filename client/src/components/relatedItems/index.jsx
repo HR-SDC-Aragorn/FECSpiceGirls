@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 // eslint-disable-next-line import/extensions
-import config from '../../../../config.js';
+//import config from '../../../../config.js';
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="test">
         Hello
         {/* {this.state.related} */}
       </div>

@@ -88,3 +88,49 @@
   width: 250px;
   column-gap: 10px;
 }
+
+
+/* Search bar below */
+
+#qaTitle {
+  padding-bottom: 15px;
+}
+
+#container {
+  padding-left: 100px;
+  width: 500px;
+  height: 60px;
+}
+
+.search-bar-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-bar-field {
+  width: 100%;
+  padding: 15px 35px 15px 15px;
+  border: solid 1px;
+  outline: none;
+}
+
+.search-bar-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.search-bar-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+/* Individual Question */
+
+#question {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

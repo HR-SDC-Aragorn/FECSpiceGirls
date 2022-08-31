@@ -13,7 +13,7 @@ app.get('/products', (req, res) => {
     method: 'get',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products',
     headers: {
-      Authorization: `${process.env.API_KEY}`,
+      Authorization: process.env.API_KEY,
     },
   })
     .then((repsonse) => { res.send(repsonse.data); })
@@ -21,7 +21,6 @@ app.get('/products', (req, res) => {
 });
 
 app.get('/products/:product_id', (req, res) => {
-  console.log('req:', req);
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp${req.originalUrl}`,
@@ -34,10 +33,26 @@ app.get('/products/:product_id', (req, res) => {
 });
 
 app.get('/products/:product_id/styles', (req, res) => {
-  console.log(req);
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp${req.originalUrl}`,
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
+// Route for getting questions object
+app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
+  // eslint-disable-next-line camelcase
+  const { product_id } = req.params;
+  const { page } = req.params;
+  const { count } = req.params;
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions?product_id=${product_id}&page=${page}&count=${count}`,
     headers: {
       Authorization: `${process.env.API_KEY}`,
     },
