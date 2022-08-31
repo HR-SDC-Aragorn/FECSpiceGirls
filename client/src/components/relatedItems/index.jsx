@@ -33,7 +33,7 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="test">
         Hello
         {/* {this.state.related} */}
       </div>
