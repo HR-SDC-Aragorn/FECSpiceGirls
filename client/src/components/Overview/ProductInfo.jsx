@@ -5,6 +5,7 @@
 import React from 'react';
 import Style from './Style.jsx';
 import SelectionForm from './SelectionForm.jsx';
+import Price from './Price.jsx';
 
 function ProductInfo(props) {
   if (props.selectedStyle.skus !== undefined) {
@@ -20,7 +21,10 @@ function ProductInfo(props) {
         <div id="category">{props.product.category}</div>
         <h1 id="name">{props.product.name}</h1>
         <p>{props.product.description}</p>
-        <div>{`$${props.selectedStyle.original_price}`}</div>
+        <Price
+          originalPrice={props.selectedStyle.original_price}
+          salePrice={props.selectedStyle.sale_price}
+        />
         <div id="style-name">{`style>${props.selectedStyle.name}`}</div>
         <div id="style-thumbnails">
           {props.styles.map((style) => <Style key={style.style_id} style={style} />)}
