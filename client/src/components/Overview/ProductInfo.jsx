@@ -3,7 +3,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import Style from './Style.jsx';
+import Styles from './Styles.jsx';
 import SelectionForm from './SelectionForm.jsx';
 import Price from './Price.jsx';
 
@@ -25,9 +25,9 @@ function ProductInfo(props) {
           originalPrice={props.selectedStyle.original_price}
           salePrice={props.selectedStyle.sale_price}
         />
-        <div id="style-name">{`style>${props.selectedStyle.name}`}</div>
+        <div id="style-name">{`style     >     ${props.selectedStyle.name}`}</div>
         <div id="style-thumbnails">
-          {props.styles.map((style) => <Style key={style.style_id} style={style} />)}
+          {props.styles.map((style) => <Styles key={style.style_id} style={style} />)}
         </div>
         <form>
           <SelectionForm stock={stock} />
