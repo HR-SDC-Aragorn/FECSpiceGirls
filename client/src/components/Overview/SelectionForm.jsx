@@ -12,7 +12,8 @@ class SelectionForm extends React.Component {
   }
 
   render() {
-    if (this.props.stock.length === 0) {
+    console.log(this.props.stock);
+    if (!this.props.stock[0].size) {
       return (
         <div>
           <select name="size" id="size" defaultValue="Select Size">
