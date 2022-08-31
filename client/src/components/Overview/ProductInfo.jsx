@@ -10,9 +10,9 @@ function ProductInfo(props) {
   return (
     <div id="product-info" className="info-panel">
       <div className="share">
-        <div id="share-fb">Facebook</div>
-        <div id="share-twitter">Twitter</div>
-        <div id="share-pinterest">Pinterest</div>
+        <span id="share-fb">Facebook</span>
+        <span id="share-twitter">Twitter</span>
+        <span id="share-pinterest">Pinterest</span>
       </div>
       <div id="stars">Star rating</div>
       <div id="category">{props.product.category}</div>
