@@ -16,17 +16,19 @@ class Overview extends React.Component {
     };
   }
 
-  componentDidMount() {
-    axios.get('/products/65631/styles')
-      .then((response) => (
-        this.setState({
-          styles: response.data.results,
-          selectedStyle: response.data.results[0],
-        })
-      ))
-      .catch((err) => (
-        console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
-      ));
+  componentDidUpdate() {
+    if (this.props.product.id !== undefined && this.state.styles.length === 0) {
+      axios.get(`/products/${this.props.product.id}/styles`)
+        .then((response) => (
+          this.setState({
+            styles: response.data.results,
+            selectedStyle: response.data.results[0],
+          })
+        ))
+        .catch((err) => (
+          console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
+        ));
+    }
   }
 
   // get all product info
