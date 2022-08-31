@@ -34,6 +34,9 @@ class Overview extends React.Component {
   // accepts clicked on style thumbnail from the Style component
   handleStyleSelect(selectedStyle) {
     console.log(selectedStyle);
+    // this.setState({
+    // selectedStyle: selectedStyle
+    // })
   }
 
   render() {
@@ -43,7 +46,8 @@ class Overview extends React.Component {
         <ProductInfo
           product={this.props.product}
           styles={this.state.styles}
-          handleStyleSelect={this.handleStyleSelect}
+          selectedStyle={this.state.selectedStyle}
+          handleStyleSelect={() => this.handleStyleSelect()}
         />
       </div>
     );
