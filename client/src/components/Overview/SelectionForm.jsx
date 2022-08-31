@@ -4,10 +4,10 @@ import React from 'react';
 function SelectionForm(props) {
   return (
     <div>
-      <select name="size" id="size">Select size</select>
+      <select name="size" id="size" defaultValue="Select Size">Size</select>
       <br />
       <br />
-      <select name="quantity" id="quantity">Select quantity</select>
+      <select name="quantity" id="quantity" defaultValue="-">Select quantity</select>
       <br />
       <br />
       <button type="submit">Add to cart</button>

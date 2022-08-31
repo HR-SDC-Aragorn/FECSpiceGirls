@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Lists from './Lists.jsx';
-// eslint-disable-next-line import/extensions
-// import config from '../../../../config.js';
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -77,8 +75,12 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
+
       <div>
         <Lists related={this.state.related} />
+        <div id="test">
+          Hello
+        </div>
       </div>
     );
   }
