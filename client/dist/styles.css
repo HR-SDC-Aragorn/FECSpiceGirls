@@ -70,6 +70,25 @@
   padding-top: 15px;
 }
 
+#image-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  column-count: 4;
+  justify-items: center;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 25px;
+  align-content: space-between;
+}
+#style-images {
+  height: 250px;
+  width: 250px;
+  column-gap: 10px;
+}
+
 
 /* Search bar below */
 

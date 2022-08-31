@@ -16,7 +16,6 @@ function ProductInfo(props) {
       <div id="stars">Star rating</div>
       <div id="category">{props.product.category}</div>
       <h1 id="name">{props.product.name}</h1>
-      <div>price goes here</div>
       <p>{props.product.description}</p>
       <StyleSelector productID={props.product.id} />
     </div>
