@@ -7,6 +7,7 @@ import Style from './Style.jsx';
 import SelectionForm from './SelectionForm.jsx';
 
 function ProductInfo(props) {
+  console.log(props.selectedStyle);
   return (
     <div id="product-info" className="info-panel">
       <div className="share">
@@ -24,7 +25,7 @@ function ProductInfo(props) {
         {props.styles.map((style) => <Style key={style.style_id} style={style} />)}
       </div>
       <form>
-        <SelectionForm />
+        <SelectionForm stock={props.selectedStyle.skus} />
       </form>
     </div>
   );
