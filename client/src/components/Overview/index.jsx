@@ -31,14 +31,20 @@ class Overview extends React.Component {
     }
   }
 
-  // get all product info
-  // Pass product rating, category, title, price(?), overview to ProductInfo
-  // Pass style, size, and stock info to StyleSelector
+  // accepts clicked on style thumbnail from the Style component
+  handleStyleSelect(selectedStyle) {
+    console.log(selectedStyle);
+  }
+
   render() {
     return (
       <div id="overview">
         <ImageGallery selectedStylePhotos={this.state.selectedStyle.photos} />
-        <ProductInfo product={this.props.product} styles={this.state.styles} />
+        <ProductInfo
+          product={this.props.product}
+          styles={this.state.styles}
+          handleStyleSelect={this.handleStyleSelect}
+        />
       </div>
     );
   }
