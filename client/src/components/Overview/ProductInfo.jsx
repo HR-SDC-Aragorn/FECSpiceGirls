@@ -3,7 +3,8 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import StyleSelector from './StyleSelector.jsx';
+import Style from './Style.jsx';
+import SelectionForm from './SelectionForm.jsx';
 
 function ProductInfo(props) {
   return (
@@ -17,11 +18,14 @@ function ProductInfo(props) {
       <div id="category">{props.product.category}</div>
       <h1 id="name">{props.product.name}</h1>
       <p>{props.product.description}</p>
-      <StyleSelector
-        styles={props.styles}
-        selectedStyle={props.selectedStyle}
-        handleStyleSelect={props.handleStyleSelect}
-      />
+      <div>{`$${props.selectedStyle.original_price}`}</div>
+      <div id="style-name">{`style>${props.selectedStyle.name}`}</div>
+      <div id="style-thumbnails">
+        {props.styles.map((style) => <Style key={style.style_id} style={style} />)}
+      </div>
+      <form>
+        <SelectionForm />
+      </form>
     </div>
   );
 }
