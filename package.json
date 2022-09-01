@@ -5,9 +5,9 @@
   "main": "client/src/index.jsx",
   "scripts": {
     "test": "jest",
-    "client-dev": "webpack serve",
+    "client-dev": "webpack --watch",
     "build": "webpack",
-    "server-dev": "npx nodemon server.js",
+    "server-dev": "npx nodemon server.js --watch",
     "jestTest": "jest"
   },
   "repository": {

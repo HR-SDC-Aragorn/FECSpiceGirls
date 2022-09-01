@@ -16,27 +16,39 @@ class Overview extends React.Component {
     };
   }
 
-  componentDidMount() {
-    axios.get('/products/65631/styles')
-      .then((response) => (
-        this.setState({
-          styles: response.data.results,
-          selectedStyle: response.data.results[0],
-        })
-      ))
-      .catch((err) => (
-        console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
-      ));
+  componentDidUpdate() {
+    if (this.props.product.id !== undefined && this.state.styles.length === 0) {
+      axios.get(`/products/${this.props.product.id}/styles`)
+        .then((response) => (
+          this.setState({
+            styles: response.data.results,
+            selectedStyle: response.data.results[0],
+          })
+        ))
+        .catch((err) => (
+          console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
+        ));
+    }
   }
 
-  // get all product info
-  // Pass product rating, category, title, price(?), overview to ProductInfo
-  // Pass style, size, and stock info to StyleSelector
+  // accepts clicked on style thumbnail from the Style component
+  handleStyleSelect(selectedStyle) {
+    console.log(selectedStyle);
+    // this.setState({
+    // selectedStyle: selectedStyle
+    // })
+  }
+
   render() {
     return (
       <div id="overview">
         <ImageGallery selectedStylePhotos={this.state.selectedStyle.photos} />
-        <ProductInfo product={this.props.product} styles={this.state.styles} />
+        <ProductInfo
+          product={this.props.product}
+          styles={this.state.styles}
+          selectedStyle={this.state.selectedStyle}
+          handleStyleSelect={() => this.handleStyleSelect()}
+        />
       </div>
     );
   }
