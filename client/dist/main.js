@@ -464,7 +464,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n // eslint-disable-next-line react/function-component-definition\n\nvar QuestionsList = function QuestionsList() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    className: \"addQ\",\n    type: \"button\"\n  }, \"ADD A QUESTION\"));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsList);\n\n//# sourceURL=webpack://product-details/./client/src/components/QA/AddQuestions.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n // eslint-disable-next-line react/function-component-definition\n\nvar QuestionsList = function QuestionsList() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    className: \"addQ\",\n    type: \"button\"\n  }, \"ADD A QUESTION\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    src: \"https://petersanders.com/wp-content/uploads/2021/04/free-png-plus-sign-transparent-plus-signpng-images-pluspng-plus-sign-transparent-background-512_512.png\",\n    alt: \"Add\"\n  })));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsList);\n\n//# sourceURL=webpack://product-details/./client/src/components/QA/AddQuestions.jsx?");
 
 /***/ }),
 
@@ -541,8 +541,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"#overview {\\n  display: grid;\\n  grid-template-columns: 2fr 1fr;\\n  grid-template-rows: auto;\\n  column-gap: 10px;\\n  justify-items: start;\\n}\\n\\n#product-info {\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: flex-start;\\n  align-items: flex-start;\\n  width: 100%;\\n}\\n\\n#category {\\n  text-transform: uppercase;\\n  padding-top: 15px;\\n  padding-bottom: 5px;\\n}\\n\\n#name {\\n  font-weight: bold;\\n  margin-top: 5px;\\n  margin-bottom: 5px;\\n}\\n\\n#style-thumbnail:hover {\\n  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);\\n}\\n\\n#style-thumbnail {\\n  border-radius: 50%;\\n  border: 1px solid #ddd;\\n  padding: 5px;\\n  width: 75px;\\n  height: 75px;\\n}\\n\\n\\n#style-thumbnails {\\n  display: grid;\\n  grid-template-columns: 1fr 1fr 1fr 1fr;\\n  grid-template-rows: auto;\\n  column-gap: 10px;\\n  row-gap: 10px;\\n  column-count: 4;\\n  justify-items: center;\\n  align-items: center;\\n  padding-top: 15px;\\n  padding-bottom: 25px;\\n\\n}\\n\\n.share {\\n  display: grid;\\n  grid-template-columns: 1fr 1fr 1fr;\\n  grid-template-rows: auto;\\n  justify-items: end;\\n  align-items: end;\\n  justify-content: space-between;\\n  padding-top: 10px;\\n  padding-bottom: 10px;\\n  column-gap: 10px;\\n}\\n\\n\\n#stars {\\n  padding-top: 15px;\\n}\\n\\n#image-gallery {\\n  display: grid;\\n  grid-template-columns: 1fr 1fr 1fr;\\n  grid-template-rows: auto;\\n  column-gap: 10px;\\n  row-gap: 10px;\\n  column-count: 4;\\n  justify-items: center;\\n  align-items: center;\\n  padding-top: 15px;\\n  padding-bottom: 25px;\\n  align-content: space-between;\\n}\\n#style-images {\\n  height: 250px;\\n  width: 250px;\\n  column-gap: 10px;\\n}\\n#sale-price {\\n  color: red;\\n}\\n#original-price {\\n  text-decoration: line-through;\\n}\\n/* Search bar below */\\n\\n#qaTitle {\\n  padding-bottom: 15px;\\n}\\n\\n#container {\\n  padding-left: 100px;\\n  width: 500px;\\n  height: 60px;\\n}\\n\\n.search-bar-form {\\n  display: flex;\\n  flex-direction: row;\\n}\\n\\n.search-bar-field {\\n  width: 100%;\\n  padding: 15px 35px 15px 15px;\\n  border: solid 1px;\\n  outline: none;\\n}\\n\\n.search-bar-button {\\n  background: transparent;\\n  border: none;\\n  outline: none;\\n  margin-left: -33px;\\n}\\n\\n.search-bar-button img {\\n  width: 20px;\\n  height: 20px;\\n  object-fit: cover;\\n}\\n\\n/* Individual Question */\\n\\n#question {\\n  font-weight: bold;\\n  padding-top: 10px;\\n  padding-bottom: 10px;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://product-details/./client/dist/styles.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"#overview {\\n  display: grid;\\n  grid-template-columns: 2fr 1fr;\\n  grid-template-rows: auto;\\n  column-gap: 10px;\\n  justify-items: start;\\n}\\n\\n#product-info {\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: flex-start;\\n  align-items: flex-start;\\n  width: 100%;\\n}\\n\\n#category {\\n  text-transform: uppercase;\\n  padding-top: 15px;\\n  padding-bottom: 5px;\\n}\\n\\n#name {\\n  font-weight: bold;\\n  margin-top: 5px;\\n  margin-bottom: 5px;\\n}\\n\\n#style-thumbnail:hover {\\n  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);\\n}\\n\\n#style-thumbnail {\\n  border-radius: 50%;\\n  border: 1px solid #ddd;\\n  padding: 5px;\\n  width: 75px;\\n  height: 75px;\\n}\\n\\n\\n#style-thumbnails {\\n  display: grid;\\n  grid-template-columns: 1fr 1fr 1fr 1fr;\\n  grid-template-rows: auto;\\n  column-gap: 10px;\\n  row-gap: 10px;\\n  column-count: 4;\\n  justify-items: center;\\n  align-items: center;\\n  padding-top: 15px;\\n  padding-bottom: 25px;\\n\\n}\\n\\n.share {\\n  display: grid;\\n  grid-template-columns: 1fr 1fr 1fr;\\n  grid-template-rows: auto;\\n  justify-items: end;\\n  align-items: end;\\n  justify-content: space-between;\\n  padding-top: 10px;\\n  padding-bottom: 10px;\\n  column-gap: 10px;\\n}\\n\\n\\n#stars {\\n  padding-top: 15px;\\n}\\n\\n#image-gallery {\\n  display: grid;\\n  grid-template-columns: 1fr 1fr 1fr;\\n  grid-template-rows: auto;\\n  column-gap: 10px;\\n  row-gap: 10px;\\n  column-count: 4;\\n  justify-items: center;\\n  align-items: center;\\n  padding-top: 15px;\\n  padding-bottom: 25px;\\n  align-content: space-between;\\n}\\n#style-images {\\n  height: 250px;\\n  width: 250px;\\n  column-gap: 10px;\\n}\\n#sale-price {\\n  color: red;\\n}\\n#original-price {\\n  text-decoration: line-through;\\n}\\n/* Search bar below */\\n\\n#qaTitle {\\n  padding-bottom: 15px;\\n}\\n\\n#container {\\n  padding-left: 100px;\\n  width: 500px;\\n  height: 60px;\\n}\\n\\n.search-bar-form {\\n  display: flex;\\n  flex-direction: row;\\n}\\n\\n.search-bar-field {\\n  width: 100%;\\n  padding: 15px 35px 15px 15px;\\n  border: solid 1px;\\n  outline: none;\\n}\\n\\n.search-bar-button {\\n  background: transparent;\\n  border: none;\\n  outline: none;\\n  margin-left: -33px;\\n}\\n\\n.search-bar-button img {\\n  width: 20px;\\n  height: 20px;\\n  object-fit: cover;\\n}\\n\\n/* Individual Question */\\n\\n#question {\\n  font-weight: bold;\\n  padding-top: 10px;\\n  padding-bottom: 10px;\\n}\\n\\n/* More questions button */\\n\\n#qListButtons {\\n  width: 200px;\\n  display: flex;\\n  gap: 2rem;\\n}\\n\\n.moreQs {\\n  padding: 15px 15px;\\n  white-space: nowrap;\\n  border: solid 1px;\\n  outline: none;\\n  background-color: transparent;\\n}\\n\\n.addQ {\\n  padding: 15px 15px;\\n  white-space: nowrap;\\n  border: solid 1px;\\n  outline: none;\\n  background-color: transparent;\\n}\\n\\n.addQ img {\\n  padding-left: 30px;\\n  width: 20px;\\n  height: 20px;\\n  object-fit: cover;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://product-details/./client/dist/styles.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -726,7 +725,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -740,17 +739,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -763,7 +762,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -775,12 +774,12 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -791,7 +790,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -800,18 +799,18 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./client/src/index.jsx");
-/******/
+/******/ 	
 /******/ })()
 ;
