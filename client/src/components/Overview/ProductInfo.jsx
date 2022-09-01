@@ -2,15 +2,33 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Styles from './Styles.jsx';
 import SelectionForm from './SelectionForm.jsx';
 import Price from './Price.jsx';
 
-function ProductInfo(props) {
-  if (props.selectedStyle.skus !== undefined) {
-    const stock = Object.values(props.selectedStyle.skus);
-    return (
+function ProductInfo({
+  styles, selectedStyle, handleStyleSelect, product,
+}) {
+  const [styleLoaded, setStyleLoaded] = useState(false);
+  // const { styles, selectedStyle, handleStyleSelect } = props;
+  const [stock, setStock] = useState('');
+  useEffect(() => {
+    console.log("product Info props:", styles, selectedStyle, product);
+    if (styles) {
+      setStyleLoaded(true);
+    }
+  }, [styles]);
+
+  // useEffect(() => {
+  //   if (selectedStyle) {
+  //     console.log("this is object values", Object.values(selectedStyle.skus));
+  //     setStock(Object.values(selectedStyle.skus));
+  //   }
+  // }, [selectedStyle]);
+
+  return (
+    styleLoaded ? (
       <div id="product-info" className="info-panel">
         <div className="share">
           <span id="share-fb">Facebook</span>
@@ -18,23 +36,29 @@ function ProductInfo(props) {
           <span id="share-pinterest">Pinterest</span>
         </div>
         <div id="stars">Star rating goes here</div>
-        <div id="category">{props.product.category}</div>
-        <h1 id="name">{props.product.name}</h1>
-        <p>{props.product.description}</p>
+        <div id="category">{product.category}</div>
+        <h1 id="name">{product.name}</h1>
+        <p>{product.description}</p>
         <Price
-          originalPrice={props.selectedStyle.original_price}
-          salePrice={props.selectedStyle.sale_price}
+          originalPrice={selectedStyle.original_price}
+          salePrice={selectedStyle.sale_price}
         />
-        <div id="style-name">{`style     >     ${props.selectedStyle.name}`}</div>
+        <div id="style-name">{`style     >     ${selectedStyle.name}`}</div>
         <div id="style-thumbnails">
-          {props.styles.map((style) => <Styles key={style.style_id} style={style} />)}
+          {styleLoaded ? (styles.map((style) => (
+            <Styles
+              key={style.style_id}
+              style={style}
+              handleStyleSelect={handleStyleSelect}
+            />
+          ))) : ''}
         </div>
-        <form>
-          <SelectionForm stock={stock}/>
-        </form>
+        {/* <form>
+          {styleLoaded ? <SelectionForm stock={stock} /> : ''}
+        </form> */}
       </div>
-    );
-  }
+    ) : ''
+  );
 }
 
 export default ProductInfo;
