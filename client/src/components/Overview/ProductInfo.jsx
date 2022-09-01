@@ -30,7 +30,7 @@ function ProductInfo(props) {
           {props.styles.map((style) => <Styles key={style.style_id} style={style} />)}
         </div>
         <form>
-          <SelectionForm stock={stock} />
+          <SelectionForm stock={stock}/>
         </form>
       </div>
     );

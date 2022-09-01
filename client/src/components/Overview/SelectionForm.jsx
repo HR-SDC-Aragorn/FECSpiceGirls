@@ -11,6 +11,8 @@ class SelectionForm extends React.Component {
     };
   }
 
+
+
   render() {
     console.log(this.props.stock);
     if (!this.props.stock[0].size) {
