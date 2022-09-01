@@ -11,10 +11,8 @@ function ProductInfo({
   styles, selectedStyle, handleStyleSelect, product,
 }) {
   const [styleLoaded, setStyleLoaded] = useState(false);
-  // const { styles, selectedStyle, handleStyleSelect } = props;
   const [stock, setStock] = useState('');
   useEffect(() => {
-    console.log("product Info props:", styles, selectedStyle, product);
     if (styles) {
       setStyleLoaded(true);
     }

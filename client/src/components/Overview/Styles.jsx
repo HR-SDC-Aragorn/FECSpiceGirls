@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useState } from 'react';
+import React from 'react';
 
 function Styles(props) {
   return (
@@ -13,10 +13,6 @@ function Styles(props) {
       />
     </div>
   );
-
 }
 
 export default Styles;
-
-{ /* <input type="checkbox" id="style-checkboxes" value={this.props.style} onChange={(e) => this.props.handleStyleSelect(e.target.value)} />
-<label htmlFor="style-checkboxes">        </label> */ }
