@@ -20,6 +20,42 @@ app.get('/products', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.get('/productid', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${req.query.id}`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
+app.get('/related', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${req.query.id}/related`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
+app.get('/styles', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${req.query.id}/styles`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
 app.get('/products/:product_id', (req, res) => {
   axios({
     method: 'get',
