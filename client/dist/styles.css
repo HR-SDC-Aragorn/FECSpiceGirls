@@ -134,3 +134,24 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+/* More questions button */
+
+#qListButtons {
+  width: 200px;
+  display: flex;
+}
+
+.moreQs {
+  padding: 15px 35px 15px 15px;
+  border: solid 1px;
+  outline: none;
+  background-color: transparent;
+}
+
+.addQ {
+  padding: 15px 35px 15px 15px;
+  border: solid 1px;
+  outline: none;
+  background-color: transparent;
+}
