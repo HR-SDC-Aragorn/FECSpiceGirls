@@ -17,7 +17,7 @@ function ProductInfo(props) {
           <span id="share-twitter">Twitter</span>
           <span id="share-pinterest">Pinterest</span>
         </div>
-        <div id="stars">Star rating</div>
+        <div id="stars">Star rating goes here</div>
         <div id="category">{props.product.category}</div>
         <h1 id="name">{props.product.name}</h1>
         <p>{props.product.description}</p>
