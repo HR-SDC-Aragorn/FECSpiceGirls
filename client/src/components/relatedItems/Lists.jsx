@@ -13,70 +13,45 @@ class Lists extends React.Component {
     };
   }
 
-  // async function getRelatedData() {
-  //   const promises = [];
-  //   const relatedArr = [];
-  //   for (let i = 0; i < this.props.related.length; i++) {
-  //     promises.push(
-  //       await axios.get('/productid', { params: { id: temp[i] } })
-  //         .then((res) => {
-  //           relatedArr.push(res.data);
-  //         })
-  //         .catch((err) => {
-  //           console.log('error fetching product id data', err);
-  //         }),
-  //     );
-  //   }
-  //   await Promise.all(promises)
-  //   .then(() => {
-  //     return relatedArr;
-  //   });
-  // }
-
   componentDidUpdate() {
     const promises = [];
-    const relatedArr = [];
-    const styleArr = [];
     if (this.props.related.length !== 0 && this.state.relatedData.length === 0) {
       this.props.related.forEach((element) => {
         promises.push(
           axios.get('/productid', { params: { id: element } })
-            .then((res) => {
-              console.log(element);
-              relatedArr.push(res.data);
-            })
             .catch((err) => {
               console.log('error fetching product id data', err);
             }),
           axios.get('/styles', { params: { id: element } })
-            .then((styleres) => {
-              console.log(element);
-              styleArr.push(styleres.data);
-            })
             .catch((err) => {
               console.log('error fetching style data', err);
             }),
         );
       });
       Promise.all(promises)
-        .then(() => {
-          console.log(relatedArr);
-          console.log(styleArr);
+        .then((results) => {
+          for (let i = 0; i < results.length; i += 2) {
+            this.setState((state) => ({
+              relatedData: state.relatedData.concat(results[i].data),
+              styleData: state.styleData.concat(results[i + 1].data),
+            }));
+          }
         });
     }
   }
 
   render() {
     return (
-      <div>
-        {console.log('wow', this.state.relatedData)}
-        {console.log('style', this.state.styleData)}
+      <div id="whole-related">
+        <h2>Related Products</h2>
         <ul>
-          {this.state.relatedData.map((product) => (
-            <li>
-              <ul>
-                <RelatedItemCard product={product} key={product.id} />
-              </ul>
+          {this.state.relatedData.map((product, index) => (
+            <li id="related-list">
+              <RelatedItemCard
+                product={product}
+                key={product.id}
+                style={this.state.styleData[index].results}
+              />
             </li>
           ))}
         </ul>
