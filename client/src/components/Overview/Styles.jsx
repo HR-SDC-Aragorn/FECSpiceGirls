@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
-function Style(props) {
+function Styles(props) {
   return (
     <div>
       <img id="style-thumbnail" src={props.style.photos[0].thumbnail_url} alt={props.style.name} />
@@ -9,4 +9,4 @@ function Style(props) {
   );
 }
 
-export default Style;
+export default Styles;
