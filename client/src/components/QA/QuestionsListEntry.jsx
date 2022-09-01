@@ -11,10 +11,10 @@ const QuestionsListEntry = ({ question }) => {
       <div id="question">
         Q: {question.question_body}
       </div>
-      {arrayOfAnswers?.map((answer) => {
+      {arrayOfAnswers?.map((answer, index) => {
         for (let i in answer) {
           return (
-            <div id="answer">
+            <div id="answer" key={index}>
               A: {answer[i].body}
             </div>
           )
