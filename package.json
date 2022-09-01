@@ -22,6 +22,7 @@
   "homepage": "https://github.com/FrontEndCapstoneSNO1/FEC#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "bluebird": "^3.7.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jest-environment-jsdom": "^29.0.1",

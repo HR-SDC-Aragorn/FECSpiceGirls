@@ -138,3 +138,31 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+#related-list {
+  list-style: none;
+  display: inline-block;
+  margin-right: 70px;
+}
+
+img {
+  float: center;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+#related-item {
+  list-style: none;
+  border: solid thin black;
+  width: 200px;
+  height: 300px;
+}
+
+#each-list {
+  margin-top:40px;
+}
+
+#each-list li {
+  margin-top: 10px;
+}
