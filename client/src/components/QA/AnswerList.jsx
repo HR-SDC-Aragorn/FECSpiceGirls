@@ -1,5 +1,6 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
+import AnswerListEntry from './AnswerListEntry.jsx';
 
 const AnswerList = ({ question }) => {
 
@@ -8,14 +9,13 @@ const AnswerList = ({ question }) => {
     ({ [answers[0]]: answers[1] }));
 
   return (
-    <div id="qaEntry">
-      {arrayOfAnswers?.map((answer, index) => {
-        for (let i in answer) {
-          return (
-            <div id="answer" key={index}>
-              A: {answer[i].body}
-            </div>
-          )
+    <div id="answer-container">
+      <div id="A">
+        A:
+      </div>
+      {arrayOfAnswers?.map((answer) => {
+        for(let i in answer) {
+          return <AnswerListEntry key={i} answer={answer[i]}/>
         }
       })}
     </div>

@@ -94,7 +94,8 @@
 #original-price {
   text-decoration: line-through;
 }
-/* Search bar below */
+
+/* START OF QUESTIONS AND ANSWERS CSS */
 
 #qaTitle {
   padding-bottom: 15px;
@@ -170,6 +171,31 @@
   height: 20px;
   object-fit: cover;
 }
+
+.answer-body {
+  display: flex;
+}
+
+#A {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.answer-data {
+  display: flex;
+  white-space: nowrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#answer-username {
+  padding-right: 30px;
+}
+
+#answer-helpfulness {
+  padding-right: 30px;
+}
+/* END QUESTIONS AND ANSWERS*/
 
 #related-list {
   list-style: none;
