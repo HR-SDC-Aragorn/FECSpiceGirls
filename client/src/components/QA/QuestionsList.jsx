@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
 import AddQuestions from './AddQuestions.jsx';
+// import AnswerList from './AnswerList.jsx';
+// import AnswerListEntry from './AnswerListEntry';
 
 // eslint-disable-next-line react/function-component-definition
 const QuestionsList = ({ questions }) => {

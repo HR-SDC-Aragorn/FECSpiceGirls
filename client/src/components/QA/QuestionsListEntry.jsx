@@ -2,6 +2,7 @@
 import React from 'react';
 
 const QuestionsListEntry = ({ question }) => {
+
   const arrayOfAnswers = Object.entries(question.answers).map((answers) =>
     // eslint-disable-next-line implicit-arrow-linebreak
     ({ [answers[0]]: answers[1] }));
