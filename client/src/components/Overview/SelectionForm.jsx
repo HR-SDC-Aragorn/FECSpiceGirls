@@ -42,7 +42,7 @@ function SelectionForm({ stock }) {
     }
     if (!selectedSize) {
       return (
-        <div>
+        <div className="selection-form">
           <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
             <option value="">Select Size</option>
             {stock.map((sizes) => (
@@ -63,7 +63,7 @@ function SelectionForm({ stock }) {
       );
     }
     return (
-      <div>
+      <div className="selection-form">
         <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
           <option value="">Select Size</option>
           {stock.map((sizes) => (
@@ -79,6 +79,9 @@ function SelectionForm({ stock }) {
             <Quantities quantity={quantity} />
           ))}
         </select>
+        <br></br>
+        <br></br>
+        <button type="submit">Add to cart</button>
       </div>
     );
   }
