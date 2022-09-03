@@ -103,7 +103,7 @@
 
 #container {
   padding-left: 100px;
-  width: 500px;
+  width: 1000px;
   height: 60px;
 }
 
@@ -133,6 +133,8 @@
 }
 
 #qaContainer {
+  padding-top: 15px;
+  padding-bottom: 15px;
   max-height: 800px;
   overflow: auto;
 }
