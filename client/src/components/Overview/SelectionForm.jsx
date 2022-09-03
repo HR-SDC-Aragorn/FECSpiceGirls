@@ -40,6 +40,7 @@ function SelectionForm({ stock }) {
         </div>
       );
     }
+    if (!selectedSize) {
       return (
         <div>
           <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
@@ -60,6 +61,26 @@ function SelectionForm({ stock }) {
           </select>
         </div>
       );
+    }
+    return (
+      <div>
+        <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
+          <option value="">Select Size</option>
+          {stock.map((sizes) => (
+            <Sizes
+              key={sizes.quantity}
+              size={sizes.size}
+              handleSizeSelect={handleSizeSelect}
+            />
+          ))}
+        </select>
+        <select name="quantity" id="quantity">
+          {quantityOptions.map((quantity) => (
+            <Quantities quantity={quantity} />
+          ))}
+        </select>
+      </div>
+    );
   }
 }
 
