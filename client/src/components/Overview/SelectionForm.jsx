@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Sizes from './Sizes.jsx';
 import Quantities from './Quantities.jsx';
 
@@ -8,6 +9,7 @@ function SelectionForm({ stock, product, selectedStyle }) {
   const [quantityOptions, setQuantityOptions] = useState([]);
   const [selectedQuantity, setSelectedQuantity] = useState([]);
   const [stockLoaded, setStockLoaded] = useState(false);
+  const [postResponse, setPostResponse] = useState('');
 
   useEffect(() => {
     if (stock) {
@@ -34,9 +36,13 @@ function SelectionForm({ stock, product, selectedStyle }) {
     setSelectedQuantity(newQuantity);
   };
 
-  const addToCart = () => {
-    //send a post request to the API using the current product, style, size, and quantity
-  }
+  const addToCart = (event) => {
+    event.preventDefault();
+    axios.post('/cart', { sku_id: selectedSize })
+      .then(() => axios.get('/cart')
+        .then((response) => console.log(response)))
+      .catch((err) => console.log(err));
+  };
 
   if (stockLoaded) {
     if (!stock[0][1].size) {
@@ -89,9 +95,9 @@ function SelectionForm({ stock, product, selectedStyle }) {
             <Quantities quantity={quantity} />
           ))}
         </select>
-        <br></br>
-        <br></br>
-        <button type="submit">Add to cart</button>
+        <br />
+        <br />
+        <button type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
       </div>
     );
   }

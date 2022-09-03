@@ -89,8 +89,20 @@ app.post('/cart', (req, res) => {
       Authorization: `${process.env.API_KEY}`,
     },
   })
-    .then(() => res.sendStatus(201))
+    .then(() => { res.sendStatus(201); console.log('Success!'); })
     .catch(() => res.sendStatus(500));
+});
+
+app.get('/cart', (req, res) => {
+  axios({
+    method: 'get',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart',
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then((response) => res.send(response.data))
+    .catch((err) => res.send(err));
 });
 
 // Route for getting questions object
