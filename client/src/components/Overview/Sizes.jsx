@@ -2,7 +2,7 @@ import React from 'react';
 
 function Sizes({ size }) {
   return (
-    <option>{size}</option>
+    <option value={size}>{size}</option>
   );
 }
 
