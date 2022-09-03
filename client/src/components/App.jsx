@@ -37,7 +37,7 @@ class App extends React.Component {
         </div>
         <div>
           <h1>Testing1</h1>
-          <QA />
+          {/* <QA /> */}
         </div>
         <div>
           <RelatedItems products={this.state.products} currentProduct={this.state.currentProduct} />
