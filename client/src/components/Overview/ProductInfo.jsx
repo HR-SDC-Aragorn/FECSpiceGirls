@@ -20,8 +20,8 @@ function ProductInfo({
 
   useEffect(() => {
     if (selectedStyle.skus) {
-      console.log("this is object values", Object.values(selectedStyle.skus));
-      setStock(Object.values(selectedStyle.skus));
+      console.log(Object.entries(selectedStyle.skus));
+      setStock(Object.entries(selectedStyle.skus));
     }
   }, [selectedStyle]);
 
@@ -52,7 +52,7 @@ function ProductInfo({
           ))) : ''}
         </div>
         <form>
-          <SelectionForm stock={stock} />
+          <SelectionForm stock={stock} selectedStyle={selectedStyle} product={product} />
         </form>
       </div>
     ) : ''

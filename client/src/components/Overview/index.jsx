@@ -24,7 +24,6 @@ function Overview({ product }) {
   }, [product]);
 
   const handleStyleSelect = (newStyle) => {
-    console.log('selectedStyle', newStyle);
     setSelectedStyles(newStyle);
   };
 

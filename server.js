@@ -80,6 +80,19 @@ app.get('/products/:product_id/styles', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.post('/cart', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart',
+    data: req.body,
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(500));
+});
+
 // Route for getting questions object
 app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
   // eslint-disable-next-line camelcase

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Sizes from './Sizes.jsx';
 import Quantities from './Quantities.jsx';
 
-function SelectionForm({ stock }) {
+function SelectionForm({ stock, product, selectedStyle }) {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantityOptions, setQuantityOptions] = useState([]);
   const [selectedQuantity, setSelectedQuantity] = useState([]);
@@ -15,12 +15,12 @@ function SelectionForm({ stock }) {
     }
   }, [stock]);
 
-  const handleSizeSelect = (newSize) => {
-    setSelectedSize(newSize);
+  const handleSizeSelect = (newSku) => {
+    setSelectedSize(newSku);
     const quantities = [];
     for (let i = 0; i < stock.length; i++) {
-      if (stock[i].size === newSize) {
-        const quantitiesMax = stock[i].quantity;
+      if (stock[i][0] === newSku) {
+        const quantitiesMax = stock[i][1].quantity;
         for (let j = 1; j <= quantitiesMax; j++) {
           quantities.push(j);
         }
@@ -30,8 +30,16 @@ function SelectionForm({ stock }) {
     }
   };
 
+  const handleQuantitySelect = (newQuantity) => {
+    setSelectedQuantity(newQuantity);
+  };
+
+  const addToCart = () => {
+    //send a post request to the API using the current product, style, size, and quantity
+  }
+
   if (stockLoaded) {
-    if (!stock[0].size) {
+    if (!stock[0][1].size) {
       return (
         <div>
           <select name="size" id="size" defaultValue="Select Size">
@@ -47,8 +55,9 @@ function SelectionForm({ stock }) {
             <option value="">Select Size</option>
             {stock.map((sizes) => (
               <Sizes
-                key={sizes.quantity}
-                size={sizes.size}
+                key={sizes[1].quantity}
+                size={sizes[1].size}
+                sku={sizes[0]}
                 handleSizeSelect={handleSizeSelect}
               />
             ))}
@@ -68,13 +77,14 @@ function SelectionForm({ stock }) {
           <option value="">Select Size</option>
           {stock.map((sizes) => (
             <Sizes
-              key={sizes.quantity}
-              size={sizes.size}
+              key={sizes[1].quantity}
+              size={sizes[1].size}
+              sku={sizes[0]}
               handleSizeSelect={handleSizeSelect}
             />
           ))}
         </select>
-        <select name="quantity" id="quantity">
+        <select name="quantity" id="quantity" onChange={(e) => handleQuantitySelect(e.target.value)}>
           {quantityOptions.map((quantity) => (
             <Quantities quantity={quantity} />
           ))}
