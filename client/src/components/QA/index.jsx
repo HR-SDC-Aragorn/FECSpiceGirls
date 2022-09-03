@@ -13,7 +13,7 @@ class QA extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/qa/questions/65632/1/100')
+    axios.get('/qa/questions/65631/1/100')
       .then((response) => {
         this.setState({
           questions: response.data,

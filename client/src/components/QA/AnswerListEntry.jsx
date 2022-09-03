@@ -12,7 +12,7 @@ const AnswerListEntry = ({ answer }) => {
       </div>
       <div className="answer-pics">
         {answer.photos.map((url) => {
-          return <img src={url} alt="error" />
+          return <img id={url} src={url} alt="error" />
         })}
       </div>
       <div className="answer-data">

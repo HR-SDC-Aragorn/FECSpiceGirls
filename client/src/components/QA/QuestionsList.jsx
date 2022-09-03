@@ -20,9 +20,11 @@ const QuestionsList = ({ questions }) => {
         )}
       </div>
       <div id="qListButtons">
-        <button className="moreQs" type="button" onClick={() => setCount(count + 2)}>
-          MORE ANSWERED QUESTIONS
-        </button>
+        {questions.results?.length > 2 ?
+          <button className="moreQs" type="button" onClick={() => setCount(count + 2)}>
+            MORE ANSWERED QUESTIONS
+          </button>
+        :null}
         <AddQuestions />
       </div>
     </div>
