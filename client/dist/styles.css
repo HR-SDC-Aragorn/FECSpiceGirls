@@ -181,6 +181,14 @@
   padding-right: 5px;
 }
 
+.answer-pics img {
+  width: 100px;
+  height: 80px;
+  padding-top: 5px;
+  padding-right: 20px;
+  object-fit: cover;
+}
+
 .answer-data {
   display: flex;
   white-space: nowrap;
@@ -194,6 +202,13 @@
 
 #answer-helpfulness {
   padding-right: 30px;
+}
+
+#more-answers {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  padding-bottom: 15px;
 }
 /* END QUESTIONS AND ANSWERS*/
 

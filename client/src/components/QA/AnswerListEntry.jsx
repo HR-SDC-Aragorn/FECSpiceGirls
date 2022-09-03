@@ -10,6 +10,11 @@ const AnswerListEntry = ({ answer }) => {
           {answer.body}
         </div>
       </div>
+      <div className="answer-pics">
+        {answer.photos.map((url) => {
+          return <img src={url} alt="error" />
+        })}
+      </div>
       <div className="answer-data">
         <div id="answer-username">
           by {answer.answerer_name}, {answer.date}
@@ -24,17 +29,5 @@ const AnswerListEntry = ({ answer }) => {
     </div>
   );
 };
-
-    // <div id="qaEntry">
-    //   {arrayOfAnswers?.map((answer, index) => {
-    //     for (let i in answer) {
-    //       return (
-    //         <div id="answer" key={index}>
-    //           A: {answer[i].body}
-    //         </div>
-    //       )
-    //     }
-    //   })}
-    // </div>
 
 export default AnswerListEntry;
