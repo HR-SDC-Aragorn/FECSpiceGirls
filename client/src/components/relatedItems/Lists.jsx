@@ -64,25 +64,54 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Promise from 'bluebird';
 import RelatedItemCard from './RelatedItemCard.jsx';
+import ListCarousel from './styleComponents.js';
 
 function Lists({ relatedData, styleData }) {
   const [outfitData, setOutfit] = useState([]);
-  const [currSlide, setSlide] = useState(0);
+  const [isLeft, setLeft] = useState(false);
+  const [isRight, setRight] = useState(true);
+
+  function leftScroll() {
+    setRight(true);
+    const carousel = document.getElementById('related-carousel');
+    // console.log(carousel.scrollLeft);
+    carousel.scrollLeft -= (carousel.scrollWidth - carousel.clientWidth);
+    if (carousel.scrollLeft === 0) {
+      setLeft(false);
+    }
+  }
+
+  function rightScroll() {
+    setLeft(true);
+    const carousel = document.getElementById('related-carousel');
+    carousel.scrollLeft += (carousel.scrollWidth - carousel.clientWidth);
+    if (carousel.scrollLeft === (carousel.scrollWidth - carousel.clientWidth)) {
+      setRight(false);
+    }
+  }
 
   return (
-    <div id="whole-related">
+    <div>
       <h2>Related Products</h2>
-      <ul>
+      {isLeft && (
+        <div className="left-button">
+          <button type="button" className="arrow left" onClick={leftScroll}>Left Arrow</button>
+        </div>
+      )}
+      {isRight && (
+        <div className="right-button">
+          <button type="button" className="arrow right" onClick={rightScroll}>Right Arrow</button>
+        </div>
+      )}
+      <ListCarousel id="related-carousel">
         {relatedData.map((product, index) => (
-          <li id="related-list">
-            <RelatedItemCard
-              product={product}
-              key={product.id}
-              style={styleData[index].results}
-            />
-          </li>
+          <RelatedItemCard
+            product={product}
+            key={product.id}
+            style={styleData[index].results}
+          />
         ))}
-      </ul>
+      </ListCarousel>
     </div>
   );
 }
