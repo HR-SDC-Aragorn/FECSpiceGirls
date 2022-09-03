@@ -1,21 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sizes from './Sizes.jsx';
 
-class SelectionForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedSize: [],
-      selectedQuantity: [],
-    };
-  }
+function SelectionForm({ stock }) {
+  const [selectedSize, setSelectedSize] = useState([]);
+  const [selectedQuantity, setSelectedQuantity] = useState([]);
+  const [stockLoaded, setStockLoaded] = useState(false);
 
+  useEffect(() => {
+    if (stock) {
+      setStockLoaded(true);
+    }
+  }, [stock]);
 
-
-  render() {
-    console.log(this.props.stock);
-    if (!this.props.stock[0].size) {
+  if (stockLoaded) {
+    if (!stock[0].size) {
       return (
         <div>
           <select name="size" id="size" defaultValue="Select Size">
@@ -28,7 +27,7 @@ class SelectionForm extends React.Component {
       <div>
         <select name="size" id="size" defaultValue="Select Size">
           <option value="">Select Size</option>
-          {this.props.stock.map((sizes) => <Sizes key={sizes.quantity} size={sizes.size} />)}
+          {stock.map((sizes) => <Sizes key={sizes.quantity} size={sizes.size} />)}
         </select>
       </div>
     );

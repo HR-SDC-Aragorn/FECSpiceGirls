@@ -8,7 +8,6 @@ import ProductInfo from './ProductInfo.jsx';
 import ImageGallery from './ImageGallery.jsx';
 
 function Overview({ product }) {
-  // const { product } = props;
   const [styles, setStyles] = useState([]);
   const [selectedStyles, setSelectedStyles] = useState([]);
   useEffect(() => {

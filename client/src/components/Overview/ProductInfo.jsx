@@ -18,12 +18,12 @@ function ProductInfo({
     }
   }, [styles]);
 
-  // useEffect(() => {
-  //   if (selectedStyle) {
-  //     console.log("this is object values", Object.values(selectedStyle.skus));
-  //     setStock(Object.values(selectedStyle.skus));
-  //   }
-  // }, [selectedStyle]);
+  useEffect(() => {
+    if (selectedStyle.skus) {
+      console.log("this is object values", Object.values(selectedStyle.skus));
+      setStock(Object.values(selectedStyle.skus));
+    }
+  }, [selectedStyle]);
 
   return (
     styleLoaded ? (
@@ -51,9 +51,9 @@ function ProductInfo({
             />
           ))) : ''}
         </div>
-        {/* <form>
-          {styleLoaded ? <SelectionForm stock={stock} /> : ''}
-        </form> */}
+        <form>
+          <SelectionForm stock={stock} />
+        </form>
       </div>
     ) : ''
   );

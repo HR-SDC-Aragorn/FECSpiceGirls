@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Sizes(props) {
+function Sizes({ size }) {
   return (
-    <option>{props.size}</option>
+    <option>{size}</option>
   );
 }
 
