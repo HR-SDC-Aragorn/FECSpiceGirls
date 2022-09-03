@@ -132,6 +132,10 @@
   object-fit: cover;
 }
 
+#qaContainer {
+  max-height: 800px;
+  overflow: auto;
+}
 /* Individual Question */
 
 #question {
