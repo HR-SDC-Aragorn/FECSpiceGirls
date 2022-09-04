@@ -49,9 +49,9 @@ function ProductInfo({
       totalStars += Number(ratingData[i][1]);
       weightedStars += Number(ratingData[i][0]) * Number(ratingData[i][1]);
     }
-    console.log("totalStars", totalStars);
-    console.log("weighted", weightedStars);
-    const result = weightedStars / totalStars;
+    let result = weightedStars / totalStars;
+    result = result.toFixed(2);
+    result = Number(result);
     setStarRating(result);
   };
 
