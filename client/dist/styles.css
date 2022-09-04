@@ -95,6 +95,22 @@
   column-gap: 10px;
 }
 
+#size {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+#quantity{
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+}
+
+#submit {
+  margin-left: 10px;
+  padding: 5px;
+}
 
 #stars {
   padding-top: 15px;

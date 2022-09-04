@@ -96,8 +96,7 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
           ))}
         </select>
         <br />
-        <br />
-        <button type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
+        <button id="submit" type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
       </div>
     );
   }

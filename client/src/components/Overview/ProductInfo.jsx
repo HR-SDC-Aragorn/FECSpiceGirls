@@ -14,6 +14,8 @@ function ProductInfo({
   const [styleLoaded, setStyleLoaded] = useState(false);
   const [stock, setStock] = useState('');
   const [cartNumber, setCartNumber] = useState('');
+  const [starRating, setStarRating] = useState('');
+
   useEffect(() => {
     if (styles) {
       setStyleLoaded(true);
@@ -22,7 +24,6 @@ function ProductInfo({
 
   useEffect(() => {
     if (selectedStyle.skus) {
-      console.log(Object.entries(selectedStyle.skus));
       setStock(Object.entries(selectedStyle.skus));
     }
   }, [selectedStyle]);
@@ -38,6 +39,31 @@ function ProductInfo({
       })
       .catch((err) => console.log(err));
   }, [cartNumber]);
+
+  const starAverage = (starData) => {
+    const ratingData = Object.entries(starData.ratings);
+    console.log(ratingData);
+    let totalStars = 0;
+    let weightedStars = 0;
+    for (let i = 0; i < ratingData.length; i++) {
+      totalStars += Number(ratingData[i][1]);
+      weightedStars += Number(ratingData[i][0]) * Number(ratingData[i][1]);
+    }
+    console.log("totalStars", totalStars);
+    console.log("weighted", weightedStars);
+    const result = weightedStars / totalStars;
+    setStarRating(result);
+  };
+
+  useEffect(() => {
+    axios.get('/reviews/meta/', {
+      params: {
+        product_id: product.id,
+      },
+    })
+      .then((results) => starAverage(results.data))
+      .catch((err) => console.log("error getting ratings", err));
+  }, [starRating]);
 
   const updateCart = (cartData) => {
     let count = 0;
@@ -55,12 +81,12 @@ function ProductInfo({
           <div id="cart-amount">{cartNumber}</div>
         </div>
         <div id="product-info" className="info-panel">
-          <div className="share">
+          {/* <div className="share">
             <span id="share-fb">Facebook</span>
             <span id="share-twitter">Twitter</span>
             <span id="share-pinterest">Pinterest</span>
-          </div>
-          <div id="stars">Star rating goes here</div>
+          </div> */}
+          <div id="stars">average stars: {starRating}</div>
           <div id="category">{product.category}</div>
           <h1 id="name">{product.name}</h1>
           <p>{product.description}</p>
