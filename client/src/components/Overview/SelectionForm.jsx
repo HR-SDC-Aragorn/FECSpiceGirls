@@ -4,7 +4,7 @@ import axios from 'axios';
 import Sizes from './Sizes.jsx';
 import Quantities from './Quantities.jsx';
 
-function SelectionForm({ stock, product, selectedStyle }) {
+function SelectionForm({ stock, product, selectedStyle, updateCart }) {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantityOptions, setQuantityOptions] = useState([]);
   const [selectedQuantity, setSelectedQuantity] = useState([]);
@@ -40,7 +40,7 @@ function SelectionForm({ stock, product, selectedStyle }) {
     event.preventDefault();
     axios.post('/cart', { sku_id: selectedSize })
       .then(() => axios.get('/cart')
-        .then((response) => console.log(response)))
+        .then((response) => updateCart(response.data)))
       .catch((err) => console.log(err));
   };
 

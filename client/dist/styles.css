@@ -15,12 +15,25 @@
   justify-items: start;
 }
 
+#cart-amount {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: black;
+  /* border-style: solid; */
+  border-width: 1px;
+  border-radius: 100%;
+  padding: 2px;
+  opacity: 45%;
+}
+
 #cart {
   height: 25px;
   width: 30px;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
+  opacity: 45%;
 }
 
 #product-info {

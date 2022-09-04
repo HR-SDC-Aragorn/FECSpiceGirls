@@ -3,6 +3,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Styles from './Styles.jsx';
 import SelectionForm from './SelectionForm.jsx';
 import Price from './Price.jsx';
@@ -12,6 +13,7 @@ function ProductInfo({
 }) {
   const [styleLoaded, setStyleLoaded] = useState(false);
   const [stock, setStock] = useState('');
+  const [cartNumber, setCartNumber] = useState('');
   useEffect(() => {
     if (styles) {
       setStyleLoaded(true);
@@ -25,11 +27,32 @@ function ProductInfo({
     }
   }, [selectedStyle]);
 
+  useEffect(() => {
+    axios.get('/cart')
+      .then((res) => {
+        let count = 0;
+        for (let i = 0; i < res.data.length; i++) {
+          count += Number(res.data[i].count);
+        }
+        setCartNumber(count);
+      })
+      .catch((err) => console.log(err));
+  }, [cartNumber]);
+
+  const updateCart = (cartData) => {
+    let count = 0;
+    for (let i = 0; i < cartData.length; i++) {
+      count += Number(cartData[i].count);
+    }
+    setCartNumber(count);
+  };
+
   return (
     styleLoaded ? (
       <div>
-        <div>
+        <div id="cart-feature">
           <img id="cart" src="https://img.icons8.com/windows/2x/shopping-cart.png" alt="cart" />
+          <div id="cart-amount">{cartNumber}</div>
         </div>
         <div id="product-info" className="info-panel">
           <div className="share">
@@ -56,7 +79,12 @@ function ProductInfo({
             ))) : ''}
           </div>
           <form>
-            <SelectionForm stock={stock} selectedStyle={selectedStyle} product={product} />
+            <SelectionForm
+              stock={stock}
+              selectedStyle={selectedStyle}
+              product={product}
+              updateCart={updateCart}
+            />
           </form>
         </div>
       </div>
