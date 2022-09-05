@@ -1,9 +1,39 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
 #overview {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
   column-gap: 10px;
   justify-items: start;
+}
+
+#cart-amount {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: black;
+  /* border-style: solid; */
+  border-width: 1px;
+  border-radius: 100%;
+  padding: 2px;
+  opacity: 45%;
+}
+
+#cart {
+  height: 25px;
+  width: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 45%;
 }
 
 #product-info {
@@ -65,6 +95,22 @@
   column-gap: 10px;
 }
 
+#size {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+#quantity{
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+}
+
+#submit {
+  margin-left: 10px;
+  padding: 5px;
+}
 
 #stars {
   padding-top: 15px;
