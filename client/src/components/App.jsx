@@ -39,7 +39,7 @@ class App extends React.Component {
           <RelatedItems products={this.state.products} currentProduct={this.state.currentProduct} />
         </div>
         <div id="QA">
-          <QA currentProduct={this.state.currentProduct}/>
+          <QA currentProduct={this.state.currentProduct} />
         </div>
       </div>
     );

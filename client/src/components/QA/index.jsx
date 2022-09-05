@@ -25,15 +25,20 @@ class QA extends React.Component {
   }
 
   render() {
-    return (
-      <div id="container">
-        <div id="qaTitle">
-          QUESTIONS &amp; ANSWERS
+    if (this.props.currentProduct) {
+      return (
+        <div id="container">
+          <div id="qaTitle">
+            QUESTIONS &amp; ANSWERS
+          </div>
+          <Search />
+          <QuestionsList
+          currentProduct={this.props.currentProduct}
+          questions={this.state.questions}
+          />
         </div>
-        <Search />
-        <QuestionsList currentProduct={this.props.currentProduct} questions={this.state.questions} />
-      </div>
-    );
+      );
+    }
   }
 }
 
