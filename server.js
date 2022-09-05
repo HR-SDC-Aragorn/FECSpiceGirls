@@ -80,6 +80,45 @@ app.get('/products/:product_id/styles', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.post('/cart', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart',
+    data: req.body,
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then(() => { res.sendStatus(201); console.log('Success!'); })
+    .catch(() => res.sendStatus(500));
+});
+
+app.get('/cart', (req, res) => {
+  axios({
+    method: 'get',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart',
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then((response) => res.send(response.data))
+    .catch((err) => res.send(err));
+});
+
+app.get('/reviews/meta/', (req, res) => {
+  console.log(req)
+  const { product_id } = req.query.product_id;
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp${req.originalUrl}`,
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
 // Route for getting questions object
 app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
   // eslint-disable-next-line camelcase

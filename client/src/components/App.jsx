@@ -11,8 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [],
-      currentProduct: [],
+      products: null,
+      currentProduct: null,
     };
   }
 
@@ -31,15 +31,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="app">
         <div id="main">
           <Overview product={this.state.currentProduct} />
         </div>
-        <div>
+        <div id="related-items">
           <RelatedItems products={this.state.products} currentProduct={this.state.currentProduct} />
         </div>
-        <div>
-          <QA currentProduct={this.state.currentProduct} />
+        <div id="QA">
+          <QA currentProduct={this.state.currentProduct}/>
         </div>
       </div>
     );
