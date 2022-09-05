@@ -50,10 +50,21 @@
   padding-bottom: 5px;
 }
 
+#style-name {
+  margin-bottom: 0px;
+}
+
+#overview-details {
+  border-top: dotted;
+  border-bottom: dotted;
+  border-color: black;
+  margin-top: 10px;
+}
+
 #name {
   font-weight: bold;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 #style-thumbnail:hover {
@@ -83,18 +94,6 @@
 
 }
 
-.share {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  justify-items: end;
-  align-items: end;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  column-gap: 10px;
-}
-
 #size {
   padding: 10px;
   margin: 10px;
@@ -112,9 +111,6 @@
   padding: 5px;
 }
 
-#stars {
-  padding-top: 15px;
-}
 
 #image-gallery {
   display: grid;

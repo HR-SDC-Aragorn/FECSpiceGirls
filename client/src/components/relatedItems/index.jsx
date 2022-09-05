@@ -68,7 +68,9 @@ function RelatedItems({products, currentProduct}) {
   };
 
   useEffect(() => {
-    getData();
+    if (currentProduct) {
+      getData();
+    }
   }, [currentProduct]);
 
   return (
