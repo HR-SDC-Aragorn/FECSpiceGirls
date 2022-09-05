@@ -1,25 +1,18 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
+import Helpful from './Helpful.jsx';
+import AddAnswer from './AddAnswer.jsx';
 
 const QuestionsListEntry = ({ question }) => {
-  const arrayOfAnswers = Object.entries(question.answers).map((answers) =>
-    // eslint-disable-next-line implicit-arrow-linebreak
-    ({ [answers[0]]: answers[1] }));
 
   return (
-    <div id="qaEntry">
+    <div className="question-bar">
       <div id="question">
         Q: {question.question_body}
       </div>
-      {arrayOfAnswers?.map((answer) => {
-        for (let i in answer) {
-          return (
-            <div id="answer">
-              A: {answer[i].body}
-            </div>
-          )
-        }
-      })}
+      <Helpful helpfulness={question.question_helpfulness}/>
+      <div className="bar">|</div>
+      <AddAnswer />
     </div>
   );
 };

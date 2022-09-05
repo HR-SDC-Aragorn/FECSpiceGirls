@@ -56,6 +56,18 @@ app.get('/styles', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.get('/reviews', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta/?product_id=${req.query.product_id}`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
 app.get('/products/:product_id', (req, res) => {
   axios({
     method: 'get',
@@ -132,7 +144,21 @@ app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
       Authorization: `${process.env.API_KEY}`,
     },
   })
-    .then((repsonse) => { res.send(repsonse.data); })
+    .then((response) => { res.send(response.data); })
+    .catch((err) => { res.send((err)); });
+});
+
+//Route for posting questions
+app.post('/qa/questions', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions',
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+    data: req.body,
+  })
+    .then((response) => { res.send(response.data); })
     .catch((err) => { res.send((err)); });
 });
 
