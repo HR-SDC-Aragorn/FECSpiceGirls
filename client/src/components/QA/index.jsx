@@ -31,7 +31,7 @@ class QA extends React.Component {
           QUESTIONS &amp; ANSWERS
         </div>
         <Search />
-        <QuestionsList questions={this.state.questions} />
+        <QuestionsList currentProduct={this.props.currentProduct} questions={this.state.questions} />
       </div>
     );
   }

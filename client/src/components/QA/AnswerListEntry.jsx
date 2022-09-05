@@ -19,9 +19,11 @@ const AnswerListEntry = ({ answer }) => {
         <div id="answer-username">
           by {answer.answerer_name}, {answer.date}
         </div>
+        <div className="bar">|</div>
         <div id="answer-helpfulness">
           Helpful? Yes &#40;{answer.helpfulness}&#41;
         </div>
+        <div className="bar">|</div>
         <div id="report-answer">
           Report
         </div>

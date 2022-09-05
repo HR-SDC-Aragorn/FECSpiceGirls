@@ -6,7 +6,7 @@ import AnswerList from './AnswerList.jsx';
 // import AnswerListEntry from './AnswerListEntry';
 
 // eslint-disable-next-line react/function-component-definition
-const QuestionsList = ({ questions }) => {
+const QuestionsList = ({ questions, currentProduct }) => {
   const [count, setCount] = useState(2);
 
   return (
@@ -25,7 +25,10 @@ const QuestionsList = ({ questions }) => {
             MORE ANSWERED QUESTIONS
           </button>
         :null}
-        <AddQuestions />
+        <AddQuestions
+        product_name={currentProduct.name}
+        product_id={currentProduct.id}
+        />
       </div>
     </div>
   )
