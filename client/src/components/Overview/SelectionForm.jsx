@@ -38,10 +38,12 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
 
   const addToCart = (event) => {
     event.preventDefault();
-    axios.post('/cart', { sku_id: selectedSize })
-      .then(() => axios.get('/cart')
-        .then((response) => updateCart(response.data)))
-      .catch((err) => console.log(err));
+    for (let i = 1; i <= selectedQuantity; i++) {
+      axios.post('/cart', { sku_id: selectedSize })
+        .then(() => axios.get('/cart')
+          .then((response) => updateCart(response.data)))
+        .catch((err) => console.log(err));
+    }
   };
 
   if (stockLoaded) {
