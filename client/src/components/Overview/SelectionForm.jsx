@@ -1,19 +1,53 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Sizes from './Sizes.jsx';
+import Quantities from './Quantities.jsx';
 
-class SelectionForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedSize: [],
-      selectedQuantity: [],
-    };
-  }
+function SelectionForm({ stock, product, selectedStyle, updateCart }) {
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [quantityOptions, setQuantityOptions] = useState([]);
+  const [selectedQuantity, setSelectedQuantity] = useState([]);
+  const [stockLoaded, setStockLoaded] = useState(false);
+  const [postResponse, setPostResponse] = useState('');
 
-  render() {
-    console.log(this.props.stock);
-    if (!this.props.stock[0].size) {
+  useEffect(() => {
+    if (stock) {
+      setStockLoaded(true);
+    }
+  }, [stock]);
+
+  const handleSizeSelect = (newSku) => {
+    setSelectedSize(newSku);
+    const quantities = [];
+    for (let i = 0; i < stock.length; i++) {
+      if (stock[i][0] === newSku) {
+        const quantitiesMax = stock[i][1].quantity;
+        for (let j = 1; j <= quantitiesMax; j++) {
+          quantities.push(j);
+        }
+        const max15 = quantities.slice(0, 15);
+        setQuantityOptions(max15);
+      }
+    }
+  };
+
+  const handleQuantitySelect = (newQuantity) => {
+    setSelectedQuantity(newQuantity);
+  };
+
+  const addToCart = (event) => {
+    event.preventDefault();
+    for (let i = 1; i <= selectedQuantity; i++) {
+      axios.post('/cart', { sku_id: selectedSize })
+        .then(() => axios.get('/cart')
+          .then((response) => updateCart(response.data)))
+        .catch((err) => console.log(err));
+    }
+  };
+
+  if (stockLoaded) {
+    if (!stock[0][1].size) {
       return (
         <div>
           <select name="size" id="size" defaultValue="Select Size">
@@ -22,12 +56,49 @@ class SelectionForm extends React.Component {
         </div>
       );
     }
+    if (!selectedSize) {
+      return (
+        <div className="selection-form">
+          <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
+            <option value="">Select Size</option>
+            {stock.map((sizes) => (
+              <Sizes
+                key={sizes[1].quantity}
+                size={sizes[1].size}
+                sku={sizes[0]}
+                handleSizeSelect={handleSizeSelect}
+              />
+            ))}
+          </select>
+          <select name="quantity" id="quantity">
+            <option>      -     </option>
+            {quantityOptions.map((quantity) => (
+              <Quantities quantity={quantity} />
+            ))}
+          </select>
+        </div>
+      );
+    }
     return (
-      <div>
-        <select name="size" id="size" defaultValue="Select Size">
+      <div className="selection-form">
+        <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
           <option value="">Select Size</option>
-          {this.props.stock.map((sizes) => <Sizes key={sizes.quantity} size={sizes.size} />)}
+          {stock.map((sizes) => (
+            <Sizes
+              key={sizes[1].quantity}
+              size={sizes[1].size}
+              sku={sizes[0]}
+              handleSizeSelect={handleSizeSelect}
+            />
+          ))}
         </select>
+        <select name="quantity" id="quantity" onChange={(e) => handleQuantitySelect(e.target.value)}>
+          {quantityOptions.map((quantity) => (
+            <Quantities quantity={quantity} />
+          ))}
+        </select>
+        <br />
+        <button id="submit" type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
       </div>
     );
   }
