@@ -327,8 +327,7 @@ input[type=text], input[type=email], textarea {
   padding-bottom: 10px;
 }
 
-<<<<<<< HEAD
-img {
+.related-image img {
   width: 280px;
   height: 300px;
   z-index: 0;
@@ -368,8 +367,7 @@ img {
 
 /* END QUESTIONS AND ANSWERS*/
 
-#related-list {
-  list-style: none;
+.arrow {
   display: inline-block;
   background-color: transparent;
   border: solid black;
