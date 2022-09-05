@@ -7,6 +7,7 @@ import axios from 'axios';
 import Styles from './Styles.jsx';
 import SelectionForm from './SelectionForm.jsx';
 import Price from './Price.jsx';
+import StarRating from './StarRating.jsx';
 
 function ProductInfo({
   styles, selectedStyle, handleStyleSelect, product,
@@ -80,13 +81,11 @@ function ProductInfo({
           <img id="cart" src="https://img.icons8.com/windows/2x/shopping-cart.png" alt="cart" />
           <div id="cart-amount">{cartNumber}</div>
         </div>
-        <div id="product-info" className="info-panel">
-          {/* <div className="share">
-            <span id="share-fb">Facebook</span>
-            <span id="share-twitter">Twitter</span>
-            <span id="share-pinterest">Pinterest</span>
-          </div> */}
+        <div className="star-rating">
           <div id="stars">average stars: {starRating}</div>
+          <StarRating starRating={starRating} />
+        </div>
+        <div id="product-info" className="info-panel">
           <div id="category">{product.category}</div>
           <h1 id="name">{product.name}</h1>
           <p>{product.description}</p>
