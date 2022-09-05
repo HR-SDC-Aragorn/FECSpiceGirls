@@ -327,6 +327,32 @@ input[type=text], input[type=email], textarea {
   padding-bottom: 10px;
 }
 
+.related-image img {
+  width: 280px;
+  height: 300px;
+  z-index: 0;
+}
+
+.each-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-content: space-between;
+  border: solid 1px black;
+  width: 280px;
+  height: 400px;
+  z-index: 0;
+}
+
+.related-image {
+  align-self: center;
+}
+
+.related-text {
+  padding-left: 10px;
+  align-self: left;
+}
+
 #q-helpful {
   margin-left: auto;
   display: flex;
@@ -341,30 +367,46 @@ input[type=text], input[type=email], textarea {
 
 /* END QUESTIONS AND ANSWERS*/
 
-#related-list {
-  list-style: none;
+.arrow {
   display: inline-block;
-  margin-right: 70px;
+  background-color: transparent;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  padding: 20px 20px;
+  font-size: 0px;
+  cursor: pointer;
+  margin: -20px;
+  z-index: 10;
 }
 
-img {
-  float: center;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+.left{
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
-#related-item {
-  list-style: none;
-  border: solid thin black;
-  width: 200px;
-  height: 300px;
+.right{
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
-#each-list {
-  margin-top:40px;
+.left-button {
+  position: absolute;
+  padding-left: 70px;
+  margin-top: 175px;
+  z-index: 10;
 }
 
-#each-list li {
-  margin-top: 10px;
+.right-button {
+  position: absolute;
+  padding-left: 1110px;
+  margin-top: 175px;
+  z-index: 10;
+}
+
+.sale-price {
+  text-decoration-color: red;
+}
+
+.discount {
+  text-decoration-line: line-through;
 }
