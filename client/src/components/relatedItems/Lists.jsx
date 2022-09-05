@@ -60,9 +60,7 @@
 //   }
 // }
 
-import React, { useState } from 'react';
-import axios from 'axios';
-import Promise from 'bluebird';
+import React, { useState, useEffect } from 'react';
 import RelatedItemCard from './RelatedItemCard.jsx';
 import ListCarousel from './styleComponents.js';
 
@@ -70,6 +68,14 @@ function Lists({ relatedData, styleData }) {
   const [outfitData, setOutfit] = useState([]);
   const [isLeft, setLeft] = useState(false);
   const [isRight, setRight] = useState(true);
+  const [relatedArrows, setRelated] = useState(false);
+
+  useEffect(() => {
+    const carousel = document.getElementById('related-carousel');
+    if (carousel.scrollWidth > carousel.clientWidth) {
+      setRelated(true);
+    }
+  }, [outfitData]);
 
   function leftScroll() {
     setRight(true);
@@ -92,26 +98,31 @@ function Lists({ relatedData, styleData }) {
 
   return (
     <div>
-      <h2>Related Products</h2>
-      {isLeft && (
-        <div className="left-button">
-          <button type="button" className="arrow left" onClick={leftScroll}>Left Arrow</button>
-        </div>
-      )}
-      {isRight && (
-        <div className="right-button">
-          <button type="button" className="arrow right" onClick={rightScroll}>Right Arrow</button>
-        </div>
-      )}
-      <ListCarousel id="related-carousel">
-        {relatedData.map((product, index) => (
-          <RelatedItemCard
-            product={product}
-            key={product.id}
-            style={styleData[index].results}
-          />
-        ))}
-      </ListCarousel>
+      <div>
+        <h2>Related Products</h2>
+        {isLeft && (
+          <div className="left-button">
+            <button type="button" className="arrow left" onClick={leftScroll}>Left Arrow</button>
+          </div>
+        )}
+        {isRight && (
+          <div className="right-button">
+            <button type="button" className="arrow right" onClick={rightScroll}>Right Arrow</button>
+          </div>
+        )}
+        <ListCarousel id="related-carousel">
+          {relatedData.map((product, index) => (
+            <RelatedItemCard
+              product={product}
+              key={product.id}
+              style={styleData[index].results}
+            />
+          ))}
+        </ListCarousel>
+      </div>
+      <div>
+        <h2>Your Outfit</h2>
+      </div>
     </div>
   );
 }

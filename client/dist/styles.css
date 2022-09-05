@@ -145,8 +145,6 @@ img {
   z-index: 0;
 }
 
-
-
 .each-list {
   display: flex;
   flex-flow: column;
@@ -189,33 +187,6 @@ img {
   -webkit-transform: rotate(-45deg);
 }
 
-/* .left-arrow {
-  display: inline-block;
-  background-color: transparent;
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  padding: 16px 16px;
-  font-size: 0px;
-  cursor: pointer;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  margin: 16px;
-}
-
-.right-arrow {
-  display: inline-block;
-  background-color: transparent;
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  padding: 16px 16px;
-  font-size: 0px;
-  cursor: pointer;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  margin: 16px;
-} */
-
-
 .left-button {
   position: absolute;
   padding-left: 70px;
@@ -228,4 +199,12 @@ img {
   padding-left: 1110px;
   margin-top: 175px;
   z-index: 10;
+}
+
+.sale-price {
+  text-decoration-color: red;
+}
+
+.discount {
+  text-decoration-line: line-through;
 }

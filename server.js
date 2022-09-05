@@ -56,6 +56,18 @@ app.get('/styles', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.get('/reviews', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta/?product_id=${req.query.product_id}`,
+    headers: {
+      Authorization: process.env.API_KEY,
+    },
+  })
+    .then((repsonse) => { res.send(repsonse.data); })
+    .catch((err) => { res.send((err)); });
+});
+
 app.get('/products/:product_id', (req, res) => {
   axios({
     method: 'get',
