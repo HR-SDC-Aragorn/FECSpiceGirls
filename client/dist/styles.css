@@ -140,7 +140,8 @@
 #original-price {
   text-decoration: line-through;
 }
-/* Search bar below */
+
+/* START OF QUESTIONS AND ANSWERS CSS */
 
 #qaTitle {
   padding-bottom: 15px;
@@ -148,7 +149,7 @@
 
 #container {
   padding-left: 100px;
-  width: 500px;
+  width: 1000px;
   height: 60px;
 }
 
@@ -177,13 +178,168 @@
   object-fit: cover;
 }
 
+#qaContainer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  max-height: 800px;
+  overflow: auto;
+}
 /* Individual Question */
 
 #question {
   font-weight: bold;
+}
+
+
+/* More questions button */
+
+#qListButtons {
+  width: 200px;
+  display: flex;
+  gap: 2rem;
+}
+
+.moreQs {
+  cursor: pointer;
+  padding: 15px 15px;
+  white-space: nowrap;
+  border: solid 1px;
+  outline: none;
+  background-color: transparent;
+}
+
+.addQ {
+  cursor: pointer;
+  padding: 15px 15px;
+  white-space: nowrap;
+  border: solid 1px;
+  outline: none;
+  background-color: transparent;
+}
+
+.addQ img {
+  padding-left: 30px;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.answer-body {
+  display: flex;
+}
+
+#A {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.answer-pics img {
+  width: 100px;
+  height: 80px;
+  padding-top: 5px;
+  padding-right: 20px;
+  object-fit: cover;
+}
+
+.answer-data {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  max-width: 100px;
+}
+
+.bar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#more-answers {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.questionForm, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+
+.q-form-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: white;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 1000px;
+  max-height: 500px;
+}
+
+.q-form-title, .q-form-subtitle {
+  text-align: center;
+}
+
+.cancel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
+
+input[type=text], input[type=email], textarea {
+  width: 100%;
+  height: fit-content;
+  padding: 15px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: solid 1px;
+  box-sizing: border-box;
+}
+
+.required {
+  display: flex;
+}
+
+.ast {
+  font-weight: bold;
+  color: red;
+}
+
+.question-bar {
+  display: flex;
+  white-space: nowrap;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+#q-helpful {
+  margin-left: auto;
+  display: flex;
+  white-space: nowrap;
+}
+
+.yes {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+/* END QUESTIONS AND ANSWERS*/
 
 #related-list {
   list-style: none;
