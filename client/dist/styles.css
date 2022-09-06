@@ -126,8 +126,8 @@
   align-content: space-between;
 }
 #style-images {
-  height: 250px;
-  width: 250px;
+  height: 325px;
+  width: 300px;
   column-gap: 10px;
 }
 #sale-price {
