@@ -118,7 +118,6 @@ app.get('/cart', (req, res) => {
 });
 
 app.get('/reviews/meta/', (req, res) => {
-  console.log(req)
   const { product_id } = req.query.product_id;
   axios({
     method: 'get',
