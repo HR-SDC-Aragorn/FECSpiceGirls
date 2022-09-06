@@ -17,7 +17,7 @@ function View(props) {
 
 const ImageBox = styled.div`
   position: relative;
-  background-color: #343434;
+  background: rgb(245, 235, 214);
   width: 100%;
   height: 85%;
 
@@ -39,18 +39,17 @@ const NavButton = styled.button`
   top: 45%;
   padding: 5px;
   border-radius: 3px;
-  border: none;
-  background: rgba(255, 255, 255, 0.7);
+  border: solid;
+  border-color: black;
 
-  ${({ position }) =>
-    position === 'left' &&
-    css`
+
+  ${({ position }) => position === 'left'
+    && css`
       left: 10px;
     `}
 
-  ${({ position }) =>
-    position === 'right' &&
-    css`
+  ${({ position }) => position === 'right'
+    && css`
       right: 10px;
     `}
 `;
@@ -87,8 +86,8 @@ function Slideshow(props) {
     <SlideWrapper>
       <ImageBox>
         <img alt="" src={photos[activeIndex].url} />
-        <NavButton position="left" onClick={moveTo(activeIndex - 1)} />
-        <NavButton position="right" onClick={moveTo(activeIndex + 1)} />
+        <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
+        <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
       </ImageBox>
     </SlideWrapper>
   );
