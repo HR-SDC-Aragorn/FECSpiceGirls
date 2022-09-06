@@ -39,8 +39,9 @@ const NavButton = styled.button`
   top: 45%;
   padding: 5px;
   border-radius: 3px;
+  border: 0.5px;
   border: solid;
-  border-color: black;
+  border-color: gray;
 
 
   ${({ position }) => position === 'left'
