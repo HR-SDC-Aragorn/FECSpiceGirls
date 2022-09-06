@@ -61,7 +61,12 @@ function Slideshow(props) {
     activeIndex: 0, // begin with the first item
   });
 
-
+  useEffect(() => {
+    setState({
+      photos: props.images,
+      activeIndex: 0,
+    });
+  }, [props.images]);
 
   const moveTo = (newIndex) => () => {
     if (newIndex === -1) {
