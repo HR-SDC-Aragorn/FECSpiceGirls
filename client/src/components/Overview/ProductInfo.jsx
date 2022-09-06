@@ -121,7 +121,7 @@ function ProductInfo({
             />
           </form>
           <div id="overview-details">
-            <h5>DETAILS</h5>
+            <h5>PRODUCT DETAILS</h5>
             <p>{product.description}</p>
           </div>
         </div>

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import styled, { css } from 'styled-components';
 import React, { useState, useEffect } from 'react';
 
@@ -81,10 +83,33 @@ function Slideshow(props) {
     setState((s) => ({ ...s, activeIndex: newIndex }));
   };
 
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    return (
+      <div id="image-modal">
+        <div onClick={toggleModal} className="overlay" />
+        <div id="image-modal-content">
+          <button className="image-close-modal" onClick={toggleModal} type="submit">
+            CLOSE
+          </button>
+          <SlideWrapper>
+              <img alt="" src={photos[activeIndex].url} id="modalImage" />
+              <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
+              <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
+          </SlideWrapper>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <SlideWrapper>
       <ImageBox>
-        <img alt="" src={photos[activeIndex].url} />
+        <img alt="" src={photos[activeIndex].url} id="current-image" onClick={toggleModal} />
         <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
         <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
       </ImageBox>
