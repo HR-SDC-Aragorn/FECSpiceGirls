@@ -148,7 +148,7 @@ app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
-//Route for posting questions
+// Route for posting questions
 app.post('/qa/questions', (req, res) => {
   axios({
     method: 'post',
@@ -159,7 +159,7 @@ app.post('/qa/questions', (req, res) => {
     data: req.body,
   })
     .then((response) => { res.send(response.data); })
-    .catch((err) => { res.send((err)); });
+    .catch((err) => { console.log('HELP'); res.send((err)); });
 });
 
 app.listen(process.env.PORT, () => {

@@ -3,7 +3,7 @@ import React from 'react';
 import Helpful from './Helpful.jsx';
 import AddAnswer from './AddAnswer.jsx';
 
-const QuestionsListEntry = ({ question }) => {
+const QuestionsListEntry = ({ question, product_name, product_id }) => {
 
   return (
     <div className="question-bar">
@@ -12,7 +12,11 @@ const QuestionsListEntry = ({ question }) => {
       </div>
       <Helpful helpfulness={question.question_helpfulness}/>
       <div className="bar">|</div>
-      <AddAnswer />
+      <AddAnswer
+        question={question}
+        product_id={product_id}
+        product_name={product_name}
+      />
     </div>
   );
 };

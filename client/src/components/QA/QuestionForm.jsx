@@ -95,7 +95,7 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
             value={text}
             type="text"
             required
-            placeholder="Enter Question"
+            placeholder="What is your question?"
             onChange={updateQuestion}
           />
           <br/>

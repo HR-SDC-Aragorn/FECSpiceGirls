@@ -6,21 +6,28 @@ import AnswerList from './AnswerList.jsx';
 // import AnswerListEntry from './AnswerListEntry';
 
 // eslint-disable-next-line react/function-component-definition
-const QuestionsList = ({ questions, currentProduct }) => {
+const QuestionsList = ({  currentProduct, productId, questions }) => {
   const [count, setCount] = useState(2);
+
+  let rankedQuestions = questions?.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
 
   return (
     <div>
       <div id="qaContainer">
-        {questions.results?.slice(0, count).map((question) =>
+        {rankedQuestions?.slice(0, count).map((question) =>
           <div>
-            <QuestionsListEntry key={question.question_id} question={question} />
+            <QuestionsListEntry
+              key={question.question_id}
+              question={question}
+              product_name={currentProduct.name}
+              product_id={productId}
+            />
             <AnswerList question={question}/>
           </div>
         )}
       </div>
       <div id="qListButtons">
-        {questions.results?.length > 2 ?
+        {rankedQuestions?.length > 2 ?
           <button className="moreQs" type="button" onClick={() => setCount(count + 2)}>
             MORE ANSWERED QUESTIONS
           </button>
