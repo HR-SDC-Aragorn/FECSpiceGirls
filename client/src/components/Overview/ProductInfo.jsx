@@ -63,7 +63,7 @@ function ProductInfo({
       },
     })
       .then((results) => starAverage(results.data))
-      .catch((err) => console.log("error getting ratings", err));
+      .catch((err) => console.log('error getting ratings', err));
   }, [starRating]);
 
   const updateCart = (cartData) => {
@@ -81,19 +81,28 @@ function ProductInfo({
           <img id="cart" src="https://img.icons8.com/windows/2x/shopping-cart.png" alt="cart" />
           <div id="cart-amount">{cartNumber}</div>
         </div>
-        <div className="star-rating">
-          <div id="stars">average stars: {starRating}</div>
-          <StarRating starRating={starRating} />
-        </div>
         <div id="product-info" className="info-panel">
-          <div id="category">{product.category}</div>
+          <h5 id="category">
+            PRODUCTS  /
+            {' '}
+            {product.category}
+            {' '}
+            /
+          </h5>
           <h1 id="name">{product.name}</h1>
-          <p>{product.description}</p>
+          <div className="star-rating">
+            <div id="stars">
+              {/* average stars: */}
+              {/* {' '} */}
+              {/* {starRating} */}
+            </div>
+            <StarRating starRating={starRating} />
+          </div>
           <Price
             originalPrice={selectedStyle.original_price}
             salePrice={selectedStyle.sale_price}
           />
-          <div id="style-name">{`style     >     ${selectedStyle.name}`}</div>
+          <h5 id="style-name">{`STYLE     >     ${selectedStyle.name}`}</h5>
           <div id="style-thumbnails">
             {styleLoaded ? (styles.map((style) => (
               <Styles
@@ -111,6 +120,10 @@ function ProductInfo({
               updateCart={updateCart}
             />
           </form>
+          <div id="overview-details">
+            <h5>PRODUCT DETAILS</h5>
+            <p>{product.description}</p>
+          </div>
         </div>
       </div>
     ) : ''

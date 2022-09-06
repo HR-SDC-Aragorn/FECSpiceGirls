@@ -12,7 +12,7 @@ const QA = ({ currentProduct }) => {
   const [questionCache, setQuestionCache] = useState([]);
 
   const fetchQuestions = () => {
-    axios.get('/qa/questions/65631/1/100')
+    axios.get(`/qa/questions/65631/1/100`)
       .then((response) => {
         setProductId(response.data.product_id);
         setQuestions(response.data.results);

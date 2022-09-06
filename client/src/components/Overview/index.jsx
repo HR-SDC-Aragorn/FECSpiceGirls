@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductInfo from './ProductInfo.jsx';
 import ImageGallery from './ImageGallery.jsx';
+import View from './Slideshow.jsx';
 
 function Overview({ product }) {
   const [styles, setStyles] = useState([]);
@@ -30,7 +31,8 @@ function Overview({ product }) {
   return (
     (product && styles && selectedStyles) ? (
       <div id="overview">
-        <ImageGallery selectedStylePhotos={selectedStyles.photos} />
+        {/* <ImageGallery selectedStylePhotos={selectedStyles.photos} /> */}
+        <View selectedStylePhotos={selectedStyles.photos} />
         <ProductInfo
           product={product}
           styles={styles}

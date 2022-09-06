@@ -29,6 +29,15 @@ class App extends React.Component {
       ));
   }
 
+  handleCurrent(newId) {
+    axios.get('/productid', { params: { id: newId } })
+      .then((response) => (
+        this.setState({
+          currentProduct: response.data,
+        })
+      ));
+  }
+
   render() {
     return (
       <div id="app">
@@ -36,7 +45,10 @@ class App extends React.Component {
           <Overview product={this.state.currentProduct} />
         </div>
         <div id="related-items">
-          <RelatedItems products={this.state.products} currentProduct={this.state.currentProduct} />
+          <RelatedItems
+            currentProduct={this.state.currentProduct}
+            handleCurrent={this.handleCurrent.bind(this)}
+          />
         </div>
         <div id="QA">
           <QA currentProduct={this.state.currentProduct} />
