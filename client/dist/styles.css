@@ -330,7 +330,7 @@ input[type=text], input[type=email], textarea {
 .related-image img {
   width: 280px;
   height: 300px;
-  z-index: 0;
+  z-index: 1;
 }
 
 .each-list {
@@ -341,7 +341,7 @@ input[type=text], input[type=email], textarea {
   border: solid 1px black;
   width: 280px;
   height: 400px;
-  z-index: 0;
+  z-index: 1;
 }
 
 .related-image {
@@ -351,6 +351,7 @@ input[type=text], input[type=email], textarea {
 .related-text {
   padding-left: 10px;
   align-self: left;
+  cursor: pointer;
 }
 
 #q-helpful {
@@ -409,4 +410,94 @@ input[type=text], input[type=email], textarea {
 
 .discount {
   text-decoration-line: line-through;
+}
+
+.your-outfit {
+  text-align: center;
+}
+
+.add-item {
+  font-size: 40px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.star-div {
+  position: absolute;
+  z-index: 5;
+}
+
+.star-button {
+  border: none;
+  background-color: transparent;
+  height: 35px;
+  width: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 130px;
+  left: 300px;
+  background-color: white;
+  width: 35%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: auto;
+  border: solid 1px black;
+  z-index: 15;
+}
+
+.modal-title {
+  padding-left: 10px;
+}
+
+.x-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 16;
+}
+
+.x-button {
+  border: none;
+  background-color: transparent;
+  height: 35px;
+  width: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-table {
+  border-collapse: separate;
+  border-spacing: 2em;
+  text-align: center;
+  width: 100%
+}
+
+#characteristic {
+  color: white;
+}
+
+.x-remove {
+  position: absolute;
+  z-index: 5;
+}
+
+.delete-item {
+  border: none;
+  background-color: transparent;
+  height: 35px;
+  width: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
