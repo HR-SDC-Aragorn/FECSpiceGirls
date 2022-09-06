@@ -30,9 +30,12 @@ class App extends React.Component {
   }
 
   handleCurrent(newId) {
-    this.setState({
-      currentProduct: { id: newId },
-    });
+    axios.get('/productid', { params: { id: newId } })
+      .then((response) => (
+        this.setState({
+          currentProduct: response.data,
+        })
+      ));
   }
 
   render() {

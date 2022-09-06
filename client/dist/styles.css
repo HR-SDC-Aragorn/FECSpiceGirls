@@ -377,7 +377,6 @@ input[type=text], input[type=email], textarea {
   font-size: 0px;
   cursor: pointer;
   margin: -20px;
-  z-index: 10;
 }
 
 .left{
@@ -394,14 +393,12 @@ input[type=text], input[type=email], textarea {
   position: absolute;
   padding-left: 70px;
   margin-top: 175px;
-  z-index: 10;
 }
 
 .right-button {
   position: absolute;
-  padding-left: 1110px;
+  padding-left: 1150px;
   margin-top: 175px;
-  z-index: 10;
 }
 
 .sale-price {
@@ -418,10 +415,12 @@ input[type=text], input[type=email], textarea {
 
 .add-item {
   font-size: 40px;
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 300px;
   margin: auto;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .star-div {
@@ -444,8 +443,8 @@ input[type=text], input[type=email], textarea {
   top: 130px;
   left: 300px;
   background-color: white;
-  width: 35%;
-  height: 50%;
+  width: 400px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -497,7 +496,7 @@ input[type=text], input[type=email], textarea {
   background-color: transparent;
   height: 35px;
   width: 35px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   cursor: pointer;
 }

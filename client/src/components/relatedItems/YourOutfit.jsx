@@ -3,9 +3,6 @@ import Promise from 'bluebird';
 import axios from 'axios';
 import ListCarousel from './styleComponents.js';
 import OutfitCard from './OutfitCard.jsx';
-// import addOutfit from './OutfitStorage.js';
-// import getOutfit from './OutfitStorage.js';
-// import deleteOutfit from './OutfitStorage.js';
 
 function YourOutfit({ currentProduct }) {
   const [outfitId, setOutfit] = useState([]);
@@ -16,29 +13,48 @@ function YourOutfit({ currentProduct }) {
   const [relatedArrows, setRelated] = useState(false);
 
   const getOutfitData = async () => {
+    const tempRelated = Promise.all(outfitId.map((element) => axios.get('/productid', { params: { id: element } })));
+    const tempStyle = Promise.all(outfitId.map((element) => axios.get('/styles', { params: { id: element } })));
+    const data = await Promise.all([tempRelated, tempStyle]);
     const tempData = [];
-    const tempStyle = [];
-    await Promise.all(outfitId.map((element) => {
-      axios.get('/productid', { params: { id: element } })
-        .then((res) => {
-          tempData.push(res.data);
-        });
-    }));
-    await Promise.all(outfitId.map((element) => {
-      axios.get('styles', { params: { id: element } })
-        .then((response) => {
-          tempStyle.push(response.data);
-        });
-    }));
+    const tempOutStyle = [];
+    for (let i = 0; i < data[0].length; ++i) {
+      tempData.push(data[0][i].data);
+    }
+    for (let i = 0; i < data[1].length; ++i) {
+      tempOutStyle.push(data[1][i].data);
+    }
     setData(tempData);
-    setStyle(tempStyle);
+    setStyle(tempOutStyle);
   };
 
+  // const getOutfitData = async () => {
+  //   const tempData = [];
+  //   const tempStyle = [];
+  //   await Promise.all(outfitId.map((element) => {
+  //     axios.get('/productid', { params: { id: element } })
+  //       .then((res) => {
+  //         tempData.push(res.data);
+  //       });
+  //   }));
+  //   await Promise.all(outfitId.map((element) => {
+  //     axios.get('styles', { params: { id: element } })
+  //       .then((response) => {
+  //         tempStyle.push(response.data);
+  //       });
+  //   }));
+  //   setData(tempData);
+  //   setStyle(tempStyle);
+  // };
+
   useEffect(() => {
-    const carousel = document.getElementById('outfits');
-    if (carousel.scrollWidth > carousel.clientWidth) {
+    if (outfitId.length > 2) {
       setRelated(true);
     }
+    // if (!setOutfit.length) {
+    //   const temp = helpers.getOutfit();
+    //   setOutfit(temp);
+    // } else {
     if (outfitId.length) {
       getOutfitData();
     }
@@ -48,7 +64,7 @@ function YourOutfit({ currentProduct }) {
     setRight2(true);
     const carousel = document.getElementById('outfits');
     // console.log(carousel.scrollLeft);
-    carousel.scrollLeft -= (carousel.scrollWidth - carousel.clientWidth);
+    carousel.scrollLeft -= 305;
     if (carousel.scrollLeft === 0) {
       setLeft2(false);
     }
@@ -57,25 +73,26 @@ function YourOutfit({ currentProduct }) {
   function rightScroll2() {
     setLeft2(true);
     const carousel = document.getElementById('outfits');
-    carousel.scrollLeft += (carousel.scrollWidth - carousel.clientWidth);
+    carousel.scrollLeft += 305;
     if (carousel.scrollLeft === (carousel.scrollWidth - carousel.clientWidth)) {
       setRight2(false);
     }
   }
 
   function deleteItem(deleteId) {
-    const newOutfitId = [...outfitId];
-    for (let i = 0; i < newOutfitId.length; ++i) {
-      if (deleteId === newOutfitId[i]) {
-        newOutfitId.splice(i, 1);
-        break;
-      }
-    }
-    setOutfit(newOutfitId);
+    helpers.deleteOutfit();
+    const temp = helpers.getOutfit();
+    setOutfit(temp);
   }
 
   function addItem() {
-    setOutfit([...outfitId, currentProduct.id]);
+    // helpers.addOutfit(currentProduct.id);
+    // const temp = helpers.getOutfit();
+    // setOutfit(temp);
+    // console.log(outfitId);
+    if (!outfitId.includes(currentProduct.id)) {
+      setOutfit([currentProduct.id, ...outfitId]);
+    }
   }
 
   return (
@@ -96,18 +113,14 @@ function YourOutfit({ currentProduct }) {
           <h1 className="your-outfit"> Add To Outfit </h1>
           <button type="button" className="add-item" onClick={addItem}> + </button>
         </div>
-        {console.log(outfitData)}
-        {console.log(outfitStyle)}
-        {outfitData.length !== 0
+        {outfitData.length
           ? outfitData.map((outfit, index) => (
-            <div>
-              <OutfitCard
-                outfit={outfit}
-                key={outfit.id}
-                styles={outfitStyle[index].results}
-                deleteItem={deleteItem}
-              />
-            </div>
+            <OutfitCard
+              outfit={outfit}
+              key={outfit.id}
+              styles={outfitStyle[index].results}
+              deleteItem={deleteItem}
+            />
           ))
           : null}
       </ListCarousel>

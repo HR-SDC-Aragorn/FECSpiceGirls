@@ -22,13 +22,15 @@ function RelatedItemCard(props) {
   };
 
   useEffect(() => {
-    for (let i = 0; i < props.style.length; ++i) {
-      if (props.style[i]['default?']) {
-        setDefault(props.style[i]);
-        break;
+    if (props.product) {
+      for (let i = 0; i < props.style.length; ++i) {
+        if (props.style[i]['default?']) {
+          setDefault(props.style[i]);
+          break;
+        }
       }
+      getRatings();
     }
-    getRatings();
   }, [props]);
 
   function openModal() {
@@ -39,57 +41,59 @@ function RelatedItemCard(props) {
     setPopup(false);
   }
 
-  function onChange () {
-    props.handleCurrent(props.product.id)
+  function onChange() {
+    props.handleCurrent(props.product.id);
   }
 
   return (
     <div>
-      <div className="each-list">
-        <div className="star-div">
-          <button type="button" className="star-button" onClick={openModal}> &#9734; </button>
-        </div>
-        <div className="related-image">
-          {props.style[0].photos[0].url
-            ? <img src={props.style[0].photos[0].url} alt="" />
-            : <img src="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" alt="" />}
-        </div>
-        <div className="related-text" onClick={onChange}>
-          <div>
-            {props.product.category}
+      {props.product && (
+        <div className="each-list">
+          <div className="star-div">
+            <button type="button" className="star-button" onClick={openModal}> &#9734; </button>
           </div>
-          <div>
-            {props.product.name}
+          <div className="related-image">
+            {props.style[0].photos[0].url
+              ? <img src={props.style[0].photos[0].url} alt="" />
+              : <img src="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" alt="" />}
           </div>
-          <div>
-            {defaultItems.sale_price
-              ? (
-                <div className="sale-price">
-                  {' '}
-                  {defaultItems.sale_price}
-                  {' '}
-                  <div className="discount">
+          <div className="related-text" onClick={onChange}>
+            <div>
+              {props.product.category}
+            </div>
+            <div>
+              {props.product.name}
+            </div>
+            <div>
+              {defaultItems.sale_price
+                ? (
+                  <div className="sale-price">
+                    {' '}
+                    {defaultItems.sale_price}
+                    {' '}
+                    <div className="discount">
+                      {' '}
+                      {defaultItems.original_price}
+                      {' '}
+                    </div>
+                    {' '}
+
+                  </div>
+                )
+                : (
+                  <div>
                     {' '}
                     {defaultItems.original_price}
                     {' '}
                   </div>
-                  {' '}
-
-                </div>
-              )
-              : (
-                <div>
-                  {' '}
-                  {defaultItems.original_price}
-                  {' '}
-                </div>
-              )}
-          </div>
-          <div className="ratings">
-            {avgRating}
+                )}
+            </div>
+            <div className="ratings">
+              {avgRating}
+            </div>
           </div>
         </div>
-      </div>
+      )}
       {popup && (
         <div>
           <ComparisonModal

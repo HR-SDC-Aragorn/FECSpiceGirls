@@ -18,7 +18,8 @@ function RelatedList({ relatedData, styleData, currentProduct, handleCurrent }) 
     setRight(true);
     const carousel = document.getElementById('related-carousel');
     // console.log(carousel.scrollLeft);
-    carousel.scrollLeft -= (carousel.scrollWidth - carousel.clientWidth);
+    // carousel.scrollLeft -= (carousel.scrollWidth - carousel.clientWidth);
+    carousel.scrollLeft -= 305;
     if (carousel.scrollLeft === 0) {
       setLeft(false);
     }
@@ -27,7 +28,8 @@ function RelatedList({ relatedData, styleData, currentProduct, handleCurrent }) 
   function rightScroll() {
     setLeft(true);
     const carousel = document.getElementById('related-carousel');
-    carousel.scrollLeft += (carousel.scrollWidth - carousel.clientWidth);
+    // carousel.scrollLeft += (carousel.scrollWidth - carousel.clientWidth);
+    carousel.scrollLeft += 305;
     if (carousel.scrollLeft === (carousel.scrollWidth - carousel.clientWidth)) {
       setRight(false);
     }
