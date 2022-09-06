@@ -6,7 +6,7 @@ import axios from 'axios';
 const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [text, setText] = useState('');
+  const [body, setBody] = useState('');
 
   const updateEmail = (e) => {
     if (e.target.value.length <= 60) {
@@ -22,16 +22,16 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
 
   const updateQuestion = (e) => {
     if (e.target.value.length <= 1000) {
-      setText(e.target.value);
+      setBody(e.target.value);
     }
   };
 
-  const submit = () => {
+  const submit = (e) => {
     const data = {
-      text,
+      body,
       name,
       email,
-      product: parseInt(product_id),
+      product_id: parseInt(product_id, 10),
     };
 
     axios.post('/qa/questions', data)
@@ -41,10 +41,6 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
       });
   };
 
-  if (!clicked) {
-    return null;
-  }
-
   return (
     <div className="questionForm">
       <div onClick={() => {closeForm()}} className="overlay"></div>
@@ -52,7 +48,7 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
         <h1 className="q-form-title">Ask Your Question</h1>
         <h3 className="q-form-subtitle">About the {product_name}</h3>
         <hr />
-        <form className="q-form" onSubmit={() => {submit()}}>
+        <form className="q-form">
           <button className="cancel" onClick={() => { closeForm(); }}>X</button>
           <label>
             <div className="required">
@@ -92,14 +88,14 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
           <br/>
           <textarea
             id="q-form-textarea"
-            value={text}
+            value={body}
             type="text"
             required
-            placeholder="Enter Question"
+            placeholder="What is your question?"
             onChange={updateQuestion}
           />
           <br/>
-          <button className="q-form-submit">
+          <button className="q-form-submit"  onClick={(e) => submit(e)}>
             Submit
           </button>
         </form>
