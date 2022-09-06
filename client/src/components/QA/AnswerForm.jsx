@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -6,8 +8,8 @@ import axios from 'axios';
 const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [text, setText] = useState('');
-  const [photos, setPhotos] = useState(null);
+  const [body, setBody] = useState('');
+  const photoURLs = [];
 
   const updateEmail = (e) => {
     if (e.target.value.length <= 60) {
@@ -23,41 +25,39 @@ const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) 
 
   const updateQuestion = (e) => {
     if (e.target.value.length <= 1000) {
-      setText(e.target.value);
+      setBody(e.target.value);
+    }
+  };
+
+  const convertPhotos = (e) => {
+    let photos = e.target.files;
+    for (let i = 0; i < photos.length; i++) {
+      photoURLs.push(URL.createObjectURL(photos[i]));
     }
   };
 
   const submit = (e) => {
-    e.preventDefault();
     const data = {
-      text,
+      body,
       name,
       email,
-      product: parseInt(product_id),
-      photos: [],
+      product_id: parseInt(product_id),
+      photos: photoURLs,
     };
-    console.log('Checking photos ', photos);
-    if (photos) {
-      console.log('I have photos')
-    }
 
-    // axios.post('/qa/questions', data)
-    //   .then((response) => { console.log(response); })
-    //   .catch((err) => {
-    //     console.log('Error posting question:', err);
-    //   });
+    axios.post(`/qa/questions/${question.question_id}/answers`, data)
+      .then((response) => { console.log('Front end posted answer, ', response); })
+      .catch((err) => {
+        console.log('Error posting answer:', err);
+      });
   };
-
-  if (!clicked) {
-    return null;
-  }
 
   return (
     <div className="questionForm">
       <div onClick={() => {closeForm()}} className="overlay"></div>
       <div className="q-form-content">
         <h1 className="q-form-title">Submit Your Answer</h1>
-        <h3 className="q-form-subtitle">{product_name}: {question}</h3>
+        <h3 className="q-form-subtitle">{product_name}: {question.question_body}</h3>
         <hr />
         <form className="q-form">
           <button className="cancel" onClick={() => { closeForm(); }}>X</button>
@@ -73,12 +73,12 @@ const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) 
               placeholder="Example: jack543!!"
               onChange={updateName}
             />
-            <br/>
+            <br />
             <small className="name-message">
               For privacy reasons, do not use your full name or email address
             </small>
           </label>
-          <br/>
+          <br />
           <label>
             <div className="required">
               Email
@@ -91,30 +91,29 @@ const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) 
               placeholder="jack@email.com"
               onChange={updateEmail}
             />
-            <br/>
+            <br />
             <small className="name-message">
               For authentication reasons, you will not be emailed
             </small>
           </label>
-          <br/>
+          <br />
           <textarea
             id="q-form-textarea"
-            value={text}
+            value={body}
             type="text"
             required
             placeholder="What is your answer?"
             onChange={updateQuestion}
           />
-          <br/>
+          <br />
           <input
             type="file"
             id="submit-img"
-            accept="image/png, image/jpg>"
+            accept="image/*"
             multiple
-            onChange={(e) => {setPhotos(e.target.files)}}
-          >
-          </input>
-          <button className="q-form-submit" onClick={(e) => {submit(e)}}>
+            onChange={(e) => { convertPhotos(e); }}
+          />
+          <button className="q-form-submit" onClick={(e) => { submit(e); }}>
             Submit
           </button>
         </form>

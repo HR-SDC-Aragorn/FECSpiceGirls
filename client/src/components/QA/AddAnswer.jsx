@@ -16,7 +16,7 @@ const AddAnswer = ({ question, product_id, product_name }) => {
           <AnswerForm
             clicked={isClicked}
             closeForm={() => { setIsClicked(false); }}
-            question={question.question_body}
+            question={question}
             product_id={product_id}
             product_name={product_name}
           />

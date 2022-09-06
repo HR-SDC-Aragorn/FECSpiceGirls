@@ -359,12 +359,19 @@ input[type=text], input[type=email], textarea {
   white-space: nowrap;
 }
 
-.yes {
+.yes, .report-answer{
   cursor: pointer;
   border: none;
   background: transparent;
 }
 
+#upload-thumbnail {
+  width: 100px;
+  height: 80px;
+  padding-top: 5px;
+  padding-right: 20px;
+  object-fit: cover;
+}
 /* END QUESTIONS AND ANSWERS*/
 
 .arrow {
