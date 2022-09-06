@@ -1,45 +1,51 @@
+/* eslint-disable react/function-component-definition */
 /* eslint-disable import/extensions */
 import React from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import QuestionsList from './QuestionsList.jsx';
 import Search from './Search.jsx';
 
-class QA extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      questions: {},
-    };
-  }
+const QA = ({ currentProduct }) => {
+  const [productId, setProductId] = useState(65631);
+  const [questions, setQuestions] = useState([]);
+  const [questionCache, setQuestionCache] = useState([]);
 
-  componentDidMount() {
-    axios.get('/qa/questions/65631/1/100')
+  const fetchQuestions = () => {
+    axios.get(`/qa/questions/65631/1/100`)
       .then((response) => {
-        this.setState({
-          questions: response.data,
-        });
+        setProductId(response.data.product_id);
+        setQuestions(response.data.results);
+        setQuestionCache(response.data.results);
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error getting data from QA', err);
       });
-  }
+  };
 
-  render() {
-    if (this.props.currentProduct) {
-      return (
-        <div id="container">
-          <div id="qaTitle">
-            QUESTIONS &amp; ANSWERS
-          </div>
-          <Search />
-          <QuestionsList
-          currentProduct={this.props.currentProduct}
-          questions={this.state.questions}
-          />
+  useEffect(() => {
+    fetchQuestions();
+  }, []);
+
+  if (currentProduct && questionCache) {
+    return (
+      <div id="container">
+        <div id="qaTitle">
+          QUESTIONS &amp; ANSWERS
         </div>
-      );
-    }
+        <Search
+          questions={questions}
+          setQuestions={setQuestions}
+          questionCache={questionCache}
+        />
+        <QuestionsList
+          currentProduct={currentProduct}
+          productId={productId}
+          questions={questions}
+        />
+      </div>
+    );
   }
-}
+};
 
 export default QA;
