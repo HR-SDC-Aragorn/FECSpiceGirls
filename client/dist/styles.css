@@ -71,14 +71,12 @@
 
 /* image gallery modal */
 
-
 #modalImage{
   height: 100vh;
   width: min-content;
 }
 #image-modal-content, .overlay {
   position: fixed;
-  left:25%;
   z-index: 500;
 }
 
