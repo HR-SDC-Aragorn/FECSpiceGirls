@@ -76,6 +76,8 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
               <Quantities quantity={quantity} />
             ))}
           </select>
+          <br />
+          <button disabled type="submit" id="submit" >Add to cart</button>
         </div>
       );
     }
