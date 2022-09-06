@@ -19,7 +19,7 @@ const ImageBox = styled.div`
   position: relative;
   background: rgb(245, 235, 214);
   width: 100%;
-  height: 85%;
+  height: 75%;
 
   img {
     position: absolute;
@@ -38,10 +38,8 @@ const NavButton = styled.button`
   position: absolute;
   top: 45%;
   padding: 5px;
-  border-radius: 3px;
-  border: 0.5px;
-  border: solid;
-  border-color: gray;
+  border-radius: 30%;
+  font-size: 20px;
 
 
   ${({ position }) => position === 'left'
@@ -90,9 +88,38 @@ function Slideshow(props) {
         <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
         <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
       </ImageBox>
+      <ThumbnailList>
+        {photos.map((item, index) => (
+          <Thumbnail
+            active={activeIndex === index}
+            src={item.thumbnail_url}
+            onClick={moveTo(index)}
+          />
+        ))}
+      </ThumbnailList>
     </SlideWrapper>
   );
 }
+
+const ThumbnailList = styled.div`
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 15%;
+`;
+
+const Thumbnail = styled.div`
+  cursor: pointer;
+  opacity: ${({ active }) => (active ? 1 : 0.6)};
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+  background-position: center;
+  flex-grow: 1;
+
+  :hover {
+    opacity: 1;
+  }
+`;
 
 const SlideWrapper = styled.div`
   position: relative;
