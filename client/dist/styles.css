@@ -105,6 +105,14 @@
   width: auto;
 }
 
+.image-modal-close {
+  position: fixed;
+  z-index: 1000;
+  border: black;
+  border: solid;
+  background-color: white;
+}
+
 #current-image:hover {
   cursor: zoom-in;
 }
