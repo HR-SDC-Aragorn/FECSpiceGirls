@@ -41,6 +41,7 @@ function ProductInfo({
       .catch((err) => console.log(err));
   }, [cartNumber]);
 
+
   const starAverage = (starData) => {
     const ratingData = Object.entries(starData.ratings);
     console.log(ratingData);
@@ -64,7 +65,7 @@ function ProductInfo({
     })
       .then((results) => starAverage(results.data))
       .catch((err) => console.log('error getting ratings', err));
-  }, [starRating]);
+  }, [product]);
 
   const updateCart = (cartData) => {
     let count = 0;

@@ -99,8 +99,6 @@
 
 #current-modal-image {
   position: relative;
-  overflow-y: auto;
-  overflow-y: auto;
   height: auto;
   width: auto;
 }
