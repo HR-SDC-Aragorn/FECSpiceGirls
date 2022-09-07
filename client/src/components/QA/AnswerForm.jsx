@@ -1,11 +1,21 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable quote-props */
 /* eslint-disable react/button-has-type */
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-duplicates */
+/* eslint-disable react/function-component-definition */
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
 // eslint-disable-next-line react/function-component-definition
-const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) => {
+const AnswerForm = ({
+  closeForm, product_id, product_name, question,
+}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
@@ -41,7 +51,7 @@ const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) 
       body,
       name,
       email,
-      product_id: parseInt(product_id),
+      product_id: parseInt(product_id, 10),
       photos: photoURLs,
     };
 
