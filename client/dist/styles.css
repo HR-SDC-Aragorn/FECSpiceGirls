@@ -71,14 +71,39 @@
 
 /* image gallery modal */
 
-#modalImage{
-  height: 100vh;
-  width: min-content;
-}
-#image-modal-content, .overlay {
+.image-modal-container {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: black;
+  display: flex;
 }
 
+.image-modal {
+  margin: auto;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: white;
+  border-radius: 1.5rem;
+  overflow: auto;
+}
+
+.image-modal-header,
+.image-modal-content {
+  padding: 1.5rem;
+}
+
+#current-modal-image {
+  position: relative;
+  overflow-y: auto;
+  overflow-y: auto;
+  height: auto;
+  width: auto;
+}
 
 #current-image:hover {
   cursor: zoom-in;
