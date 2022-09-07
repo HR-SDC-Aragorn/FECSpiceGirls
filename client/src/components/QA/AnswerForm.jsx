@@ -11,6 +11,10 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+// import FormData from 'form-data';
+
+const api_key = '967223269136888';
+const cloud_name = 'spice';
 
 // eslint-disable-next-line react/function-component-definition
 const AnswerForm = ({
@@ -19,7 +23,7 @@ const AnswerForm = ({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
-  const photoURLs = [];
+  const [photos, setPhotos] = useState(null);
 
   const updateEmail = (e) => {
     if (e.target.value.length <= 60) {
@@ -39,27 +43,52 @@ const AnswerForm = ({
     }
   };
 
-  const convertPhotos = (e) => {
-    let photos = e.target.files;
-    for (let i = 0; i < photos.length; i++) {
-      photoURLs.push(URL.createObjectURL(photos[i]));
+  const postToCloudinary = () => {
+    if (photos) {
+      const convertPhotos = [...photos];
+      convertPhotos.map((photo) => {
+        const data = new FormData();
+        data.append('file', photo);
+        data.append('upload_preset', 'o4h67izt');
+        return axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, data)
+      });
     }
   };
 
   const submit = (e) => {
+    e.preventDefault();
+    const numPhotos = photos.length;
+
     const data = {
       body,
       name,
       email,
-      product_id: parseInt(product_id, 10),
-      photos: photoURLs,
+      photos: [],
     };
 
-    axios.post(`/qa/questions/${question.question_id}/answers`, data)
-      .then((response) => { console.log('Front end posted answer, ', response); })
-      .catch((err) => {
-        console.log('Error posting answer:', err);
+    if (numPhotos === null) {
+      axios.post(`/qa/questions/${question.question_id}/answers`, data)
+        .then(() => { console.log('Posted answer (no pics)!'); })
+        .catch((err) => { console.log('Error posting answer:', err); });
+    } else {
+      const convertPhotos = [...photos];
+      convertPhotos.map((photo) => {
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('upload_preset', 'o4h67izt');
+
+        axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
+          .then((response) => {
+            data.photos.push(response.data.url);
+            if (data.photos.length === photos.length) {
+              axios.post(`/qa/questions/${question.question_id}/answers`, data)
+                .then(() => { console.log('Posted answer (w pics)!'); })
+                .catch((err) => { console.log('Error posting answer:', err); });
+            }
+          })
+          .catch((err) => { console.log('Error posting to cloudinary', err); });
       });
+    }
   };
 
   return (
@@ -121,7 +150,7 @@ const AnswerForm = ({
             id="submit-img"
             accept="image/*"
             multiple
-            onChange={(e) => { convertPhotos(e); }}
+            onChange={(e) => { setPhotos(e.target.files); }}
           />
           <button className="q-form-submit" onClick={(e) => { submit(e); }}>
             Submit
