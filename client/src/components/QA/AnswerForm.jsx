@@ -1,3 +1,6 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -11,14 +14,12 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-// import FormData from 'form-data';
 
-const api_key = '967223269136888';
 const cloud_name = 'spice';
 
 // eslint-disable-next-line react/function-component-definition
 const AnswerForm = ({
-  closeForm, product_id, product_name, question,
+  closeForm, product_name, question,
 }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -43,18 +44,6 @@ const AnswerForm = ({
     }
   };
 
-  const postToCloudinary = () => {
-    if (photos) {
-      const convertPhotos = [...photos];
-      convertPhotos.map((photo) => {
-        const data = new FormData();
-        data.append('file', photo);
-        data.append('upload_preset', 'o4h67izt');
-        return axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, data)
-      });
-    }
-  };
-
   const submit = (e) => {
     e.preventDefault();
     const numPhotos = photos.length;
@@ -68,11 +57,13 @@ const AnswerForm = ({
 
     if (numPhotos === null) {
       axios.post(`/qa/questions/${question.question_id}/answers`, data)
-        .then(() => { console.log('Posted answer (no pics)!'); })
+        .then(() => { console.log('Posted answer! Please refresh to see your answer!'); closeForm(); })
         .catch((err) => { console.log('Error posting answer:', err); });
     } else {
       const convertPhotos = [...photos];
+      // eslint-disable-next-line array-callback-return
       convertPhotos.map((photo) => {
+        // eslint-disable-next-line no-undef
         const formData = new FormData();
         formData.append('file', photo);
         formData.append('upload_preset', 'o4h67izt');
@@ -82,7 +73,7 @@ const AnswerForm = ({
             data.photos.push(response.data.url);
             if (data.photos.length === photos.length) {
               axios.post(`/qa/questions/${question.question_id}/answers`, data)
-                .then(() => { console.log('Posted answer (w pics)!'); })
+                .then(() => { console.log('Posted answer! Please refresh to see your answer!'); closeForm(); })
                 .catch((err) => { console.log('Error posting answer:', err); });
             }
           })
@@ -93,7 +84,7 @@ const AnswerForm = ({
 
   return (
     <div className="questionForm">
-      <div onClick={() => {closeForm()}} className="overlay"></div>
+      <div onClick={() => { closeForm(); }} className="overlay"></div>
       <div className="q-form-content">
         <h1 className="q-form-title">Submit Your Answer</h1>
         <h3 className="q-form-subtitle">{product_name}: {question.question_body}</h3>
