@@ -90,18 +90,17 @@ function Slideshow(props) {
 
   if (modal) {
     return (
-      <div id="image-modal">
-        <div onClick={toggleModal} className="overlay" />
-        <div id="image-modal-content">
-          <button className="image-close-modal" onClick={toggleModal} type="submit">
-            CLOSE
-          </button>
-          <SlideWrapper>
-              <img alt="" src={photos[activeIndex].url} id="modalImage" />
-              <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
-              <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
-          </SlideWrapper>
-        </div>
+      <div className="image-modal-container">
+        <section className="image-modal">
+          <header className="image-modal-header">
+            <a href="#" className="image-modal-close" onClick={toggleModal}>Close</a>
+          </header>
+          <div className="image-modal-content">
+            <img alt="" src={photos[activeIndex].url} id="current-modal-image" />
+            <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
+            <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
+          </div>
+        </section>
       </div>
     );
   }
