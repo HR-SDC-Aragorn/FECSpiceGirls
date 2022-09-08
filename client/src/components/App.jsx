@@ -6,6 +6,7 @@ import axios from 'axios';
 import Overview from './Overview/index.jsx';
 import QA from './QA/index.jsx';
 import RelatedItems from './RelatedItems/index.jsx';
+import Header from './Header/index.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,9 +40,27 @@ class App extends React.Component {
   }
 
   render() {
+    document.addEventListener('click', (e) => {
+      console.log(e.path[e.path.length - 7].id);
+      console.log(e.srcElement.localName);
+      let date = new Date();
+      date = date.toString();;
+      const clickEvent = {
+        element: e.srcElement.localName,
+        widget: e.path[e.path.length - 7].id,
+        time: date,
+      };
+      axios.post('/interactions', clickEvent)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    });
+
     return (
       <div id="app">
-        <div id="main">
+        <div id="header">
+          <Header />
+        </div>
+        <div id="overview">
           <Overview product={this.state.currentProduct} />
         </div>
         <div id="related-items">
