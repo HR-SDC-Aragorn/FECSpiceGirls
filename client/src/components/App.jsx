@@ -41,10 +41,8 @@ class App extends React.Component {
 
   render() {
     document.addEventListener('click', (e) => {
-      console.log(e.path[e.path.length - 7].id);
-      console.log(e.srcElement.localName);
       let date = new Date();
-      date = date.toString();;
+      date = date.toString();
       const clickEvent = {
         element: e.srcElement.localName,
         widget: e.path[e.path.length - 7].id,
