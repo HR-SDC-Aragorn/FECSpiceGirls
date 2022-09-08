@@ -6,10 +6,6 @@ import AnswerListEntry from './AnswerListEntry.jsx';
 const AnswerList = ({ question }) => {
   const [count, setCount] = useState(2);
 
-  // const arrayOfAnswers = Object.entries(question.answers).map((answers) =>
-  //   // eslint-disable-next-line implicit-arrow-linebreak
-  //   ({ [answers[0]]: answers[1] }));
-
   const arrayOfAnswers = Object.values(question.answers).sort((a, b) => {
     b.helpfulness - a.helpfulness
   });

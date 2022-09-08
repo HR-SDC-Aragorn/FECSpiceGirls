@@ -1,3 +1,11 @@
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable quote-props */
+/* eslint-disable react/button-has-type */
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-duplicates */
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { useState } from 'react';
@@ -8,13 +16,13 @@ const AHelpful = ({ helpfulness, answer_id }) => {
 
   const upvote = () => {
     if (!upvoted) {
-      let query = {"answer_id": answer_id};
+      const query = { 'answer_id': answer_id };
       axios.put('/answer/helpful', query)
-        .then((response) => {
+        .then(() => {
           console.log('Successfully upvoted answer!');
           setUpvoted(true);
         })
-        .catch((err) => console.log('Error upvoting answer'));
+        .catch(() => console.log('Error upvoting answer'));
     }
   };
 
@@ -23,7 +31,7 @@ const AHelpful = ({ helpfulness, answer_id }) => {
       <div>
         Helpful?
       </div>
-      <button className="yes" onClick={() => {upvote()}}>
+      <button className="yes" onClick={() => { upvote(); }}>
         Yes
       </button>
       {upvoted

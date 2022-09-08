@@ -1,3 +1,5 @@
+/* eslint-disable import/no-duplicates */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { useState } from 'react';

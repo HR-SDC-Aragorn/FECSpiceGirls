@@ -1,3 +1,8 @@
+/* eslint-disable consistent-return */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-duplicates */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/extensions */
 import React from 'react';
@@ -11,21 +16,20 @@ const QA = ({ currentProduct }) => {
   const [questions, setQuestions] = useState([]);
   const [questionCache, setQuestionCache] = useState([]);
 
-  const fetchQuestions = () => {
-    axios.get(`/qa/questions/65631/1/100`)
-      .then((response) => {
-        setProductId(response.data.product_id);
-        setQuestions(response.data.results);
-        setQuestionCache(response.data.results);
-      })
-      .catch((err) => {
-        console.log('Error getting data from QA', err);
-      });
-  };
-
   useEffect(() => {
-    fetchQuestions();
-  }, []);
+    if (currentProduct) {
+      // fetchQuestions();
+      axios.get(`/qa/questions/${currentProduct.id}/1/100`)
+        .then((response) => {
+          setProductId(response.data.product_id);
+          setQuestions(response.data.results);
+          setQuestionCache(response.data.results);
+        })
+        .catch((err) => {
+          console.log('Error getting data from QA', err);
+        });
+    }
+  }, [currentProduct]);
 
   if (currentProduct && questionCache) {
     return (
