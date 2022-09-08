@@ -8,6 +8,7 @@ function YourOutfit({ currentProduct }) {
   const [outfitId, setOutfit] = useState([]);
   const [outfitData, setData] = useState([]);
   const [outfitStyle, setStyle] = useState([]);
+  const [temp, setTemp] = useState(false);
   const [isLeft2, setLeft2] = useState(false);
   const [isRight2, setRight2] = useState(true);
   const [relatedArrows, setRelated] = useState(false);
@@ -50,13 +51,14 @@ function YourOutfit({ currentProduct }) {
   useEffect(() => {
     if (outfitId.length > 2) {
       setRelated(true);
+    } else {
+      setRelated(false);
     }
-    // if (!setOutfit.length) {
-    //   const temp = helpers.getOutfit();
-    //   setOutfit(temp);
-    // } else {
     if (outfitId.length) {
       getOutfitData();
+    } else {
+      setData([]);
+      setStyle([]);
     }
   }, [outfitId]);
 
@@ -80,16 +82,14 @@ function YourOutfit({ currentProduct }) {
   }
 
   function deleteItem(deleteId) {
-    helpers.deleteOutfit();
-    const temp = helpers.getOutfit();
-    setOutfit(temp);
+    if (outfitId.length === 1) {
+      setOutfit([]);
+    } else {
+      setOutfit(outfitId.filter((element) => (element !== deleteId)));
+    }
   }
 
   function addItem() {
-    // helpers.addOutfit(currentProduct.id);
-    // const temp = helpers.getOutfit();
-    // setOutfit(temp);
-    // console.log(outfitId);
     if (!outfitId.includes(currentProduct.id)) {
       setOutfit([currentProduct.id, ...outfitId]);
     }
@@ -97,7 +97,7 @@ function YourOutfit({ currentProduct }) {
 
   return (
     <div>
-      <h2>Your Outfit</h2>
+      <div className="outfit-title">YOUR OUTFIT</div>
       {isLeft2 && relatedArrows ? (
         <div className="left-button">
           <button type="button" className="arrow left" onClick={leftScroll2}>Left Arrow</button>
@@ -117,7 +117,7 @@ function YourOutfit({ currentProduct }) {
           ? outfitData.map((outfit, index) => (
             <OutfitCard
               outfit={outfit}
-              key={outfit.id}
+              key={outfit.name}
               styles={outfitStyle[index].results}
               deleteItem={deleteItem}
             />
