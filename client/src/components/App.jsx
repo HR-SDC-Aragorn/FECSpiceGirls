@@ -5,7 +5,7 @@ import axios from 'axios';
 // import config from '../../../config.js';
 import Overview from './Overview/index.jsx';
 import QA from './QA/index.jsx';
-import RelatedItems from './RelatedItems/index.jsx';
+import RelatedItems from './relatedItems/index.jsx';
 import Header from './Header/index.jsx';
 
 class App extends React.Component {
