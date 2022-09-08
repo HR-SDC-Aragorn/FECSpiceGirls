@@ -525,3 +525,19 @@ input[type=text], input[type=email], textarea {
   font-weight: bold;
   cursor: pointer;
 }
+
+.outfit-title{
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-family: "adobe-clean", sans-serif;
+  margin-left: 110px;
+  font-size:large;
+}
+
+.related-header {
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-family: "adobe-clean", sans-serif;
+  margin-left: 110px;
+  font-size: large;
+}
