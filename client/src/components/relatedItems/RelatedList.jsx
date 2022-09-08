@@ -9,7 +9,7 @@ function RelatedList({ relatedData, styleData, currentProduct, handleCurrent }) 
 
   useEffect(() => {
     const carousel = document.getElementById('related-carousel');
-    if (carousel.scrollWidth > carousel.clientWidth) {
+    if (carousel.scrollWidth > carousel.clientWidth || relatedData.length > 3) {
       setRelated(true);
     }
   }, [relatedData]);
@@ -38,7 +38,7 @@ function RelatedList({ relatedData, styleData, currentProduct, handleCurrent }) 
   return (
     <div>
       <div>
-        <h2>Related Products</h2>
+        <div className="related-header">RELATED PRODUCTS</div>
         {isLeft && relatedArrows ? (
           <div className="left-button">
             <button type="button" className="arrow left" onClick={leftScroll}>Left Arrow</button>
