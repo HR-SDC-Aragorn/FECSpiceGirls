@@ -208,6 +208,19 @@ app.put('/qa/answers/:answer_id/report', (req, res) => {
     .catch((err) => { res.send((err)); });
 });
 
+app.post('/interactions', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/interactions',
+    data: req.body,
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  })
+    .then(() => { res.sendStatus(201); console.log('Success!'); })
+    .catch(() => res.sendStatus(500));
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Listening at http://localhost:${process.env.PORT}`);
 });
