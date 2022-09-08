@@ -1,3 +1,8 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-duplicates */
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { useState } from 'react';

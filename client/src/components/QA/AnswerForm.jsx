@@ -1,15 +1,30 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable quote-props */
 /* eslint-disable react/button-has-type */
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-duplicates */
+/* eslint-disable react/function-component-definition */
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
+const cloud_name = 'spice';
+
 // eslint-disable-next-line react/function-component-definition
-const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) => {
+const AnswerForm = ({
+  closeForm, product_name, question,
+}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
-  const photoURLs = [];
+  const [photos, setPhotos] = useState(null);
 
   const updateEmail = (e) => {
     if (e.target.value.length <= 60) {
@@ -29,32 +44,47 @@ const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) 
     }
   };
 
-  const convertPhotos = (e) => {
-    let photos = e.target.files;
-    for (let i = 0; i < photos.length; i++) {
-      photoURLs.push(URL.createObjectURL(photos[i]));
-    }
-  };
-
   const submit = (e) => {
+    e.preventDefault();
+    const numPhotos = photos.length;
+
     const data = {
       body,
       name,
       email,
-      product_id: parseInt(product_id),
-      photos: photoURLs,
+      photos: [],
     };
 
-    axios.post(`/qa/questions/${question.question_id}/answers`, data)
-      .then((response) => { console.log('Front end posted answer, ', response); })
-      .catch((err) => {
-        console.log('Error posting answer:', err);
+    if (numPhotos === null) {
+      axios.post(`/qa/questions/${question.question_id}/answers`, data)
+        .then(() => { console.log('Posted answer! Please refresh to see your answer!'); closeForm(); })
+        .catch((err) => { console.log('Error posting answer:', err); });
+    } else {
+      const convertPhotos = [...photos];
+      // eslint-disable-next-line array-callback-return
+      convertPhotos.map((photo) => {
+        // eslint-disable-next-line no-undef
+        const formData = new FormData();
+        formData.append('file', photo);
+        formData.append('upload_preset', 'o4h67izt');
+
+        axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
+          .then((response) => {
+            data.photos.push(response.data.url);
+            if (data.photos.length === photos.length) {
+              axios.post(`/qa/questions/${question.question_id}/answers`, data)
+                .then(() => { console.log('Posted answer! Please refresh to see your answer!'); closeForm(); })
+                .catch((err) => { console.log('Error posting answer:', err); });
+            }
+          })
+          .catch((err) => { console.log('Error posting to cloudinary', err); });
       });
+    }
   };
 
   return (
     <div className="questionForm">
-      <div onClick={() => {closeForm()}} className="overlay"></div>
+      <div onClick={() => { closeForm(); }} className="overlay"></div>
       <div className="q-form-content">
         <h1 className="q-form-title">Submit Your Answer</h1>
         <h3 className="q-form-subtitle">{product_name}: {question.question_body}</h3>
@@ -111,7 +141,7 @@ const AnswerForm = ({ clicked, closeForm, product_id, product_name, question }) 
             id="submit-img"
             accept="image/*"
             multiple
-            onChange={(e) => { convertPhotos(e); }}
+            onChange={(e) => { setPhotos(e.target.files); }}
           />
           <button className="q-form-submit" onClick={(e) => { submit(e); }}>
             Submit

@@ -1,14 +1,19 @@
-/* eslint-disable import/extensions */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/button-has-type */
 /* eslint-disable arrow-body-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable quote-props */
+/* eslint-disable react/button-has-type */
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-duplicates */
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import { format, parseISO } from 'date-fns';
 import AHelpful from './AHelpful.jsx';
-import { format, parseISO } from "date-fns";
 
 const AnswerListEntry = ({ answer }) => {
   const [reported, setReported] = useState(false);
