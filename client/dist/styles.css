@@ -52,7 +52,7 @@ body {
   grid-template-rows: auto;
   column-gap: 10px;
   justify-content: center;
-  padding: 25px;
+  padding: 0px;
   margin: 20px;
   width: fit-content;
 }
@@ -89,7 +89,7 @@ body {
 
 #category {
   text-transform: uppercase;
-  padding-top: 0px;
+  padding-top: 20px;
   padding-bottom: 5px;
   margin-top: 0;
 }
@@ -208,7 +208,7 @@ body {
   margin-left: 10px;
   padding: 10px;
   font-family: 'Lato', sans-serif;
-  border: none;
+  /* border: none; */
   box-shadow: 1px 1px 3px #888888;
 }
 

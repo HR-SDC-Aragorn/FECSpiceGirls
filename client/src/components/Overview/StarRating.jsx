@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 function StarRating({ starRating }) {
   const [stars, setStars] = useState(starRating);
@@ -17,7 +17,7 @@ function StarRating({ starRating }) {
         <span id="star-5">&#9734;</span>
       </div>
     );
-  } else if (stars >= 0.5 && stars < 1.5) {
+  } if (stars >= 0.5 && stars < 1.5) {
     return (
       <div>
         <span id="star-1">&#9733;</span>
@@ -27,7 +27,7 @@ function StarRating({ starRating }) {
         <span id="star-5">&#9734;</span>
       </div>
     );
-  } else if (stars >= 1.5 && stars < 2.5) {
+  } if (stars >= 1.5 && stars < 2.5) {
     return (
       <div>
         <span id="star-1">&#9733;</span>
@@ -37,7 +37,7 @@ function StarRating({ starRating }) {
         <span id="star-5">&#9734;</span>
       </div>
     );
-  } else if (stars >= 2.5 && stars < 3.5) {
+  } if (stars >= 2.5 && stars < 3.5) {
     return (
       <div>
         <span id="star-1">&#9733;</span>
@@ -47,7 +47,7 @@ function StarRating({ starRating }) {
         <span id="star-5">&#9734;</span>
       </div>
     );
-  } else if (stars >= 3.5 && stars < 4.5) {
+  } if (stars >= 3.5 && stars < 4.5) {
     return (
       <div>
         <span id="star-1">&#9733;</span>
@@ -57,7 +57,7 @@ function StarRating({ starRating }) {
         <span id="star-5">&#9734;</span>
       </div>
     );
-  } else if (stars >= 4.5) {
+  } if (stars >= 4.5) {
     return (
       <div>
         <span id="star-1">&#9733;</span>

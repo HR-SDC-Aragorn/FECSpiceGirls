@@ -5,7 +5,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductInfo from './ProductInfo.jsx';
-import ImageGallery from './ImageGallery.jsx';
 import View from './Slideshow.jsx';
 
 function Overview({ product }) {
@@ -33,15 +32,15 @@ function Overview({ product }) {
       <div id="overview-main">
         {/* <ImageGallery selectedStylePhotos={selectedStyles.photos} /> */}
         <div>
-        <View selectedStylePhotos={selectedStyles.photos} />
+          <View selectedStylePhotos={selectedStyles.photos} />
         </div>
         <div>
-        <ProductInfo
-          product={product}
-          styles={styles}
-          selectedStyle={selectedStyles}
-          handleStyleSelect={handleStyleSelect}
-        />
+          <ProductInfo
+            product={product}
+            styles={styles}
+            selectedStyle={selectedStyles}
+            handleStyleSelect={handleStyleSelect}
+          />
         </div>
       </div>
     ) : ''
