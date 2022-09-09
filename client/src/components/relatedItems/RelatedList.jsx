@@ -30,7 +30,7 @@ function RelatedList({ relatedData, styleData, currentProduct, handleCurrent }) 
     const carousel = document.getElementById('related-carousel');
     // carousel.scrollLeft += (carousel.scrollWidth - carousel.clientWidth);
     carousel.scrollLeft += 305;
-    if (carousel.scrollLeft === (carousel.scrollWidth - carousel.clientWidth)) {
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
       setRight(false);
     }
   }
@@ -53,7 +53,7 @@ function RelatedList({ relatedData, styleData, currentProduct, handleCurrent }) 
           {relatedData.map((product, index) => (
             <RelatedItemCard
               product={product}
-              key={product.id}
+              // key={product.category}
               style={styleData[index].results}
               currentProduct={currentProduct}
               handleCurrent={handleCurrent}
