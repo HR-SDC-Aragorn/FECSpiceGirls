@@ -6,8 +6,8 @@ function Price(props) {
       {props.originalPrice && props.salePrice
         ? (
           <>
-            <div id="sale-price">{`$${props.salePrice}`}</div>
             <div id="original-price">{`$${props.originalPrice}`}</div>
+            <div id="sale-price">{`$${props.salePrice}`}</div>
           </>
         )
         : <div id="no-sale-price">{`$${props.originalPrice}`}</div>}
