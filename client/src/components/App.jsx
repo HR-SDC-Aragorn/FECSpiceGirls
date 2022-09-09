@@ -48,9 +48,6 @@ class App extends React.Component {
         widget: e.path[e.path.length - 7].id,
         time: date,
       };
-      console.log('element', clickEvent.element);
-      console.log('widget', clickEvent.widget);
-      console.log('time', clickEvent.time);
       axios.post('/interactions', clickEvent)
         .catch((err) => console.log(err));
     });
