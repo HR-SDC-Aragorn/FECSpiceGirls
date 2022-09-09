@@ -60,6 +60,31 @@ function SelectionForm({
       );
     }
 
+    if (!selectedSize) {
+      return (
+        <div className="selection-form">
+          <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
+            <option value="">Select Size</option>
+            {stock.map((sizes) => (
+              <Sizes
+                key={sizes[1].quantity}
+                size={sizes[1].size}
+                sku={sizes[0]}
+                handleSizeSelect={handleSizeSelect}
+              />
+            ))}
+          </select>
+          <select name="quantity" id="quantity">
+            <option>      -     </option>
+            {quantityOptions.map((quantity) => (
+              <Quantities quantity={quantity} />
+            ))}
+          </select>
+          <br />
+          <button disabled type="submit" id="submit">Add to cart</button>
+        </div>
+      );
+    }
     return (
       <div className="selection-form">
         <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
@@ -74,12 +99,9 @@ function SelectionForm({
           ))}
         </select>
         <select name="quantity" id="quantity" onChange={(e) => handleQuantitySelect(e.target.value)}>
-          { !selectedSize && <option>      -     </option> }
-          {
-            quantityOptions.map((quantity) => (
-              <Quantities quantity={quantity} />
-            ))
-         }
+          {quantityOptions.map((quantity) => (
+            <Quantities quantity={quantity} />
+          ))}
         </select>
         <br />
         <button id="submit" type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
