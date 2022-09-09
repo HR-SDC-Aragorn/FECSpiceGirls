@@ -74,7 +74,7 @@ function RelatedItemCard({ product, style, handleCurrent, currentProduct }) {
             <div>
               {product.category}
             </div>
-            <div>
+            <div className="product-name">
               {product.name}
             </div>
             <div>

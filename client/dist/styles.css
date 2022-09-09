@@ -444,6 +444,7 @@ input[type=text], input[type=email], textarea {
   width: 280px;
   height: 400px;
   z-index: 1;
+  box-shadow: #f08080 -5px 5px, #f4978e -10px 10px, #f8ad9d -15px 15px, #fbc4ab -20px 20px, #ffdab9 -25px 25px;
 }
 
 .related-image {
@@ -501,13 +502,13 @@ input[type=text], input[type=email], textarea {
 .left-button {
   position: absolute;
   padding-left: 70px;
-  margin-top: 175px;
+  margin-top: 190px;
 }
 
 .right-button {
   position: absolute;
-  padding-left: 1150px;
-  margin-top: 175px;
+  padding-left: 1180px;
+  margin-top: 190px;
 }
 
 .sale-price {
@@ -543,14 +544,14 @@ input[type=text], input[type=email], textarea {
   height: 35px;
   width: 35px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 900;
   cursor: pointer;
 }
 
 .modal {
   position: fixed;
-  top: 130px;
-  left: 300px;
+  top: 175px;
+  left: 400px;
   background-color: white;
   width: 400px;
   height: 400px;
@@ -559,12 +560,14 @@ input[type=text], input[type=email], textarea {
   justify-content: flex-start;
   align-items: flex-start;
   overflow: auto;
-  border: solid 1px black;
+  border: none;
   z-index: 15;
 }
 
+
 .modal-title {
-  padding-left: 10px;
+  padding-left: 145px;
+  /* padding-left: 15px; */
 }
 
 .x-close {
@@ -580,13 +583,12 @@ input[type=text], input[type=email], textarea {
   height: 35px;
   width: 35px;
   font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
 }
 
 .modal-table {
   border-collapse: separate;
-  border-spacing: 2em;
+  border-spacing: 1.5em;
   text-align: center;
   width: 100%
 }
@@ -613,7 +615,6 @@ input[type=text], input[type=email], textarea {
 .outfit-title{
   margin-top: 30px;
   margin-bottom: 12px;
-  font-family: "adobe-clean", sans-serif;
   margin-left: 110px;
   font-size:large;
 }
@@ -621,7 +622,11 @@ input[type=text], input[type=email], textarea {
 .related-header {
   margin-top: 30px;
   margin-bottom: 12px;
-  font-family: "adobe-clean", sans-serif;
   margin-left: 110px;
   font-size:large;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: bold;
 }
