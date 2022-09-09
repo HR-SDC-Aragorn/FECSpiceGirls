@@ -31,9 +31,9 @@ const AHelpful = ({ helpfulness, answer_id }) => {
       <div>
         Helpful?
       </div>
-      <button className="yes" onClick={() => { upvote(); }}>
+      <div className="yes" onClick={() => { upvote(); }}>
         Yes
-      </button>
+      </div>
       {upvoted
         ? <div>&#40;{helpfulness + 1}&#41;</div>
         : <div>&#40;{helpfulness}&#41;</div>

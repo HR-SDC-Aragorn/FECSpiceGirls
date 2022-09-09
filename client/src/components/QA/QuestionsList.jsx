@@ -16,6 +16,7 @@ const QuestionsList = ({  currentProduct, productId, questions }) => {
       <div id="qaContainer">
         {rankedQuestions?.slice(0, count).map((question) =>
           <div>
+            <hr id="question-break"/>
             <div>
               <QuestionsListEntry
                 key={question.question_id}
@@ -25,10 +26,10 @@ const QuestionsList = ({  currentProduct, productId, questions }) => {
               />
               <AnswerList question={question}/>
             </div>
-            <hr id="question-break"/>
           </div>
         )}
       </div>
+      <hr id="question-break"/>
       <div id="qListButtons">
         {rankedQuestions?.length > 2 ?
           <button className="moreQs" type="button" onClick={() => setCount(count + 2)}>

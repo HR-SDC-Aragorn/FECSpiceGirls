@@ -15,12 +15,13 @@ const QuestionsList = ({ product_name, product_id }) => {
   return (
     <div id="question-form-container">
       <button className="addQ" type="button" onClick={() => { setIsClicked(true); }}>
-        ADD A QUESTION
-        <img
-          src="https://petersanders.com/wp-content/uploads/2021/04/free-png-plus-sign-transparent-plus-signpng-images-pluspng-plus-sign-transparent-background-512_512.png"
-          alt="Add"
-        />
+        <div id="addQ-content">
+          <div> ADD A QUESTION </div>
+          <div id="plus"> + </div>
+        </div>
       </button>
+      <div>
+      </div>
       {isClicked
         ? (
           <QuestionForm
