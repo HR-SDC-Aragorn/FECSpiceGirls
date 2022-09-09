@@ -64,7 +64,7 @@ function SelectionForm({
       return (
         <div className="selection-form">
           <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
-            <option value="">Select Size</option>
+            <option value="">SELECT SIZE</option>
             {stock.map((sizes) => (
               <Sizes
                 key={sizes[1].quantity}
@@ -81,14 +81,14 @@ function SelectionForm({
             ))}
           </select>
           <br />
-          <button disabled type="submit" id="submit">Add to cart</button>
+          <button disabled type="submit" id="submit">ADD TO CART</button>
         </div>
       );
     }
     return (
       <div className="selection-form">
         <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
-          <option value="">Select Size</option>
+          <option value="">SELECT SIZE</option>
           {stock.map((sizes) => (
             <Sizes
               key={sizes[1].quantity}
@@ -104,7 +104,7 @@ function SelectionForm({
           ))}
         </select>
         <br />
-        <button id="submit" type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
+        <button id="submit" type="submit" onClick={(e) => addToCart(e)}>ADD TO CART</button>
       </div>
     );
   }
