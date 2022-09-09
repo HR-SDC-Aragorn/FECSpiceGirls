@@ -30,15 +30,19 @@ function Overview({ product }) {
 
   return (
     (product && styles && selectedStyles) ? (
-      <div id="overview">
+      <div id="overview-main">
         {/* <ImageGallery selectedStylePhotos={selectedStyles.photos} /> */}
+        <div>
         <View selectedStylePhotos={selectedStyles.photos} />
+        </div>
+        <div>
         <ProductInfo
           product={product}
           styles={styles}
           selectedStyle={selectedStyles}
           handleStyleSelect={handleStyleSelect}
         />
+        </div>
       </div>
     ) : ''
   );

@@ -7,11 +7,19 @@ body {
   gap: 10px;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  position: relative;
 }
 
+
 #website-header-light {
-  background: linear-gradient(135deg, #7ec580, #dff9e4);
+  background: linear-gradient(135deg, #fbc4ab, #f08080, #fbc4ab);
   margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 #website-header-dark {
@@ -27,7 +35,7 @@ body {
 
 #website-name {
   /* font-family:'Courier New', Courier, monospace; */
-  font-family: 'Lato', sans-serif;
+  font-family: 'Josefin Slab', serif;
   margin: 10px;
   margin-bottom: 5px;
   padding-left: 20px;
@@ -38,18 +46,21 @@ body {
   top: 10px;
   right: 10px;
 }
-#overview {
-  display: grid;
+#overview-main {
+  display: flex;
   grid-template-columns: 1fr 1fr;;
   grid-template-rows: auto;
   column-gap: 10px;
-  justify-items: start;
+  justify-content: center;
+  padding: 25px;
+  margin: 20px;
+  width: fit-content;
 }
 
 /* cart icon */
 #cart-amount {
   position: absolute;
-  top: 110px;  /* always 10px lower than the cart */
+  top: 60px;  /* always 10px lower than the cart */
   right: 12px;
   border: black;
   border-width: 1px;
@@ -62,7 +73,7 @@ body {
   height: 25px;
   width: 30px;
   position: absolute;
-  top: 125px;
+  top: 75px;
   right: 20px;
   opacity: 75%;
 }
@@ -78,8 +89,9 @@ body {
 
 #category {
   text-transform: uppercase;
-  padding-top: 15px;
+  padding-top: 0px;
   padding-bottom: 5px;
+  margin-top: 0;
 }
 
 #name {
@@ -97,6 +109,7 @@ body {
 
 #style-name {
   margin-bottom: 0px;
+  font-family: 'Lato', sans-serif;
 }
 
 
@@ -147,7 +160,7 @@ body {
 }
 
 #style-thumbnail:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 2px 1px #f4978e;
   cursor:pointer;
 }
 
@@ -157,6 +170,7 @@ body {
   padding: 5px;
   width: 75px;
   height: 75px;
+  box-shadow: 1px 1px 3px #888888;
 }
 
 
@@ -178,17 +192,24 @@ body {
   padding: 10px;
   margin: 10px;
   width: 200px;
+  box-shadow: 1px 1px 3px #888888;
+  outline: none;
 }
 
 #quantity{
   padding: 10px;
   margin: 10px;
   width: 100px;
+  box-shadow: 1px 1px 3px #888888;
+  outline: none;
 }
 
 #submit {
   margin-left: 10px;
-  padding: 5px;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  box-shadow: 1px 1px 3px #888888;
 }
 
 
