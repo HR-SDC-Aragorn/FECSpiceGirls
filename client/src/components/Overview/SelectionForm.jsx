@@ -4,7 +4,9 @@ import axios from 'axios';
 import Sizes from './Sizes.jsx';
 import Quantities from './Quantities.jsx';
 
-function SelectionForm({ stock, product, selectedStyle, updateCart }) {
+function SelectionForm({
+  stock, product, selectedStyle, updateCart,
+}) {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantityOptions, setQuantityOptions] = useState([]);
   const [selectedQuantity, setSelectedQuantity] = useState([]);
@@ -28,6 +30,7 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
         }
         const max15 = quantities.slice(0, 15);
         setQuantityOptions(max15);
+        setSelectedQuantity(1);
       }
     }
   };
@@ -56,11 +59,12 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
         </div>
       );
     }
+
     if (!selectedSize) {
       return (
         <div className="selection-form">
           <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
-            <option value="">Select Size</option>
+            <option value="">SELECT SIZE</option>
             {stock.map((sizes) => (
               <Sizes
                 key={sizes[1].quantity}
@@ -77,14 +81,14 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
             ))}
           </select>
           <br />
-          <button disabled type="submit" id="submit" >Add to cart</button>
+          <button disabled type="submit" id="submit">ADD TO CART</button>
         </div>
       );
     }
     return (
       <div className="selection-form">
         <select name="size" id="size" onChange={(e) => handleSizeSelect(e.target.value)}>
-          <option value="">Select Size</option>
+          <option value="">SELECT SIZE</option>
           {stock.map((sizes) => (
             <Sizes
               key={sizes[1].quantity}
@@ -100,7 +104,7 @@ function SelectionForm({ stock, product, selectedStyle, updateCart }) {
           ))}
         </select>
         <br />
-        <button id="submit" type="submit" onClick={(e) => addToCart(e)}>Add to cart</button>
+        <button id="submit" type="submit" onClick={(e) => addToCart(e)}>ADD TO CART</button>
       </div>
     );
   }
