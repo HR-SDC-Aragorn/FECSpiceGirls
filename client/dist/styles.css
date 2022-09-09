@@ -145,7 +145,7 @@ body {
 }
 
 #current-modal-image {
-  position: relative;
+  /* position: relative; */
   height: auto;
   width: auto;
 }
