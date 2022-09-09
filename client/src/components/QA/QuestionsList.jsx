@@ -16,13 +16,16 @@ const QuestionsList = ({  currentProduct, productId, questions }) => {
       <div id="qaContainer">
         {rankedQuestions?.slice(0, count).map((question) =>
           <div>
-            <QuestionsListEntry
-              key={question.question_id}
-              question={question}
-              product_name={currentProduct.name}
-              product_id={productId}
-            />
-            <AnswerList question={question}/>
+            <div>
+              <QuestionsListEntry
+                key={question.question_id}
+                question={question}
+                product_name={currentProduct.name}
+                product_id={productId}
+              />
+              <AnswerList question={question}/>
+            </div>
+            <hr id="question-break"/>
           </div>
         )}
       </div>
