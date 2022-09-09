@@ -35,7 +35,7 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
     };
 
     axios.post('/qa/questions', data)
-      .then((response) => { console.log(response); })
+      .then((response) => { console.log(response); closeForm(); })
       .catch((err) => {
         console.log('Error posting question:', err);
       });
@@ -47,7 +47,7 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
       <div className="q-form-content">
         <h1 className="q-form-title">Ask Your Question</h1>
         <h3 className="q-form-subtitle">About the {product_name}</h3>
-        <hr />
+        <hr id="question-break" />
         <form className="q-form">
           <button className="cancel" onClick={() => { closeForm(); }}>X</button>
           <label>
@@ -62,7 +62,6 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
               placeholder="Example: jackson11!"
               onChange={updateName}
             />
-            <br/>
             <small className="name-message">
               For privacy reasons, do not use your full name or email address
             </small>
@@ -80,12 +79,15 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
               placeholder="Why did you like the product or not?”"
               onChange={updateEmail}
             />
-            <br/>
             <small className="name-message">
               For authentication reasons, you will not be emailed
             </small>
           </label>
-          <br/>
+          <br />
+          <div className="required">
+            <div>Question</div>
+            <div className="ast">*</div>
+          </div>
           <textarea
             id="q-form-textarea"
             value={body}
@@ -94,7 +96,7 @@ const QuestionForm = ( {clicked, closeForm, product_name, product_id} ) => {
             placeholder="What is your question?"
             onChange={updateQuestion}
           />
-          <br/>
+          <br />
           <button className="q-form-submit"  onClick={(e) => submit(e)}>
             Submit
           </button>

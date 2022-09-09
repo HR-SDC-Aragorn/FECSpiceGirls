@@ -40,20 +40,17 @@ class App extends React.Component {
   }
 
   render() {
-    document.addEventListener('click', (e) => {
-      let date = new Date();
-      date = date.toString();
-      const clickEvent = {
-        element: e.srcElement.localName,
-        widget: e.path[e.path.length - 7].id,
-        time: date,
-      };
-      console.log('element', clickEvent.element);
-      console.log('widget', clickEvent.widget);
-      console.log('time', clickEvent.time);
-      axios.post('/interactions', clickEvent)
-        .catch((err) => console.log(err));
-    });
+    // document.addEventListener('click', (e) => {
+    //   let date = new Date();
+    //   date = date.toString();
+    //   const clickEvent = {
+    //     element: e.srcElement.localName,
+    //     widget: e.path[e.path.length - 7].id,
+    //     time: date,
+    //   };
+    //   axios.post('/interactions', clickEvent)
+    //     .catch((err) => console.log(err));
+    // });
 
     return (
       <div id="app">
