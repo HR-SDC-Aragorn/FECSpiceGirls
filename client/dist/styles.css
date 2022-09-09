@@ -110,9 +110,12 @@ body {
 #style-name {
   margin-bottom: 0px;
   font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
 }
 
-
+.filled-star {
+  color: #f08080;
+}
 /* image gallery modal */
 
 .image-modal-container {
