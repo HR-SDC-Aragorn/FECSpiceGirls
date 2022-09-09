@@ -8,20 +8,6 @@ function RelatedItemCard({ product, style, handleCurrent, currentProduct }) {
   const [avgRating, setRating] = useState(0);
   const [popup, setPopup] = useState(false);
 
-  // const getRatings = async () => {
-  //   const ratings = await axios.get('/reviews', { params: { product_id: product.id } });
-  //   const numRatings = Object.values(ratings.data.ratings);
-  //   const typeRatings = Object.keys(ratings.data.ratings);
-  //   let sum = 0;
-  //   let numCount = 0;
-  //   for (let i = 0; i < numRatings.length; ++i) {
-  //     sum += (numRatings[i] * typeRatings[i]);
-  //     numCount += parseInt(numRatings[i], 10);
-  //   }
-  //   const avg = (Math.round((sum / numCount) * 4) / 4).toFixed(2);
-  //   setRating(avg);
-  // };
-
   useEffect(() => {
     if (product && style) {
       for (let i = 0; i < style.length; ++i) {
@@ -74,7 +60,7 @@ function RelatedItemCard({ product, style, handleCurrent, currentProduct }) {
             <div>
               {product.category}
             </div>
-            <div>
+            <div className="product-name">
               {product.name}
             </div>
             <div>

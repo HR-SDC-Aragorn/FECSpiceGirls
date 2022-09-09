@@ -53,7 +53,7 @@ function OutfitCard({ outfit, styles, deleteItem}) {
       { outfit && styles && avgRating ? (
         <div className="each-list">
           <div className="x-remove">
-            <button type="button" className="delete-item" onClick={deleteOutfit}> x </button>
+            <button type="button" className="delete-item" onClick={deleteOutfit}>x</button>
           </div>
           <div className="related-image">
             {styles[0].photos[0].url
@@ -64,7 +64,7 @@ function OutfitCard({ outfit, styles, deleteItem}) {
             <div>
               {outfit.category}
             </div>
-            <div>
+            <div className="product-name">
               {outfit.name}
             </div>
             <div>
