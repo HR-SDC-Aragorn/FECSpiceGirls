@@ -26,17 +26,17 @@ const AnswerList = ({ question }) => {
 
   return (
     <div id="answer-container">
-      <div id="A">
+      {/* <div id="A">
         A:
-      </div>
+      </div> */}
       {arrayOfAnswers?.slice(0, count).map((answer) => {
         return <AnswerListEntry answer={answer} />
       })}
       {arrayOfAnswers.length > 2 ?
         <div>
-          <button id="more-answers" type="button" onClick={(e) => accordian(e)}>
+          <div id="more-answers" type="button" onClick={(e) => accordian(e)}>
             LOAD MORE ANSWERS
-          </button>
+          </div>
         </div>
       :null
       }

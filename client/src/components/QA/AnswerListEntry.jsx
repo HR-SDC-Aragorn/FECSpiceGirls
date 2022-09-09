@@ -25,32 +25,38 @@ const AnswerListEntry = ({ answer }) => {
   };
 
   return (
-    <div>
-      <div className="answer-body">
-        <div>
-          {answer.body}
+    <div id="answer-container">
+      <div id="answer-entry">
+        <div className="answer-body">
+          <div id="A">
+            A:
+          </div>
+          <div>
+            {answer.body}
+          </div>
+        </div>
+        <div className="answer-pics">
+          {answer.photos.map((url) => {
+            return <img id={url} src={url} alt="error" />;
+          })}
+        </div>
+        <div className="answer-data">
+          <div id="answer-username">
+            by {answer.answerer_name}, {format(parseISO(answer.date), 'MM/dd/yyyy')}
+          </div>
+          <div className="bar">|</div>
+          <AHelpful
+            helpfulness={answer.helpfulness}
+            answer_id={answer.id}
+          />
+          <div className="bar">|</div>
+          {reported
+            ? <div>Reported</div>
+            : <button className="report-answer" onClick={() => { report(); }}>Report</button>
+          }
         </div>
       </div>
-      <div className="answer-pics">
-        {answer.photos.map((url) => {
-          return <img id={url} src={url} alt="error" />;
-        })}
-      </div>
-      <div className="answer-data">
-        <div id="answer-username">
-          by {answer.answerer_name}, {format(parseISO(answer.date), 'MM/dd/yyyy')}
-        </div>
-        <div className="bar">|</div>
-        <AHelpful
-          helpfulness={answer.helpfulness}
-          answer_id={answer.id}
-        />
-        <div className="bar">|</div>
-        {reported
-          ? <div>Reported</div>
-          : <button className="report-answer" onClick={() => { report(); }}>Report</button>
-        }
-      </div>
+      <div id="answer-padding"> A</div>
     </div>
   );
 };
