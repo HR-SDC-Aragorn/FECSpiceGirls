@@ -29,25 +29,6 @@ function YourOutfit({ currentProduct }) {
     setStyle(tempOutStyle);
   };
 
-  // const getOutfitData = async () => {
-  //   const tempData = [];
-  //   const tempStyle = [];
-  //   await Promise.all(outfitId.map((element) => {
-  //     axios.get('/productid', { params: { id: element } })
-  //       .then((res) => {
-  //         tempData.push(res.data);
-  //       });
-  //   }));
-  //   await Promise.all(outfitId.map((element) => {
-  //     axios.get('styles', { params: { id: element } })
-  //       .then((response) => {
-  //         tempStyle.push(response.data);
-  //       });
-  //   }));
-  //   setData(tempData);
-  //   setStyle(tempStyle);
-  // };
-
   useEffect(() => {
     if (outfitId.length > 2) {
       setRelated(true);
@@ -76,7 +57,7 @@ function YourOutfit({ currentProduct }) {
     setLeft2(true);
     const carousel = document.getElementById('outfits');
     carousel.scrollLeft += 305;
-    if (carousel.scrollLeft === (carousel.scrollWidth - carousel.clientWidth)) {
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
       setRight2(false);
     }
   }
@@ -117,7 +98,7 @@ function YourOutfit({ currentProduct }) {
           ? outfitData.map((outfit, index) => (
             <OutfitCard
               outfit={outfit}
-              key={outfit.name}
+              // key={outfit.name}
               styles={outfitStyle[index].results}
               deleteItem={deleteItem}
             />

@@ -45,7 +45,7 @@ function ComparisonModal({ currentProduct, relatedProduct, closeModal }) {
         <h3>Comparing</h3>
       </div>
       <div className="x-close">
-        <button type="button" className="x-button" onClick={closeModal}> x </button>
+        <button type="button" className="x-button" onClick={closeModal}>x</button>
       </div>
       <table className="modal-table">
         <tr>

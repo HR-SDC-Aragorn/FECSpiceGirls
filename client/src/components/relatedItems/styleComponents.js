@@ -6,12 +6,12 @@ const ListCarousel = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px 10px;
-  overflow: auto;
+  padding: 20px 20px;
+  overflow: hidden;
   margin: 0 100px;
   width: 1000px;
   z-index: 0;
-  gap: 40px;
+  gap: 50px;
 `;
 
 export default ListCarousel;
