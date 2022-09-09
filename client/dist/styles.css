@@ -616,14 +616,16 @@ input[type=text], input[type=email], textarea {
   margin-top: 30px;
   margin-bottom: 12px;
   margin-left: 110px;
-  font-size:large;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .related-header {
   margin-top: 30px;
   margin-bottom: 12px;
   margin-left: 110px;
-  font-size:large;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .product-name {
