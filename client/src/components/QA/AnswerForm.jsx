@@ -46,7 +46,6 @@ const AnswerForm = ({
 
   const submit = (e) => {
     e.preventDefault();
-    const numPhotos = photos.length;
 
     const data = {
       body,
@@ -55,11 +54,13 @@ const AnswerForm = ({
       photos: [],
     };
 
-    if (numPhotos === null) {
+    if (photos === null) {
+      console.log('Posting without pictures');
       axios.post(`/qa/questions/${question.question_id}/answers`, data)
         .then(() => { console.log('Posted answer! Please refresh to see your answer!'); closeForm(); })
         .catch((err) => { console.log('Error posting answer:', err); });
     } else {
+      const numPhotos = photos.length;
       const convertPhotos = [...photos];
       // eslint-disable-next-line array-callback-return
       convertPhotos.map((photo) => {
@@ -71,7 +72,7 @@ const AnswerForm = ({
         axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
           .then((response) => {
             data.photos.push(response.data.url);
-            if (data.photos.length === photos.length) {
+            if (data.photos.length === numPhotos) {
               axios.post(`/qa/questions/${question.question_id}/answers`, data)
                 .then(() => { console.log('Posted answer! Please refresh to see your answer!'); closeForm(); })
                 .catch((err) => { console.log('Error posting answer:', err); });
@@ -88,7 +89,7 @@ const AnswerForm = ({
       <div className="q-form-content">
         <h1 className="q-form-title">Submit Your Answer</h1>
         <h3 className="q-form-subtitle">{product_name}: {question.question_body}</h3>
-        <hr />
+        <hr id="question-break" />
         <form className="q-form">
           <button className="cancel" onClick={() => { closeForm(); }}>X</button>
           <label>
@@ -127,6 +128,10 @@ const AnswerForm = ({
             </small>
           </label>
           <br />
+          <div className="required">
+            <div>Answer</div>
+            <div className="ast">*</div>
+          </div>
           <textarea
             id="q-form-textarea"
             value={body}
@@ -138,7 +143,7 @@ const AnswerForm = ({
           <br />
           <input
             type="file"
-            id="submit-img"
+            className="submit-img"
             accept="image/*"
             multiple
             onChange={(e) => { setPhotos(e.target.files); }}

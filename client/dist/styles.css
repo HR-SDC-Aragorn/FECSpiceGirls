@@ -403,6 +403,14 @@ body {
   position: fixed;
 }
 
+.q-form-submit, .submit-img {
+  cursor: pointer;
+}
+
+.name-message {
+  color: #f08080;
+}
+
 .overlay:hover {
   cursor: zoom-out;
   background: rgba(49,49,49,0.8);
@@ -419,7 +427,7 @@ body {
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: white;
-  padding: 14px 28px;
+  padding: 14px 28px 30px 28px;
   border-radius: 3px;
   max-width: 1000px;
   max-height: 500px;
@@ -434,6 +442,12 @@ body {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+  background-color: #f8ad9d;
+}
+
+.cancel:hover {
+  cursor: pointer;
+  background-color: #f08080;
 }
 
 input[type=text], input[type=email], textarea {
