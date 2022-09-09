@@ -19,9 +19,10 @@ function View(props) {
 
 const ImageBox = styled.div`
   position: relative;
-  background: rgb(245, 235, 214);
+  background: #ffdab9;
   width: 100%;
   height: 75%;
+  box-shadow: 5px 10px 18px #888888;
 
   img {
     position: absolute;
@@ -32,6 +33,8 @@ const ImageBox = styled.div`
     left: 0;
     max-width: 100%;
     max-height: 100%;
+    box-shadow: 5px 10px 18px #888888;
+
   }
 `;
 
@@ -39,8 +42,9 @@ const NavButton = styled.button`
   cursor: pointer;
   position: absolute;
   top: 45%;
-  padding: 5px;
-  border-radius: 30%;
+  background-color: #ffdab9;
+  outline: none;
+  border: transparent;
   font-size: 20px;
 
 
@@ -97,8 +101,8 @@ function Slideshow(props) {
           </header>
           <div className="image-modal-content">
             <img alt="" src={photos[activeIndex].url} id="current-modal-image" />
-            <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
-            <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
+            <NavButton position="left" onClick={moveTo(activeIndex - 1)}>&#9668;</NavButton>
+            <NavButton position="right" onClick={moveTo(activeIndex + 1)}>&#9658;</NavButton>
           </div>
         </section>
       </div>
@@ -109,8 +113,8 @@ function Slideshow(props) {
     <SlideWrapper>
       <ImageBox>
         <img alt="" src={photos[activeIndex].url} id="current-image" onClick={toggleModal} />
-        <NavButton position="left" onClick={moveTo(activeIndex - 1)}>{'<'}</NavButton>
-        <NavButton position="right" onClick={moveTo(activeIndex + 1)}>{'>'}</NavButton>
+        <NavButton position="left" onClick={moveTo(activeIndex - 1)}>&#9668;</NavButton>
+        <NavButton position="right" onClick={moveTo(activeIndex + 1)}>&#9658;</NavButton>
       </ImageBox>
       <ThumbnailList>
         {photos.map((item, index) => (
@@ -130,6 +134,7 @@ const ThumbnailList = styled.div`
   align-items: stretch;
   width: 100%;
   height: 15%;
+  box-shadow: 5px 10px 18px #888888;
 `;
 
 const Thumbnail = styled.div`
@@ -138,6 +143,8 @@ const Thumbnail = styled.div`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
+
+
   flex-grow: 1;
 
   :hover {
@@ -151,6 +158,7 @@ const SlideWrapper = styled.div`
   height: 900px;
   margin-left: 50px;
   margin-right: 20px;
+
 `;
 
 export default View;

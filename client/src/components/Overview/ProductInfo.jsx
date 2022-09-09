@@ -41,7 +41,6 @@ function ProductInfo({
       .catch((err) => console.log(err));
   }, [cartNumber]);
 
-
   const starAverage = (starData) => {
     const ratingData = Object.entries(starData.ratings);
     console.log(ratingData);
