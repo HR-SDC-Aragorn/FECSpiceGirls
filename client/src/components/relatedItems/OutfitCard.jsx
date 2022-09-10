@@ -6,20 +6,6 @@ function OutfitCard({ outfit, styles, deleteItem}) {
   const [defaultItems, setDefault] = useState({ original_price: outfit.default_price });
   const [avgRating, setRating] = useState(0);
 
-  // const getRatings = async () => {
-  //   const ratings = await axios.get('/reviews', { params: { product_id: outfit.id } });
-  //   const numRatings = Object.values(ratings.data.ratings);
-  //   const typeRatings = Object.keys(ratings.data.ratings);
-  //   let sum = 0;
-  //   let numCount = 0;
-  //   for (let i = 0; i < numRatings.length; ++i) {
-  //     sum += (numRatings[i] * typeRatings[i]);
-  //     numCount += parseInt(numRatings[i], 10);
-  //   }
-  //   const avg = (Math.round((sum / numCount) * 4) / 4).toFixed(2);
-  //   setRating(avg);
-  // };
-
   useEffect(() => {
     if (outfit && styles) {
       for (let i = 0; i < styles.length; ++i) {

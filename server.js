@@ -101,7 +101,7 @@ app.post('/cart', (req, res) => {
       Authorization: `${process.env.API_KEY}`,
     },
   })
-    .then(() => { res.sendStatus(201); console.log('Success!'); })
+    .then(() => { res.sendStatus(201); })
     .catch(() => res.sendStatus(500));
 });
 
