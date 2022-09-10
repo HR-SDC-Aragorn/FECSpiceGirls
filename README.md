@@ -9,7 +9,7 @@ The Front-End Capstone Project is an e-commerce site built as a group during the
 Component Details
 -----------------
 # Main Product Overview #
-![GIF expired] (http://g.recordit.co/6jwOknX8cf.gif)
+![GIF expired](http://g.recordit.co/6jwOknX8cf.gif)
 
 The main product overview displays the details of the selected product including:
   * An interactive gallery of product images
