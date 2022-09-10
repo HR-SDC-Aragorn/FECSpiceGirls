@@ -91,9 +91,6 @@ function Slideshow(props) {
   const toggleModal = () => {
     setModal(!modal);
   };
-  const zoomImage = () => {
-
-  }
 
   if (modal) {
     return (
