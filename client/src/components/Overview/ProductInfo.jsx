@@ -51,6 +51,13 @@ function ProductInfo({
   right: 20px;
   opacity: 75%;
   `;
+
+  const StyleName = styled.h5`
+  margin-bottom: 0px;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  `;
+
   const [styleLoaded, setStyleLoaded] = useState(false);
   const [stock, setStock] = useState('');
   const [cartNumber, setCartNumber] = useState('');
@@ -140,7 +147,7 @@ function ProductInfo({
             originalPrice={selectedStyle.original_price}
             salePrice={selectedStyle.sale_price}
           />
-          <h5 id="style-name">{`STYLE     >     ${selectedStyle.name}`}</h5>
+          <StyleName>{`STYLE     >     ${selectedStyle.name}`}</StyleName>
           <div id="style-thumbnails">
             {styleLoaded ? (styles.map((style) => (
               <Styles
