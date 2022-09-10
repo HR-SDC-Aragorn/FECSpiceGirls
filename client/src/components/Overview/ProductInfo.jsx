@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled, { css } from 'styled-components';
 import Styles from './Styles.jsx';
 import SelectionForm from './SelectionForm.jsx';
 import Price from './Price.jsx';
@@ -12,6 +13,44 @@ import StarRating from './StarRating.jsx';
 function ProductInfo({
   styles, selectedStyle, handleStyleSelect, product,
 }) {
+  const Category = styled.h5`
+    text-transform: uppercase;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin-top: 0;
+  `;
+  const ProductName = styled.h1`
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  `;
+
+  const OverviewDetails = styled.div`
+  border-top: dotted;
+  border-bottom: dotted;
+  border-color: black;
+  margin-top: 30px;
+  `;
+
+  const CartAmount = styled.div`
+  position: absolute;
+  top: 70px;  /* always 10px lower than the cart */
+  right: 12px;
+  border: black;
+  border-width: 1px;
+  border-radius: 100%;
+  padding: 2px;
+  opacity: 75%;
+  `;
+
+  const Cart = styled.img`
+  height: 25px;
+  width: 30px;
+  position: absolute;
+  top: 85px;
+  right: 20px;
+  opacity: 75%;
+  `;
   const [styleLoaded, setStyleLoaded] = useState(false);
   const [stock, setStock] = useState('');
   const [cartNumber, setCartNumber] = useState('');
@@ -77,18 +116,18 @@ function ProductInfo({
     styleLoaded ? (
       <div>
         <div id="cart-feature">
-          <img id="cart" src="https://img.icons8.com/windows/2x/shopping-cart.png" alt="cart" />
-          <div id="cart-amount">{cartNumber}</div>
+          <Cart src="https://img.icons8.com/windows/2x/shopping-cart.png" alt="cart" />
+          <CartAmount>{cartNumber}</CartAmount>
         </div>
         <div id="product-info" className="info-panel">
-          <h5 id="category">
+          <Category>
             PRODUCTS  /
             {' '}
             {product.category}
             {' '}
             /
-          </h5>
-          <h1 id="name">{product.name}</h1>
+          </Category>
+          <ProductName>{product.name}</ProductName>
           <div className="star-rating">
             <div id="stars">
               {/* average stars: */}
@@ -119,10 +158,10 @@ function ProductInfo({
               updateCart={updateCart}
             />
           </form>
-          <div id="overview-details">
+          <OverviewDetails>
             <h5>PRODUCT DETAILS</h5>
             <p>{product.description}</p>
-          </div>
+          </OverviewDetails>
         </div>
       </div>
     ) : ''
