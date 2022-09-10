@@ -18,7 +18,7 @@ The main product overview displays the details of the selected product including
   * Select desired style, size, and quantity and add to cart based on product stock availability
 
 # Related Products and Your Outfit #
-![GIF expired] (http://g.recordit.co/us0TwF74QX.gif)
+![GIF expired](http://g.recordit.co/us0TwF74QX.gif)
 
 The Related Products displays product cards of items related to the current product that may be of interest to the user. This component includes:
   * Scrollable list of product cards
