@@ -30,7 +30,7 @@ Your Outfit allows for users to track and manage individual products that are of
   * A delete button on each outfit card that removes the product from the list
 
 # Questions and Answers #
-![GIF expired] (http://g.recordit.co/PdTAb9h84m.gif)
+![GIF expired](http://g.recordit.co/PdTAb9h84m.gif)
 
 The Questions & Answers module allows for searching, viewing, asking, and answering questions for the current product. Some key components are:
   * Dynamic search bar that renders questions matching the search phrase
@@ -84,14 +84,14 @@ Instructions:
 Team
 -----
 * Gracie Fogarty - Product Overview
-  * [https://github.com/GracieFogarty]
-  * [https://www.linkedin.com/in/graciefogarty/]
+  * https://github.com/GracieFogarty
+  * https://www.linkedin.com/in/graciefogarty/
 
 * Andy Ho - Related Products
-  * [https://github.com/andy-shho]
-  * [https://www.linkedin.com/in/andy-ho-094457210/]
+  * https://github.com/andy-shho
+  * https://www.linkedin.com/in/andy-ho-094457210/
 
 * Daniel Au - Question & Answers
-  * [https://github.com/dxnau]
-  * [https://www.linkedin.com/in/dxnielau]
+  * https://github.com/dxnau
+  * https://www.linkedin.com/in/dxnielau
 
