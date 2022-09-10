@@ -100,9 +100,25 @@ function Slideshow(props) {
             <a href="#" className="image-modal-close" onClick={toggleModal}>Close</a>
           </header>
           <div className="image-modal-content">
-            <img alt="" src={photos[activeIndex].url} id="current-modal-image" />
+            {/* <img alt="" src={photos[activeIndex].url} id="current-modal-image" />
             <NavButton position="left" onClick={moveTo(activeIndex - 1)}>&#9668;</NavButton>
-            <NavButton position="right" onClick={moveTo(activeIndex + 1)}>&#9658;</NavButton>
+            <NavButton position="right" onClick={moveTo(activeIndex + 1)}>&#9658;</NavButton> */}
+            <SlideWrapper>
+              <ImageBox>
+                <img alt="" src={photos[activeIndex].url} id="current-modal-image" onClick={toggleModal} />
+                <NavButton position="left" onClick={moveTo(activeIndex - 1)}>&#9668;</NavButton>
+                <NavButton position="right" onClick={moveTo(activeIndex + 1)}>&#9658;</NavButton>
+              </ImageBox>
+              <ThumbnailList>
+                {photos.map((item, index) => (
+                  <Thumbnail
+                    active={activeIndex === index}
+                    src={item.thumbnail_url}
+                    onClick={moveTo(index)}
+                  />
+                ))}
+              </ThumbnailList>
+            </SlideWrapper>
           </div>
         </section>
       </div>
