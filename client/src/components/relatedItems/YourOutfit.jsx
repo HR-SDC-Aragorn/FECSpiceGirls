@@ -8,7 +8,6 @@ function YourOutfit({ currentProduct }) {
   const [outfitId, setOutfit] = useState([]);
   const [outfitData, setData] = useState([]);
   const [outfitStyle, setStyle] = useState([]);
-  const [temp, setTemp] = useState(false);
   const [isLeft2, setLeft2] = useState(false);
   const [isRight2, setRight2] = useState(true);
   const [relatedArrows, setRelated] = useState(false);
@@ -46,7 +45,6 @@ function YourOutfit({ currentProduct }) {
   function leftScroll2() {
     setRight2(true);
     const carousel = document.getElementById('outfits');
-    // console.log(carousel.scrollLeft);
     carousel.scrollLeft -= 305;
     if (carousel.scrollLeft === 0) {
       setLeft2(false);
@@ -98,7 +96,6 @@ function YourOutfit({ currentProduct }) {
           ? outfitData.map((outfit, index) => (
             <OutfitCard
               outfit={outfit}
-              // key={outfit.name}
               styles={outfitStyle[index].results}
               deleteItem={deleteItem}
             />

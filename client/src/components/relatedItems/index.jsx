@@ -5,34 +5,8 @@ import RelatedList from './RelatedList.jsx';
 import YourOutfit from './YourOutfit.jsx';
 
 function RelatedItems({ currentProduct, handleCurrent }) {
-  // const [relatedId, setId] = useState([]);
   const [relatedData, setRelated] = useState([]);
   const [styleData, setStyles] = useState([]);
-
-  // const getData = async () => {
-  //   let tempId = [];
-  //   const tempData = [];
-  //   const tempStyle = [];
-  //   await axios.get('/related', { params: { id: currentProduct.id } })
-  //     .then(({ data }) => setId(data));
-  //   // console.log(related.data);
-  //   await Promise.all(relatedId.map((element) => {
-  //     axios.get('/productid', { params: { id: element } })
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         tempData.push(res.data);
-  //       });
-  //     axios.get('styles', { params: { id: element } })
-  //       .then((response) => {
-  //         console.log(response.data);
-  //         tempStyle.push(response.data);
-  //       });
-  //   }));
-  //   // console.log(tempData);
-  //   // console.log(tempStyle);
-  //   setRelated(tempData);
-  //   setStyles(tempStyle);
-  // };
 
   const getData = async () => {
     const related = await axios.get('/related', { params: { id: currentProduct.id } });

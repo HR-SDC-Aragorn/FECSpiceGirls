@@ -43,7 +43,6 @@ function ProductInfo({
 
   const starAverage = (starData) => {
     const ratingData = Object.entries(starData.ratings);
-    console.log(ratingData);
     let totalStars = 0;
     let weightedStars = 0;
     for (let i = 0; i < ratingData.length; i++) {
