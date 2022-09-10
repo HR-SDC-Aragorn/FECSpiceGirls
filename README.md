@@ -1,4 +1,4 @@
-Front-End Capstone Project: Sugar and Spice
+FEC: Sugar and Spice
 =================================
 A frontend capstone project at Hack Reactor
 
