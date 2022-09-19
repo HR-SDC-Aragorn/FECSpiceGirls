@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8080/products/')
+    axios.get('/products')
       .then((response) => {
         console.log('what data i got: ', response.data);
         this.setState({
@@ -32,8 +32,7 @@ class App extends React.Component {
   }
 
   handleCurrent(newId) {
-    // axios.get('/productid', { params: { id: newId } })
-    axios.get(`http://localhost:8080/products/${newId}`)
+    axios.get('/productid', { params: { id: newId } })
       .then((response) => (
         this.setState({
           currentProduct: response.data,
