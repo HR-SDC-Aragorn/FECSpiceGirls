@@ -18,20 +18,22 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/products')
-      .then((response) => (
+    axios.get('http://localhost:8080/products/')
+      .then((response) => {
+        console.log('what data i got: ', response.data);
         this.setState({
           products: response.data,
           currentProduct: response.data[0],
-        })
-      ))
+        });
+      })
       .catch((err) => (
         console.log('ERROR GETTING PRODUCTS IN APP.JSX', err)
       ));
   }
 
   handleCurrent(newId) {
-    axios.get('/productid', { params: { id: newId } })
+    // axios.get('/productid', { params: { id: newId } })
+    axios.get(`http://localhost:8080/products/${newId}`)
       .then((response) => (
         this.setState({
           currentProduct: response.data,

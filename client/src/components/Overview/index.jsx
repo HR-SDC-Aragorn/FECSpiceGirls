@@ -12,7 +12,7 @@ function Overview({ product }) {
   const [selectedStyles, setSelectedStyles] = useState([]);
   useEffect(() => {
     if (product) {
-      axios.get(`/products/${product.id}/styles`)
+      axios.get(`http://localhost:8080/products/${product.id}/styles`)
         .then((response) => (
           setStyles(response.data.results),
           setSelectedStyles(response.data.results[0])
