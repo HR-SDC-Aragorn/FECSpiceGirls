@@ -138,7 +138,7 @@ app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
   const { count } = req.params;
   axios({
     method: 'get',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions?product_id=${product_id}&page=${page}&count=${count}`,
+    url: `http://localhost:8080/qa/questions?product_id=${product_id}&page=${page}&count=${count}`,
     headers: {
       Authorization: `${process.env.API_KEY}`,
     },
@@ -149,7 +149,7 @@ app.get('/qa/questions/:product_id/:page/:count', (req, res) => {
 
 // Route for posting questions
 app.post('/qa/questions', (req, res) => {
-  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions', req.body, {
+  axios.post('http://localhost:8080/qa/questions', req.body, {
     headers: {
       Authorization: process.env.API_KEY,
     }
@@ -160,7 +160,7 @@ app.post('/qa/questions', (req, res) => {
 
 // Route for posting answers
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${req.params.question_id}/answers`, req.body, {
+  axios.post(`http://localhost:8080/qa/questions/${req.params.question_id}/answers`, req.body, {
     headers: {
       Authorization: process.env.API_KEY,
     }
@@ -173,7 +173,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
 app.put('/question/helpful', (req, res) => {
   axios({
     method: 'put',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${req.body.question_id}/helpful`,
+    url: `http://localhost:8080/qa/questions/${req.body.question_id}/helpful`,
     headers: {
       Authorization: process.env.API_KEY,
     },
@@ -186,7 +186,7 @@ app.put('/question/helpful', (req, res) => {
 app.put('/answer/helpful', (req, res) => {
   axios({
     method: 'put',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/answers/${req.body.answer_id}/helpful`,
+    url: `http://localhost:8080/qa/answers/${req.body.answer_id}/helpful`,
     headers: {
       Authorization: process.env.API_KEY,
     },
@@ -199,7 +199,7 @@ app.put('/answer/helpful', (req, res) => {
 app.put('/qa/answers/:answer_id/report', (req, res) => {
   axios({
     method: 'put',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/answers/${req.params.answer_id}/report`,
+    url: `http://localhost:8080/qa/answers/${req.params.answer_id}/report`,
     headers: {
       Authorization: process.env.API_KEY,
     },
